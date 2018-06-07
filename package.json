@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JudyZhang7/nodejs_test/issues"
   },
-  "homepage": "https://github.com/JudyZhang7/nodejs_test#readme"
+  "homepage": "https://github.com/JudyZhang7/nodejs_test#readme",
+  "dependencies": {
+    "mongodb": "^3.0.10"
+  }
 }
