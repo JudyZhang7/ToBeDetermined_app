@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JudyZhang7/nodejs_test#readme",
   "dependencies": {
-    "mongodb": "^3.0.10"
+    "mongodb": "^3.0.10",
+    "randomstring": "^1.1.5"
   }
 }
