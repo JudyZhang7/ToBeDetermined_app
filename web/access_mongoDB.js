@@ -66,11 +66,20 @@ userSchema.methods.getUniqueCode = function() {
     var randomstring = require("randomstring");
     var uniqueCode = "";
     while(success == false) {
-        uniqueCode = randomstring.generate({length: 5, charset: 'alphanumeric'});
+        uniqueCode = "dSK5N";
+        // uniqueCode = randomstring.generate({length: 5, charset: 'alphanumeric'});
         console.log("in getUniqueCode function: uniqueCode is: [" + uniqueCode + "]");
 
-        var user = User.find( {code: uniqueCode});
-        console.log("user: " + user.name);
+        User.count({}, function( err, count){
+            console.log( "Number of users:", count );
+        })
+
+        var user = User.find({code: uniqueCode}, function(err, users) {
+            if (err) throw err;
+            // object of all the users
+            console.log(users);
+        });
+
         if (user.name == null) {
             console.log("setting success to true");
             success = true;
@@ -84,8 +93,13 @@ userSchema.methods.getUniqueCode = function() {
 userSchema.methods.updateCal = function() {
     //find calendar with the correct code
     console.log(this.calendar.length);
-    var joinCal = User.find({code: this.code, name: 'JoinCalendar'});
+    var joinCal = User.find({code: this.code, name: 'JoinCalendar'}, function(err, users) {
+        if (err) throw err;
+        // object of all the users
+        console.log(users);
+    });
     console.log("Joined calendar: " + joinCal.name + this.code + 'JoinCalendar');
+
     for (var week = 0; week < this.calendar.length; week++) {
         var thisWeek = this.calendar[week];
         for(var day = 0; day < thisWeek.length; day++){

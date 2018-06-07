@@ -5,9 +5,9 @@ var User = require('./access_mongoDB.js');
 
 var newUser = new User({
     name: 'starlord55',
-    code: 'dSK5N',
+    code: '',
     calendar: [[true, true, false], [true, true, true], [false, false, true]],
-    newCalendar: false
+    newCalendar: true
 });
 
 //check if code exists
