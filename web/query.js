@@ -1,6 +1,6 @@
 var User = require('./access_mongoDB.js');
-// get all the users
-User.remove({}, function (err) {});
+// remove all the users
+// User.remove({}, function (err) {});
 
 User.find({}, function(err, users) {
     if (err) throw err;

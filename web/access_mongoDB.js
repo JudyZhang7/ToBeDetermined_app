@@ -40,13 +40,6 @@ var userSchema = new Schema({
     calendar: {type: Array, required: true}
 });
 
-//define cool methods like formatting, hashing passwords etc.
-userSchema.pre('save', function (next) {
-    // get the current date
-    var currentDate = new Date();
-    next();
-});
-
 userSchema.methods.createJoinCal = function () {
     var cal = new User({
         code: this.code,
@@ -61,18 +54,13 @@ userSchema.methods.createJoinCal = function () {
     });
 };
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
     //before save, define
-    if (this.newCalendar == true){
-        //call function uniqueCode and callback function for uniqueCode is setUniqueCode
-        uniqueCode(function(err, code){
-            if(err) throw err;
-            setUniqueCode(code);
-        });
-    }
-    else{
-
-    }
+    new Promise((setUniqueCode) => {
+        getCode(setUniqueCode);
+    }).then((result) => {
+        //This will call if your algorithm succeeds!
+    });
     next();
 });
 
@@ -80,46 +68,39 @@ userSchema.pre('save', function(next) {
  if approved, set code
 */
 
-function uniqueCode() {
-    var randomstring = require("randomstring");
-    var uniqueCode = "";
-    uniqueCode = "dsKNs";
-    // uniqueCode = randomstring.generate({length: 5, charset: 'alphanumeric'});
-
-    approvedOf(uniqueCode, function(err, errormsg){
-        if(err) {
-            console.log(errormsg);
-        }
-
-
-    });
-    // console.log("in getUniqueCode function: uniqueCode is: [" + uniqueCode + "]");
-    // User.count({}, function (err, count) {
-    //     if (err) throw err;
-    //     console.log("Number of users:", count);
-    // })
-    return uniqueCode;
-};
-function approvedOf(uniqueCode, callback) {
-    var notUniqueError = new Error('Code is not unique.');
-    User.find({code: uniqueCode}, function (err, users) {
-        if (err) throw err;
-        if (users.length) {
-            console.log(users.length + " ... so not approved!");
-            callback(notUniqueError, 'not unique!'); // I send my error as the first argument.
-            return false;
-        }
-        else {
-            console.log(users.length + " ... so approved!");
-            callback(null, 'unique!'); // I send my error as the first argument.
-            return true;
-        }
-    })
+function getCode(resolve) {
+    //If you're using NodeJS you can use Es6 syntax:
+    getUniqueCode().then(
+        function(code) {
+            User.find({code: code}, (users) => {
+                if (users.error()) {
+                    console.error(users.error());
+                } else {
+                    //If your operation succeeds, resolve the promise and don't call again.
+                    if (users.length) {
+                        getCode(resolve); //Try again
+                    } else {
+                        this.resolve(users); //Resolve the promise, pass the result.
+                    }
+                }
+            })
+        })
 }
-userSchema.methods.setUniqueCode = function (uniqueCode){
+
+/*
+ * Please note that "(...) => {}" equivals to "function(...){}"
+ */
+
+function getUniqueCode(){
+    var randomstring = require("randomstring");
+    randomstring.generate({length: 5, charset: 'alphanumeric'});
+    return randomstring;
+}
+
+userSchema.methods.setUniqueCode = function (uniqueCode) {
     this.code = this.code + uniqueCode;
     console.log("Successfully assigned [" + this.code + "] code to " + this.name);
-    createJoinCal();
+    this.createJoinCal();
     return this.code;
 }
 
