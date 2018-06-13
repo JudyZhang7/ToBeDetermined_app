@@ -1,7 +1,7 @@
 var User = require('./access_mongoDB.js');
 
 //delete all users from database
-// User.remove({}, function (err) {});
+User.remove({}, function (err) {});
 
 var newUser = new User({
     name: 'starlord55',

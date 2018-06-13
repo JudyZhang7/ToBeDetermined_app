@@ -56,48 +56,62 @@ userSchema.methods.createJoinCal = function () {
 
 userSchema.pre('save', function (next) {
     //before save, define
-    new Promise((setUniqueCode) => {
-        getCode(setUniqueCode);
-    }).then((result) => {
-        //This will call if your algorithm succeeds!
-    });
+    if (this.newCalendar == true) {
+        // Assuming this is asynchronous
+        this.getCode();
+    }
+    else if (this.name != "JoinCalendar"){
+        this.updateCal();
+    }
     next();
 });
 
 /* come up with unique code, get it checked, if thrown error, try another code and get it checked
  if approved, set code
 */
+userSchema.methods.getCode = function() {
 
-function getCode(resolve) {
-    //If you're using NodeJS you can use Es6 syntax:
-    getUniqueCode().then(
-        function(code) {
-            User.find({code: code}, (users) => {
-                if (users.error()) {
-                    console.error(users.error());
-                } else {
-                    //If your operation succeeds, resolve the promise and don't call again.
-                    if (users.length) {
-                        getCode(resolve); //Try again
-                    } else {
-                        this.resolve(users); //Resolve the promise, pass the result.
-                    }
-                }
-            })
-        })
+    function getUniqueCode(resolve) {
+        //If you're using NodeJS you can use Es6 syntax:
+        var code = getNewUniqueCode(function( err, count){
+            console.log( "unique code:" + count );
+        });
+        User.find({code: code}, function(err, users) {
+            if (err) throw err;
+
+            if (users.length){
+                console.log("result was not null");
+                getUniqueCode(resolve); //Try again
+            } else {
+                resolve(code); //Resolve the promise, pass the result.
+            }
+            // object of all the users
+            console.log(users);
+        });
+    }
+
+    new Promise((r) => {
+        console.log("Making a promise...");
+        getUniqueCode(r);
+    }).then((result) => {
+        //This will call if your algorithm succeeds!
+        console.log("result" + result);
+        this.setUniqueCode(result);
+    }).catch(error => {
+        console.log(error);
+    });
 }
 
-/*
- * Please note that "(...) => {}" equivals to "function(...){}"
- */
-
-function getUniqueCode(){
+function getNewUniqueCode(){
     var randomstring = require("randomstring");
-    randomstring.generate({length: 5, charset: 'alphanumeric'});
-    return randomstring;
+    var code = randomstring.generate({length: 5, charset: 'alphanumeric'});
+    console.log("Code is: " + code);
+    return code;
 }
 
 userSchema.methods.setUniqueCode = function (uniqueCode) {
+    this.update({ $set: { code: uniqueCode }}).update(); // not executed
+    this.update({ $set: { code: uniqueCode }}).exec(); // executed
     this.code = this.code + uniqueCode;
     console.log("Successfully assigned [" + this.code + "] code to " + this.name);
     this.createJoinCal();
