@@ -1,13 +1,15 @@
 var User = require('./access_mongoDB.js');
 
 //delete all users from database
-User.remove({}, function (err) {});
+// User.remove({}, function (err) {});
 
 var newUser = new User({
     name: 'starlord55',
-    code: '',
-    calendar: [[true, true, false], [true, true, true], [false, false, true]],
-    newCalendar: true
+    code: 'jkSN7',
+    // calendar: [[true, true, false], [true, true, true], [false, false, true]],
+
+    calendar: [[false, false, false], [false, false, false], [false, false, true]],
+    newCalendar: false
 });
 
 newUser.save(function(err){

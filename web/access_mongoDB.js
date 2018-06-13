@@ -60,7 +60,7 @@ userSchema.pre('save', function (next) {
         // Assuming this is asynchronous
         this.getCode();
     }
-    else if (this.name != "JoinCalendar"){
+    else if ((this.newCalendar != true) && (this.name != "JoinCalendar")){
         this.updateCal();
     }
     next();
@@ -104,6 +104,7 @@ userSchema.methods.getCode = function() {
 
 function getNewUniqueCode(){
     var randomstring = require("randomstring");
+    // var code = '9ozuq';
     var code = randomstring.generate({length: 5, charset: 'alphanumeric'});
     console.log("Code is: " + code);
     return code;
@@ -127,15 +128,18 @@ userSchema.methods.updateCal = function () {
         console.log(users);
     });
     console.log("Joined calendar: " + joinCal.name + this.code + 'JoinCalendar');
-
-    for (var week = 0; week < this.calendar.length; week++) {
-        var thisWeek = this.calendar[week];
-        for (var day = 0; day < thisWeek.length; day++) {
-            if (thisWeek[day] == false) {
-                joinCal.calendar[week][day] = false;
-            }
-        }
+    function getJedisPromise(name){
+        var promise = Jedi.find({name:name}).exec();
+        return promise;
     }
+    // for (var week = 0; week < this.calendar.length; week++) {
+    //     var thisWeek = this.calendar[week];
+    //     for (var day = 0; day < thisWeek.length; day++) {
+    //         if (thisWeek[day] == false) {
+    //             joinCal.calendar[week][day] = false;
+    //         }
+    //     }
+    // }
 };
 
 //create a model using it
