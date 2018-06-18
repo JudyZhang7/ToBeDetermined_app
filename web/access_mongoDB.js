@@ -36,14 +36,22 @@ var userSchema = new Schema({
     code: {type: String},
     calendarName: {type: String},
     name: {type: String, required: true},
+    days: {type: Number},
+    hours: {type: Number},
     newCalendar: {type: Boolean, required: true},
-    calendar: {type: Array, required: true}
+    calendar: [{
+        day: Number,
+        hour: Number,
+        available: Boolean
+    }]
 });
 
 userSchema.methods.createJoinCal = function () {
     var cal = new User({
         code: this.code,
         name: 'JoinCalendar',
+        days: this.days,
+        hours: this.hours,
         calendarName: this.calendarName,
         calendar: this.calendar,
         newCalendar: false
@@ -58,10 +66,12 @@ userSchema.pre('save', function (next) {
     //before save, define
     if (this.newCalendar == true) {
         // Assuming this is asynchronous
-        this.getCode();
+        // this.getCode();
+        console.log('in pre-save newCalendar');
+        this.createJoinCal();
     }
     else if ((this.newCalendar != true) && (this.name != "JoinCalendar")){
-        this.updateCal();
+        this.updateCal(next);
     }
     next();
 });
@@ -119,30 +129,53 @@ userSchema.methods.setUniqueCode = function (uniqueCode) {
     return this.code;
 }
 
-userSchema.methods.updateCal = function () {
+
+userSchema.methods.updateCal = function (next) {
     //find calendar with the correct code
-    console.log(this.calendar.length);
-    var joinCal = User.find({code: this.code, name: 'JoinCalendar'}, function (err, users) {
+    //if no calendar with correct code
+    var thisUser = this;
+    console.log("Length of calendar for " + this.name + ": " + this.calendar.length);
+
+    User.findOne({code: this.code, name: 'JoinCalendar'}, function (err, joinCal) {
         if (err) throw err;
         // object of all the users
-        console.log(users);
+        console.log(joinCal);
+        // no users found
+        if (joinCal == null) {
+            // do stuff here
+            var newError = new Error('That is not a valid code.');
+            next(newError);
+        } else{
+            console.log("Joined calendar: " + joinCal.name + thisUser.code + 'JoinCalendar');
+            // function getJedisPromise(name){
+            //     var promise = Jedi.find({name:name}).exec();
+            //     return promise;
+            // }
+            var days = thisUser.days;
+            var hours = thisUser.hours;
+            console.log("days: " + days + " hours: " + hours);
+            for (var day = 0; day < days; day++) {
+                for (var hour = 0; hour < hours; hour++) {
+
+                    var index = (day*hours + hour);
+                    console.log("index: " + index);
+                    if (thisUser.calendar[index].available == false) {
+                        console.log('not available! updating - day: ' + (day+1) + " hour: "+ (hour+1));
+                        console.log("availability: " + joinCal.calendar[index].available);
+
+                        //for some reason only works for day: 1
+                        // User.update(
+                        //     { name: 'JoinCalendar', code: thisUser.code, "calendar.day": day+1, "calendar.hour": hour+1},
+                        //     { $set: { "calendar.$.available" : false }}, function(err, result){console.log(result)});
+                        joinCal.calendar[index].available = false;
+                        joinCal.save(function(err){});
+                    }
+                }
+            }
+        }
     });
-    console.log("Joined calendar: " + joinCal.name + this.code + 'JoinCalendar');
-    function getJedisPromise(name){
-        var promise = Jedi.find({name:name}).exec();
-        return promise;
-    }
-    // for (var week = 0; week < this.calendar.length; week++) {
-    //     var thisWeek = this.calendar[week];
-    //     for (var day = 0; day < thisWeek.length; day++) {
-    //         if (thisWeek[day] == false) {
-    //             joinCal.calendar[week][day] = false;
-    //         }
-    //     }
-    // }
 };
 
-//create a model using it
+// create a model using it
 var User = mongoose.model('User', userSchema);
 module.exports = User; //make available to users in Node application
-console.log("[END]");

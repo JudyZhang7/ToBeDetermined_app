@@ -6,15 +6,43 @@ var User = require('./access_mongoDB.js');
 var newUser = new User({
     name: 'starlord55',
     code: 'jkSN7',
-    // calendar: [[true, true, false], [true, true, true], [false, false, true]],
+    days: 2,
+    hours: 4,
+    calendar: [ {day: 1, hour: 1, available: true},
+                {day: 1, hour: 2, available: true},
+                {day: 1, hour: 3, available: true},
+                {day: 1, hour: 4, available: true},
+                {day: 2, hour: 1, available: true},
+                {day: 2, hour: 2, available: true},
+                {day: 2, hour: 3, available: true},
+        {day: 2, hour: 4, available: true}],
+    newCalendar: true
+});
 
-    calendar: [[false, false, false], [false, false, false], [false, false, true]],
+var newUser = new User({
+    name: 'gamora69',
+    code: 'jkSN7',
+    days: 2,
+    hours: 4,
+    calendar: [ {day: 1, hour: 1, available: false},
+                {day: 1, hour: 2, available: false},
+                {day: 1, hour: 3, available: false},
+                {day: 1, hour: 4, available: false},
+                {day: 2, hour: 1, available: false},
+                {day: 2, hour: 2, available: false},
+                {day: 2, hour: 3, available: false},
+        {day: 2, hour: 4, available: false}],
     newCalendar: false
 });
 
 newUser.save(function(err){
-    if(err) throw err;
-    console.log('user saved successfully');
+    if(err) {
+        console.log(err.message); //does not save
+        console.log('user not saved successfully');
+    }
+    else{
+        console.log('user saved successfully');
+    }
 })
 
 //check if code exists
@@ -56,5 +84,3 @@ newUser.save(function(err){
 //         }
 //     });
 // }
-
-console.log("[END]");
