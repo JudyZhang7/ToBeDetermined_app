@@ -3,6 +3,38 @@ var User = require('./access_mongoDB.js');
 //delete all users from database
 // User.remove({}, function (err) {});
 
+//timesAvailable is a 2D array of times available
+function addNewUser(_name, timesAvailable){
+    let days = timesAvailable.length;
+    let hours = timesAvailable[i].length;
+    let cal = [];
+    for(let i = 0; i < days; i++){
+        for(let j = 0; j < hours; j++){
+            var entry = {days: i, hour: j, available: timesAvailable[i][j]};
+            cal.push(entry);
+        }
+    }
+
+    var newUser = new User({
+        name: _name,
+        days: timesAvailable.length,
+        hours: timesAvailabe[0].length,
+        calendar: cal,
+        newCalendar: true
+    })
+
+    newUser.save(function(err){
+        if(err) {
+            console.log(err.message); //does not save
+            console.log('user not saved successfully');
+        }
+        else{
+            console.log('user saved successfully');
+        }
+    })
+}
+
+
 var newUser = new User({
     name: 'starlord55',
     code: 'jkSN7',
@@ -17,6 +49,7 @@ var newUser = new User({
                 {day: 2, hour: 3, available: true},
         {day: 2, hour: 4, available: true}],
     newCalendar: true
+
 });
 
 var newUser = new User({

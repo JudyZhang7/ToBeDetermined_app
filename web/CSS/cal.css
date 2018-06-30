@@ -6,8 +6,7 @@
 
 table{
     margin-top: 20px;
-    margin-bottom: 60px;
-
+    margin-bottom: 30px;
     position: relative;
     width: 100%;
 }
@@ -23,6 +22,10 @@ table td.highlighted {
     background-color: var(--highlightedColor);
 }
 
+#month{
+    font-weight: 400;
+    font-size: 50px;
+}
 #clearAll{
     position:relative;
     text-align:center;
@@ -34,7 +37,29 @@ table td.highlighted {
     margin-bottom: 20px;
 }
 
+#eventName{
+    position: relative;
+    margin-top: 30px;
+    color: var(--darkGreyColor);
+    font-style: italic;
+    font-weight: 100;
+}
 
 #letsGo:hover{
     cursor: pointer;
+}
+
+#calForm{
+    position: fixed;
+    margin-left: 10%;
+    margin-top: 20%;
+    font-size: 30px;
+}
+
+input[type=text] {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 20px;
 }

@@ -2,30 +2,35 @@
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <link rel="stylesheet" type="text/css" href="../CSS/times.css">
+    <script src="../JS/user.js"></script>
 
     <meta charset="UTF-8">
     <title>WhenIsBetter</title>
     <script>
-        var cal = JSON.parse(window.sessionStorage.getItem("userCal")); // An object :D, 1D array of days
-        console.log(cal);
-        var currentDay = 0;
-        var endDay = cal.length;
-
-        var timesAvailableTotal = [];
-        var timesAvailableDay = new Set([]); //array of days available
-
-        console.log("first day is: " + cal[0]);
-        window.onload = function(){
+        $(document).ready(function(){
             document.getElementById("test").innerHTML = 'calendar size: ' + cal.length;
             document.getElementById("currentDay").innerHTML = cal[currentDay];
-        }
+            document.getElementById("event").innerHTML = event;
+            document.getElementById("name").innerHTML += name;
+            $("body").css("display", "block");
+            $("#rightPanel").slideDown("");
+        });
+
+        let cal = JSON.parse(window.sessionStorage.getItem("userCal")); // An object :D, 1D array of days
+        console.log(cal);
+        let currentDay = 0;
+        let event = window.sessionStorage.getItem("event"); // An object :D, 1D array of days
+        let name = window.sessionStorage.getItem("name");
+        let timesAvailableTotal = [];
+        let timesAvailableDay = new Set([]); //array of days available
+
+        console.log("first day is: " + cal[0]);
 
         $(function () {
-            var isMouseDown = false,
+            let isMouseDown = false,
                 isHighlighted;
 
             $("#calendar td").mousedown(function () {
@@ -78,38 +83,52 @@
                 alert('Please select at least one time.');
                 return;
             }
-            //add new
+            //end of calendar, cannot access more
+            if(currentDay + 1 >= cal.length) {
+                return;
+            }
+            //add new day
             if(currentDay >= timesAvailableTotal.length){
                 let timesArray = Array.from(timesAvailableDay);
                 timesAvailableTotal.push(timesArray);
                 currentDay++;
             }
-            //update old
-            else if (currentDay < timesAvailableTotal.length){
+            //update already created day
+            else {
+                //load that day
+                timesAvailableDay = new Set(timesAvailableTotal[currentDay]);
+
                 let timesArray = Array.from(timesAvailableDay);
                 timesAvailableTotal[currentDay] = timesArray;
                 currentDay++;
-            }
-            else{
-                window.sessionStorage.setItem("userDays", JSON.stringify(timesAvailableTotal));
-                var userDays = JSON.parse(sessionStorage.getItem("userDays")); // An object :D
-                console.log("user hours available length: " + userDays.length);
-                // window.location.href = "getCode.html";
             }
             ClearAll();
             document.getElementById("currentDay").innerHTML = cal[currentDay];
         }
 
-        function back(){
+        function prev(){
             console.log("[...in back function...]");
+            //if a new calendar has been made
+
+            if(timesAvailableDay.length != 0){
+                let timesArray = Array.from(timesAvailableDay);
+                timesAvailableTotal[currentDay] = timesArray;
+            }
             if(currentDay - 1 >= 0){
                 currentDay --;
             }
+            ClearAll();
         }
 
         function finished(){
             console.log("[...finished picking times... saving to database]");
             console.log(cal);
+            window.sessionStorage.setItem("userDays", JSON.stringify(timesAvailableTotal));
+            var userDays = JSON.parse(sessionStorage.getItem("userDays")); // An object :D
+            console.log("user hours available length: " + userDays.length);
+            // window.location.href = "getCode.html";
+            // save to mongoDB...?
+            addNewUser();
         }
 
     </script>
@@ -118,15 +137,22 @@
 
 <div id = "test"></div>
 
-<table cellpadding="0" cellspacing="0" id="calendar" class = "">
+<div id = "rightPanel">
+    <div id = "event" class = "title italic"></div>
+    <div id = "name" class = "title2 italic">by </div>
+</div>
+
+
+    <table cellpadding="0" cellspacing="0" id="calendar" class = "">
     <div id = "day" style="top: 20px" class = "title">July <div id = "currentDay"></div></div>
 
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-</table>
+    </table>
 
+    <button id = "prevButton" onclick="prev();"> <i id="prev" class="fas fa-angle-left"></i> </button>
     <button id = "nextButton" onclick="next();"> <i id="next" class="fas fa-angle-right"></i> </button>
 
     <button id = "clearAll" class = "button" onclick="ClearAll();">Clear all</button>

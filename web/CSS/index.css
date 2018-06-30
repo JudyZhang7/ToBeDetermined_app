@@ -1,12 +1,19 @@
+@import url(http://fonts.googleapis.com/css?family=Exo:100,400,600);
+
+
 :root {
     --darkGreyColor: #6F6F6F;
+    --lightGreyColor: lightGray;
     --highlightedColor: #FFC99B;
     --blueBackgroundColor: #AADEFF;
+    --font: 'Exo', Helvetica, Arial, sans-serif;
 }
 
 body{
     margin: 0;
-    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-family: var(--font);
+    font-weight: 100;
+    display: none;
 }
 .blackText{
     color: black;
@@ -14,6 +21,15 @@ body{
 .whiteText{
     color: white;
 }
+.italic{
+    font-style: italic;
+}
+
+::placeholder{
+    font-style: italic;
+    color: var(--lightGreyColor);
+}
+
 button:focus {outline:0;}
 button:hover, td {cursor: pointer}
 
@@ -39,6 +55,7 @@ button:hover, td {cursor: pointer}
     text-decoration: none;
     font-size: 16px;
     border-radius: 20px;
+    font-family: var(--font);
 }
 
 #clearAll:active{
@@ -47,10 +64,23 @@ button:hover, td {cursor: pointer}
 
 .title{
     font-size: 30px;
-    position: relative;
-    display: block;
+    /*position: relative;*/
+    /*display: block;*/
+}
+
+.title2{
+    font-size: 20px;
+    /*position: relative;*/
+    /*display: block;*/
 }
 
 .marginTop{
     margin-top: 30px;
+}
+
+#rightPanel{
+    display:none;
+    width: 30%;
+    float: right;
+    background-color: var(--blueBackgroundColor);
 }

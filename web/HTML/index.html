@@ -1,3 +1,8 @@
+<!--things to do: -->
+<!--have the left and right arrow keys control the calendar-->
+<!--have the right panel of all available days-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +17,7 @@
     <title>WhenIsBetter</title>
     <script>
     var days = new Set([]);
+
     $(function () {
         var isMouseDown = false,
             isHighlighted;
@@ -60,19 +66,40 @@
     }
 
     window.onload = function() {
+        $("body").css("display", "block");
+        updatename();
+        function updatename(){
+            if(document.calForm.event.value!= ""){
+                document.getElementById('eventName').innerHTML = document.calForm.event.value;
+            }
+            setTimeout(updatename, 100);
+        }
+
         document.getElementById("letsGo").onclick = function() {saveCal()};
         function saveCal(){
             if(days.size==0){
                 alert('Please select at least one day.');
                 return;
             }
+            let name = document.calForm.name.value;
+            let event = document.calForm.event.value;
+            if (name == "") {
+                alert("Please enter your name.");
+                return;
+            }
+            if (event == ""){
+                alert("Please enter an event name.");
+                return;
+            }
             let userCal = Array.from(days);
-
+            window.sessionStorage.setItem("name", name);
+            window.sessionStorage.setItem("event", event);
             window.sessionStorage.setItem("userCal", JSON.stringify(userCal));
             var cal = JSON.parse(sessionStorage.getItem("userCal")); // An object :D
             console.log("user calendar length: " + cal.length);
 
-            window.location.href = "selectTimes.html";
+            $( "#calPanel" ).toggle( "slide");
+            setTimeout(function(){ window.location.href = "selectTimes.html"; }, 1000);
         }
     };
     </script>
@@ -81,33 +108,43 @@
 
 <body>
 
-<div class = "bblue right">
+<form id = "calForm" name = "calForm" method = "GET" action = "">
+    What's your name? <br>
+    <input id = "name" type = "text" placeholder = "alex"><br>
+    What's the occasion? <br>
+    <input id = "event" type = "text" placeholder = "best coffee ever">
+</form>
 
-<table cellpadding="0" cellspacing="0" id="calendar" class = "right">
-    <div class = "title marginTop whiteText">July</div>
-    <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-    </tr>
-    <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<div id = "calPanel" class = "bblue right">
 
-    </tr>
-    <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <div id = "eventName" class = "title">coffee at joe's</div>
 
-    </tr>
-    <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <table cellpadding="0" cellspacing="0" id="calendar" class = "right">
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
-    </tr>
-    <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
-    </tr>
-</table>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+
+        </tr>
+    </table>
+
+    <div class = "title whiteText" id = "month">July</div>
     <button id = "clearAll" class = "button right" onclick="ClearAll();">Clear all</button>
-<br>
+
+    <br>
     <div id = "letsGo" class = "title right whiteText">Let's Go
         <i class="fas fa-angle-right"></i>
     </div>
@@ -127,7 +164,6 @@
             date++;
         }
     }
-
 </script>
 </body>
 </html>

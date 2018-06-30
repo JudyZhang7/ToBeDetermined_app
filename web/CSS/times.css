@@ -46,7 +46,7 @@ table td.highlighted {
     width: 100px;
     height: 100px;
 }
-#next{
+#next, #prev{
     font-size: 100px;
     display:inline;
     margin: auto;
@@ -58,7 +58,11 @@ table td.highlighted {
     position: absolute;
 }
 
-#nextButton{
+#nextButton, #prevButton{
+    margin: 20px;
+    position: relative;
+    left: 22%;
+    top: 250px;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -66,7 +70,8 @@ table td.highlighted {
     border-radius: 20px;
     color: var(--darkGreyColor);
 }
-#nextButton:active{
+
+#nextButton:active, #prevButton:active{
     color: var(--highlightedColor);
 }
 #currentDay{
