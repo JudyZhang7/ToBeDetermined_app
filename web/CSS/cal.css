@@ -1,0 +1,40 @@
+:root {
+    --darkGreyColor: #6F6F6F;
+    --highlightedColor: #FFC99B;
+    --blueBackgroundColor: #AADEFF;
+}
+
+table{
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+    position: relative;
+    width: 100%;
+}
+table td {
+    width:70px;
+    height:70px;
+    text-align:center;
+    background-color: white;
+    border:3px solid var(--blueBackgroundColor);
+}
+
+table td.highlighted {
+    background-color: var(--highlightedColor);
+}
+
+#clearAll{
+    position:relative;
+    text-align:center;
+    background-color: var(--darkGreyColor);
+    width: 150px;
+    height: 30px;
+    color: white;
+    display:block;
+    margin-bottom: 20px;
+}
+
+
+#letsGo:hover{
+    cursor: pointer;
+}

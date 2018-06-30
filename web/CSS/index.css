@@ -1,0 +1,56 @@
+:root {
+    --darkGreyColor: #6F6F6F;
+    --highlightedColor: #FFC99B;
+    --blueBackgroundColor: #AADEFF;
+}
+
+body{
+    margin: 0;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+.blackText{
+    color: black;
+}
+.whiteText{
+    color: white;
+}
+button:focus {outline:0;}
+button:hover, td {cursor: pointer}
+
+.bblue{
+    position: relative;
+    background-color: var(--blueBackgroundColor);
+    /*width: 60%;*/
+    height: 100%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.right {
+    float: right;
+    clear: both;
+
+}
+
+.button{
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+#clearAll:active{
+    background-color: var(--highlightedColor);
+}
+
+.title{
+    font-size: 30px;
+    position: relative;
+    display: block;
+}
+
+.marginTop{
+    margin-top: 30px;
+}

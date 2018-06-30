@@ -1,0 +1,74 @@
+:root {
+    --darkGreyColor: #6F6F6F;
+    --highlightedColor: #FFC99B;
+}
+
+table{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    position: relative;
+    left: 20%;
+    display:inline;
+}
+table td {
+    width:200px;
+    height:30px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: var(--darkGreyColor);
+    border:3px solid white;
+    color: white;
+}
+
+table td.highlighted {
+    background-color: var(--highlightedColor);
+}
+
+#clearAll, #done{
+    position:relative;
+    text-align:center;
+    left: 40%;
+    background-color:var(--darkGreyColor);
+    width: 150px;
+    height: 30px;
+    color: white;
+    display:block;
+    margin-bottom: 20px;
+}
+
+#day{
+    position: absolute;
+    /*display:inline;*/
+    margin: auto;
+    top: 0;
+    bottom: 10%;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+}
+#next{
+    font-size: 100px;
+    display:inline;
+    margin: auto;
+    top: 0;
+    bottom: 20%;
+    left: 45%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+#nextButton{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 20px;
+    color: var(--darkGreyColor);
+}
+#nextButton:active{
+    color: var(--highlightedColor);
+}
+#currentDay{
+    display: inline-block;
+}
