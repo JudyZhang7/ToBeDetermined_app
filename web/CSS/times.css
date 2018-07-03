@@ -2,8 +2,18 @@
     --darkGreyColor: #6F6F6F;
     --highlightedColor: #FFC99B;
 }
-
-table{
+#event{
+    margin-top: 20px;
+}
+.marginLeft{
+    margin-left: 23px;
+}
+#test{
+    position: absolute;
+    width: 20%;
+}
+table#hoursInADay{
+    top: 50px;
     margin-top: 20px;
     margin-bottom: 60px;
     position: relative;
@@ -20,14 +30,41 @@ table td {
     color: white;
 }
 
+table#calendar{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    position: relative;
+    left: 5%;
+}
+
+#calendar td{
+    width:65px;
+    height:65px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: white;
+    border:1px solid var(--blueBackgroundColor);
+    color: black;
+}
+
+#days{
+    /*background-color: black;*/
+    margin: 20px;
+}
+
 table td.highlighted {
+    background-color: var(--highlightedColor);
+}
+
+.highlighted {
     background-color: var(--highlightedColor);
 }
 
 #clearAll, #done{
     position:relative;
     text-align:center;
-    left: 40%;
+    left: 42%;
+    top: -85px;
     background-color:var(--darkGreyColor);
     width: 150px;
     height: 30px;
@@ -76,4 +113,13 @@ table td.highlighted {
 }
 #currentDay{
     display: inline-block;
+}
+
+#rightPanel{
+    top: 0px;
+    height: 100vh;
+    display:none;
+    width: 40%;
+    float: right;
+    background-color: var(--blueBackgroundColor);
 }

@@ -45,7 +45,6 @@ button:hover, td {cursor: pointer}
 .right {
     float: right;
     clear: both;
-
 }
 
 .button{
@@ -76,11 +75,4 @@ button:hover, td {cursor: pointer}
 
 .marginTop{
     margin-top: 30px;
-}
-
-#rightPanel{
-    display:none;
-    width: 30%;
-    float: right;
-    background-color: var(--blueBackgroundColor);
 }

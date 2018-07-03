@@ -4,9 +4,9 @@ var User = require('./access_mongoDB.js');
 // User.remove({}, function (err) {});
 
 //timesAvailable is a 2D array of times available
-function addNewUser(_name, timesAvailable){
+function addNewUser(_name, _event, timesAvailable){
     let days = timesAvailable.length;
-    let hours = timesAvailable[i].length;
+    let hours = timesAvailable[0].length;
     let cal = [];
     for(let i = 0; i < days; i++){
         for(let j = 0; j < hours; j++){
@@ -17,8 +17,9 @@ function addNewUser(_name, timesAvailable){
 
     var newUser = new User({
         name: _name,
-        days: timesAvailable.length,
-        hours: timesAvailabe[0].length,
+        calendarName: _event,
+        days: days,
+        hours: hours,
         calendar: cal,
         newCalendar: true
     })
