@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ca169e-57b2-42fb-b612-220ec19cdfd0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/times.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/times.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/selectTimes.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/selectTimes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +19,7 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="175">
+                <state relative-caret-position="-614">
                   <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
                 </state>
               </provider>
@@ -41,9 +37,11 @@
           <file leaf-file-name="selectTimes.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="601">
-                  <caret line="97" selection-start-line="97" selection-end-line="184" selection-end-column="9" />
+                <state relative-caret-position="267">
+                  <caret line="125" column="51" lean-forward="true" selection-start-line="117" selection-start-column="12" selection-end-line="125" selection-end-column="51" />
                   <folding>
+                    <element signature="e#3910#4187#0" />
+                    <element signature="e#6583#7133#0" />
                     <element signature="n#style#0;n#div#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
@@ -105,12 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>judy</find>
-      <find>uniquecode</find>
-      <find>createJoinCal</find>
-      <find>asyncOp</find>
-      <find>async</find>
-      <find>find</find>
       <find>l</find>
       <find>our_table</find>
       <find>createJoin</find>
@@ -124,7 +116,6 @@
       <find>july</find>
       <find>timesAvailableTotal</find>
       <find>cal</find>
-      <find>currentDay</find>
       <find>EVENTNAME</find>
       <find>test</find>
       <find>rightPanel</find>
@@ -135,6 +126,13 @@
       <find>&quot;calendar&quot;</find>
       <find>var table</find>
       <find>table</find>
+      <find>next()</find>
+      <find>week = currentDay/7;</find>
+      <find>updateCal</find>
+      <find>et week = currentDa</find>
+      <find>calendar</find>
+      <find>currentDay</find>
+      <find>currentDay++</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -318,12 +316,12 @@
       <workItem from="1528384460299" duration="69473000" />
       <workItem from="1528909790642" duration="13000" />
       <workItem from="1528929656875" duration="1665000" />
-      <workItem from="1529866514420" duration="22700000" />
+      <workItem from="1529866514420" duration="25220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129903000" />
+    <option name="totallyTimeSpent" value="132423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="0" />
@@ -712,13 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/CSS/times.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1094">
@@ -726,11 +717,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-614">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="97" selection-start-line="97" selection-end-line="184" selection-end-column="9" />
+        <state relative-caret-position="267">
+          <caret line="125" column="51" lean-forward="true" selection-start-line="117" selection-start-column="12" selection-end-line="125" selection-end-column="51" />
           <folding>
+            <element signature="e#3910#4187#0" />
+            <element signature="e#6583#7133#0" />
             <element signature="n#style#0;n#div#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>

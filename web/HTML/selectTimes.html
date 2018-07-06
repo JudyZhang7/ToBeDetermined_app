@@ -105,35 +105,48 @@
             timesAvailableDay.clear();
         }
 
+        function updateCalColor(nextDay){
+
+            if(nextDay){
+
+            }
+        }
         function updateCal(){
+            //MOVING ON TO DAY + 1, BUT IS IT A DAY ALREADY CREATED OR NOT?
+
+            //change the previously highlighted day back to grey
+            let today = cal[currentDay];
             let table = $("#calendar")[0];
-            let week = currentDay/7;
-            let day = currentDay%7;
-            let cell = table.rows[week - 1].cells[day - 1];
+            let week = today/7;
+            let day = today%7;
+            console.log("Current day: " + today + "(" + parseInt(week - 1) + ", " + (day-1) + ")");
+            let cell = table.rows[parseInt(week)].cells[day - 1];
             //highlight selected cells
-            let color = 'lightGray';
+            let color = '#CBCBCB';
             $(cell).css('background-color', color);
 
+            //work on the new day
+            currentDay++;
+
+            document.getElementById("currentDay").innerHTML = cal[currentDay];
             //add new day
             if(currentDay >= timesAvailableTotal.length){
                 let timesArray = Array.from(timesAvailableDay);
                 timesAvailableTotal.push(timesArray);
-                currentDay++;
             }
             //update already created day
             else {
                 //load that day
                 timesAvailableDay = new Set(timesAvailableTotal[currentDay]);
-
                 let timesArray = Array.from(timesAvailableDay);
                 timesAvailableTotal[currentDay] = timesArray;
-                currentDay++;
             }
-            week = currentDay/7;
-            day = currentDay%7;
-            cell = table.rows[week - 1].cells[day - 1];
+            today = cal[currentDay];
+            week = today/7;
+            day = today%7;
+            cell = table.rows[parseInt(week)].cells[day - 1];
 
-            color = '#CBCBCB';
+            color = '#FFC99B';
             $(cell).css('background-color', color);
         }
 
