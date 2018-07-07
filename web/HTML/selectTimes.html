@@ -5,23 +5,29 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <link rel="stylesheet" type="text/css" href="../CSS/times.css">
-    <script src="../JS/user.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
     <meta charset="UTF-8">
     <title>WhenIsBetter</title>
     <script>
+        var socket = io.connect('http://localhost:3000');
+
         let cal = JSON.parse(window.sessionStorage.getItem("userCal")); // An object :D, 1D array of days
         console.log(cal);
-        let currentDay = 0;
+        let currentDayIndex = 0;
         let event = window.sessionStorage.getItem("event"); // An object :D, 1D array of days
         let name = window.sessionStorage.getItem("name");
         let timesAvailableTotal = [];
-        let timesAvailableDay = new Set([]); //array of days available
+        let timesAvailableDay = []; //array of days available init to FALSE
+        for(let i = 0; i < 16; i++){
+            timesAvailableDay.push(false)
+        }
+
         $(document).ready(function(){
             let table = $("#calendar")[0];
 
             document.getElementById("test").innerHTML = 'calendar size: ' + cal.length;
-            document.getElementById("currentDay").innerHTML = cal[currentDay];
+            document.getElementById("currentDay").innerHTML = cal[currentDayIndex];
             document.getElementById("event").innerHTML = event;
             document.getElementById("name").innerHTML += name;
 
@@ -63,26 +69,36 @@
                 isHighlighted;
 
             $("#hoursInADay td").mousedown(function () {
+                let selectedIndex = ($( "td" ).index( this ) - 35);
+                console.log("index of selected: " + selectedIndex);
                 isMouseDown = true;
                 $(this).toggleClass("highlighted");
                 //if in array, remove. if not, add.
-                if(timesAvailableDay.has(this.innerHTML)){
-                    timesAvailableDay.delete(this.innerHTML);
+                if(timesAvailableDay[selectedIndex] === true){
+                    timesAvailableDay[selectedIndex] = false;
                 } else{
-                    timesAvailableDay.add(this.innerHTML);
+                    timesAvailableDay[selectedIndex] = true;
                 }
-                console.log("the day is: " + this.innerHTML + " calendar length: " + timesAvailableDay.size);
+                // TESTING
+                let daysAvailable = 0;
+                for(let p = 0; p < timesAvailableDay.length; p++){
+                    if(timesAvailableDay[p] === true){
+                        daysAvailable ++;
+                    }
+                }
+                console.log("the day is: " + this.innerHTML + " calendar length: " + daysAvailable);
 
                 isHighlighted = $(this).hasClass("highlighted");
                 return false; // prevent text selection
             })
                 .mouseover(function () {
                     if (isMouseDown) {
+                        let selectedIndex = ($( "td" ).index( this ) - 35);
                         $(this).toggleClass("highlighted", isHighlighted);
-                        if(timesAvailableDay.has(this.innerHTML)){
-                            timesAvailableDay.delete(this.innerHTML);
+                        if(timesAvailableDay[selectedIndex] === true){
+                            timesAvailableDay[selectedIndex] = false;
                         } else{
-                            timesAvailableDay.add(this.innerHTML);
+                            timesAvailableDay[selectedIndex] = true;
                         }
                     }
                 })
@@ -95,53 +111,49 @@
             });
         });
 
-        //clear all button
+        // visually clear all hours on day cal and reset timesAvailableDay set to FALSE
         function ClearAll(){
+            console.log("CLEARING ALL!");
+            let x = document.getElementById("hoursInADay");
+            let y = x.getElementsByTagName("td");
+            for (let i = 0; i < y.length; i++) {
+                y[i].classList.remove("highlighted");
+                timesAvailableDay[i] = false;
+            }
+        }
+
+        // visually load the already created day cal
+        function setAll(){
+            console.log("[...in setAll function...]");
             var x = document.getElementById("hoursInADay");
             var y = x.getElementsByTagName("td");
             for (var i = 0; i < y.length; i++) {
-                y[i].classList.remove("highlighted");
-            }
-            timesAvailableDay.clear();
-        }
-
-        function updateCalColor(nextDay){
-
-            if(nextDay){
-
+                if(timesAvailableDay[i] === true){
+                    y[i].classList.add("highlighted");
+                }
+                else{
+                    y[i].classList.remove("highlighted");
+                }
             }
         }
-        function updateCal(){
-            //MOVING ON TO DAY + 1, BUT IS IT A DAY ALREADY CREATED OR NOT?
 
-            //change the previously highlighted day back to grey
-            let today = cal[currentDay];
+        function updateCalHighlight(nextDay){
+            //[ *** change the previously highlighted day back to grey *** ]
+            let today = cal[currentDayIndex];
             let table = $("#calendar")[0];
             let week = today/7;
             let day = today%7;
-            console.log("Current day: " + today + "(" + parseInt(week - 1) + ", " + (day-1) + ")");
             let cell = table.rows[parseInt(week)].cells[day - 1];
-            //highlight selected cells
             let color = '#CBCBCB';
-            $(cell).css('background-color', color);
+            $(cell).css('background-color', color); //highlight selected cells
 
-            //work on the new day
-            currentDay++;
-
-            document.getElementById("currentDay").innerHTML = cal[currentDay];
-            //add new day
-            if(currentDay >= timesAvailableTotal.length){
-                let timesArray = Array.from(timesAvailableDay);
-                timesAvailableTotal.push(timesArray);
+            //[ *** update the next day's color *** ]
+            if(nextDay){
+                currentDayIndex++;
+            } else{
+                currentDayIndex--;
             }
-            //update already created day
-            else {
-                //load that day
-                timesAvailableDay = new Set(timesAvailableTotal[currentDay]);
-                let timesArray = Array.from(timesAvailableDay);
-                timesAvailableTotal[currentDay] = timesArray;
-            }
-            today = cal[currentDay];
+            today = cal[currentDayIndex];
             week = today/7;
             day = today%7;
             cell = table.rows[parseInt(week)].cells[day - 1];
@@ -150,49 +162,82 @@
             $(cell).css('background-color', color);
         }
 
-        function next(){
-            console.log("[...in next function...]");
+        // save current day cal to timesAvailableTotal
+        function saveHours(){
+            if(currentDayIndex >= timesAvailableTotal.length) { // new timesAvailableDay, push to timesAvailableTotal
+                console.log("pushing... " + timesAvailableDay + " to index: " + timesAvailableTotal.length);
+                let arrayCopy = timesAvailableDay.slice();
+                timesAvailableTotal.push(arrayCopy);
+            } else{ //overwrite the old calendar
+                timesAvailableTotal[currentDayIndex] = timesAvailableDay;
+            }
+        }
+
+        function updateCal(isNextDay){
+            //[ *** save the previous calendar before moving to new one *** ]
+            saveHours();
+            //[ *** update the coloring on calendar. *NOTE: updateCalHighlight also increments/decrements on day *** ]
+            updateCalHighlight(isNextDay);
+
+            //[ *** set up the hours cal to work on *** ]
+            if(currentDayIndex >= timesAvailableTotal.length){ // work on new blank day
+                console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
+                ClearAll();
+            }
+            else { // load and update already created day
+                console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
+                timesAvailableDay = timesAvailableTotal[currentDayIndex];
+                console.log(timesAvailableDay);
+                console.log(timesAvailableTotal);
+                setAll();
+            }
+        }
+
+        function arrow(isNextButton){
+            console.log("[...in arrow function...]");
             //make sure at least one time is selected
-            if(timesAvailableDay.size == 0){
+            if(timesAvailableDay.length === 0){
                 alert('Please select at least one time.');
                 return;
             }
-            //end of calendar, cannot access more
-            if(currentDay + 1 >= cal.length) {
-                alert("error, end of calendar " + (currentDay + 1) + " is over the limit of " + cal.length);
-                return;
+            // check legality of move (forward or backwards)
+            if(isNextButton){
+                //end of calendar, cannot access more
+                if((currentDayIndex + 1) >= cal.length) {
+                    alert("error, end of calendar " + (currentDayIndex + 1) + " is over the limit of " + cal.length);
+                    return;
+                }
+            } else{
+                if((currentDayIndex - 1) < 0){
+                    alert("error, end of calendar " + (currentDayIndex - 1) + " is under the limit of 0");
+                    return;
+                }
             }
+            // must be legal to move in calendar, let's continue
+            updateCal(isNextButton);
+            document.getElementById("currentDay").innerHTML = cal[currentDayIndex];
 
-            updateCal();
-            ClearAll();
-            document.getElementById("currentDay").innerHTML = cal[currentDay];
         }
 
-        function prev(){
-            console.log("[...in back function...]");
-            //if a new calendar has been made
-
-            if(timesAvailableDay.length != 0){
-                let timesArray = Array.from(timesAvailableDay);
-                timesAvailableTotal[currentDay] = timesArray;
-            }
-            if(currentDay - 1 >= 0){
-                currentDay --;
-            } else{
-                alert("error, end of calendar " + (currentDay - 1) + " is under the limit of 0");
-                return;
-            }
-            ClearAll();
+        function addNewUser(name, event, timesAvailableTotal) {
+            console.log("[ in addNewUser function ]");
+            var userData = {
+                name: name,
+                event: event,
+                cal: timesAvailableTotal
+            };
+            console.log(userData);
+            socket.emit('saveUser', JSON.stringify(userData));
         }
 
         function finished(){
             console.log("[...finished picking times... saving to database]");
             console.log(cal);
-            updateCal();
+            saveHours();
             window.sessionStorage.setItem("userDays", JSON.stringify(timesAvailableTotal));
             var userDays = JSON.parse(sessionStorage.getItem("userDays")); // An object :D
             console.log("user hours available length: " + userDays.length);
-            // window.location.href = "getCode.html";
+            window.location.href = "getCode.html";
             // save to mongoDB...?
             addNewUser(name, event, timesAvailableTotal);
         }
@@ -242,8 +287,8 @@
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     </table>
 
-    <button id = "prevButton" onclick="prev();"> <i id="prev" class="fas fa-angle-left"></i> </button>
-    <button id = "nextButton" onclick="next();"> <i id="next" class="fas fa-angle-right"></i> </button>
+    <button id = "prevButton" onclick="arrow(false);"> <i id="prev" class="fas fa-angle-left"></i> </button>
+    <button id = "nextButton" onclick="arrow(true);"> <i id="next" class="fas fa-angle-right"></i> </button>
 
     <button id = "clearAll" class = "button" onclick="ClearAll();">Clear all</button>
 

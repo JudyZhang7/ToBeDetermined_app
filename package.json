@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/JudyZhang7/nodejs_test#readme",
   "dependencies": {
+    "express": "^4.15.2",
     "mongodb": "^3.0.10",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "socket.io": "^2.1.1"
   }
 }

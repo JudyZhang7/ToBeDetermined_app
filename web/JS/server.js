@@ -1,24 +1,22 @@
-var http = require('http');
-var fs = require('fs');
-var url = require('url');
+const db = require('./user.js');
 
-http.createServer( function (request, response) {
-    var pathname = url.parse(request.url).pathname; //parsing the url
 
-    console.log("Request for " + pathname + " received.");
+var express = require('express');
+var app = express();
+var server = app.listen(3000);
+var io = require('socket.io').listen(server);
 
-    fs.readFile(pathname.substr(1), function (err, data) {
-        if (err) {
-            console.log(err);
-            response.writeHead(404, {'Content-Type': 'text/html'});
-        }
-        else {
-            response.writeHead(200, {'Content-Type': 'text/html'});
-            response.write(data.toString());
-        }
-        response.end();
+app.get('/', function (req, res) {
+    // res.sendfile(__dirname + '/selectTimes.html');
+});
+
+io.on('connection', function (socket) {
+    console.log("server listening on port 3000");
+    socket.emit('news', { hello: 'world' });
+
+    socket.on('saveUser', function (userObject) {
+        var user = JSON.parse(userObject);
+        db.addNewUser(user.name, user.event, user.cal);
+        // console.log(userObject);
     });
-}).listen(8081);
-
-// Console will print the message
-console.log('Server running at http://127.0.0.1:8081/');
+});
