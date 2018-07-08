@@ -3,22 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>WhenIsBetter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script>
-
-        // test code try to retrieve data from database
-
-        var days = JSON.parse(window.sessionStorage.getItem("userDays")); // An object :D
-        console.log(days);
-
-        console.log("first day is: " + days[0]);
-        window.onload = function(){
-            document.getElementById("test").innerHTML = 'calendar size: ' + days.length;
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1494873656885-327179b700ea?ixlib=rb-0.3.5&s=172e9ac233af5cb11c1c433ab3f2c481&auto=format&fit=crop&w=1502&q=80");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+    <script>
+        let code = window.sessionStorage.getItem("code");
+        $(document).ready(function(){
+            document.getElementById("code").innerHTML = code;
+            console.log(code);
+            $("body").css("display", "block");
+        });
 
+        function copyText() {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($('#code').text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
     </script>
 </head>
 <body>
-<div id = "test"></div>
+<a href="https://unsplash.com/@rucksackmag" style="float:right; margin-right: 10px;">Photo by Rucksack Magazine on Unsplash</a>
+
+<div style = "text-align: center; padding-top: 100px;">
+    <h1>Your code:</h1>
+    <div id = "code" style = "font-size: 100px; font-weight: bold;"></div>
+    <button id = "copy" class = "blueButton" onclick="copyText();">copy code to clipboard</button>
+</div>
+
 </body>
 </html>

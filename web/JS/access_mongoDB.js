@@ -64,13 +64,12 @@ userSchema.methods.createJoinCal = function () {
 
 userSchema.pre('save', function (next) {
     //before save, define
-    if (this.newCalendar == true) {
+    if (this.newCalendar === true) {
         // Assuming this is asynchronous
-        // this.getCode();
+        this.getCode();
         console.log('in pre-save newCalendar');
-        this.createJoinCal();
     }
-    else if ((this.newCalendar != true) && (this.name != "JoinCalendar")){
+    else if ((this.newCalendar !== true) && (this.name !== "JoinCalendar")){
         this.updateCal(next);
     }
     next();
@@ -105,7 +104,7 @@ userSchema.methods.getCode = function() {
         getUniqueCode(r);
     }).then((result) => {
         //This will call if your algorithm succeeds!
-        console.log("result" + result);
+        console.log("result " + result);
         this.setUniqueCode(result);
     }).catch(error => {
         console.log(error);
@@ -121,9 +120,9 @@ function getNewUniqueCode(){
 }
 
 userSchema.methods.setUniqueCode = function (uniqueCode) {
+    this.code = uniqueCode;
     this.update({ $set: { code: uniqueCode }}).update(); // not executed
     this.update({ $set: { code: uniqueCode }}).exec(); // executed
-    this.code = this.code + uniqueCode;
     console.log("Successfully assigned [" + this.code + "] code to " + this.name);
     this.createJoinCal();
     return this.code;
@@ -175,7 +174,6 @@ userSchema.methods.updateCal = function (next) {
         }
     });
 };
-
 // create a model using it
 var User = mongoose.model('User', userSchema);
 module.exports = User; //make available to users in Node application

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WhenIsGood</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <script>
+        let code = window.sessionStorage.getItem("userCode");
+        console.log("code: " + code);
+        $(document).ready(function() {
+            document.getElementById("code").innerHTML = code;
+            $("body").css("display", "block");
+        });
+
+    </script>
+</head>
+<body>
+
+<div id = 'code'></div>
+
+
+</body>
+</html>

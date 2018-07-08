@@ -1,0 +1,168 @@
+<!--things to do: -->
+<!--have the left and right arrow keys control the calendar-->
+<!--have the right panel of all available days-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/cal.css">
+
+    <meta charset="UTF-8">
+    <title>WhenIsBetter</title>
+    <script>
+    var days = new Set([]);
+
+    $(function () {
+        var isMouseDown = false,
+            isHighlighted;
+
+        $("#calendar td").mousedown(function () {
+            isMouseDown = true;
+            $(this).toggleClass("highlighted");
+            //if in array, remove. if not, add.
+            if(days.has(this.innerHTML)){
+                days.delete(this.innerHTML);
+            } else{
+                days.add(this.innerHTML);
+            }
+            console.log("the day is: " + this.innerHTML + " calendar length: " + days.size);
+
+            isHighlighted = $(this).hasClass("highlighted");
+            return false; // prevent text selection
+        })
+            .mouseover(function () {
+                if (isMouseDown) {
+                    $(this).toggleClass("highlighted", isHighlighted);
+                    if(days.has(this.innerHTML)){
+                        days.delete(this.innerHTML);
+                    } else{
+                        days.add(this.innerHTML);
+                    }
+                }
+            })
+            .bind("selectstart", function () {
+                return false;
+            })
+
+        $(document).mouseup(function () {
+            isMouseDown = false;
+        });
+    });
+
+    //clear all button
+    function ClearAll(){
+        var x = document.getElementById("calendar");
+        var y = x.getElementsByTagName("td");
+        for (var i = 0; i < y.length; i++) {
+            y[i].classList.remove("highlighted");
+        }
+        days.clear();
+    }
+
+    window.onload = function() {
+        $("body").css("display", "block");
+        updatename();
+        function updatename(){
+            if(document.calForm.event.value!= ""){
+                document.getElementById('eventName').innerHTML = document.calForm.event.value;
+            }
+            setTimeout(updatename, 100);
+        }
+
+        document.getElementById("letsGo").onclick = function() {saveCal()};
+        function saveCal(){
+            if(days.size==0){
+                alert('Please select at least one day.');
+                return;
+            }
+            let name = document.calForm.name.value;
+            let event = document.calForm.event.value;
+            if (name == "") {
+                alert("Please enter your name.");
+                return;
+            }
+            if (event == ""){
+                alert("Please enter an event name.");
+                return;
+            }
+            let userCal = Array.from(days);
+            window.sessionStorage.setItem("name", name);
+            window.sessionStorage.setItem("event", event);
+            window.sessionStorage.setItem("userCal", JSON.stringify(userCal));
+            var cal = JSON.parse(sessionStorage.getItem("userCal")); // An object :D
+            console.log("user calendar length: " + cal.length);
+
+            $( "#calPanel" ).toggle( "slide");
+            setTimeout(function(){ window.location.href = "selectTimes.html"; }, 1000);
+        }
+    };
+    </script>
+</head>
+
+
+<body>
+
+<form id = "calForm" name = "calForm" method = "GET" action = "">
+    What's your name? <br>
+    <input id = "name" type = "text" placeholder = "alex"><br>
+    What's the occasion? <br>
+    <input id = "event" type = "text" placeholder = "best coffee ever">
+</form>
+
+<div id = "calPanel" class = "bblue right">
+
+    <div id = "eventName" class = "title">coffee at joe's</div>
+
+    <table cellpadding="0" cellspacing="0" id="calendar" class = "right">
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+
+        </tr>
+    </table>
+
+    <div class = "title whiteText" id = "month">July</div>
+    <button id = "clearAll" class = "button right" onclick="ClearAll();">Clear all</button>
+
+    <br>
+    <div id = "letsGo" class = "title right whiteText">Let's Go
+        <i class="fas fa-angle-right"></i>
+    </div>
+</div>
+<script>
+    //set the dates
+    var table=document.getElementById("calendar");
+    var date = 1;
+
+    var r=0;
+    while(row=table.rows[r++])
+    {
+        var c=0;
+        while(cell=row.cells[c++])
+        {
+            cell.innerHTML=date; // do sth with cell
+            date++;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,169 +1,111 @@
-<!--things to do: -->
-<!--have the left and right arrow keys control the calendar-->
-<!--have the right panel of all available days-->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/cal.css">
-    <link rel="script" type="" href="../CSS/cal.css">
-
     <meta charset="UTF-8">
-    <title>WhenIsBetter</title>
+    <title>When Is Better</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+    <!--<link rel="stylesheet" type="text/css" href="../CSS/index.css">-->
+    <link rel="stylesheet" type="text/css" href="../CSS/cover.css">
+
     <script>
-    var days = new Set([]);
-
-    $(function () {
-        var isMouseDown = false,
-            isHighlighted;
-
-        $("#calendar td").mousedown(function () {
-            isMouseDown = true;
-            $(this).toggleClass("highlighted");
-            //if in array, remove. if not, add.
-            if(days.has(this.innerHTML)){
-                days.delete(this.innerHTML);
-            } else{
-                days.add(this.innerHTML);
-            }
-            console.log("the day is: " + this.innerHTML + " calendar length: " + days.size);
-
-            isHighlighted = $(this).hasClass("highlighted");
-            return false; // prevent text selection
-        })
-            .mouseover(function () {
-                if (isMouseDown) {
-                    $(this).toggleClass("highlighted", isHighlighted);
-                    if(days.has(this.innerHTML)){
-                        days.delete(this.innerHTML);
-                    } else{
-                        days.add(this.innerHTML);
-                    }
+    $(document).ready(function() {
+        $("body").css("display", "block");
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
+                "color": {"value": "#ffffff"},
+                "shape": {
+                    "type": "triangle",
+                    "stroke": {"width": 0, "color": "#000000"},
+                    "polygon": {"nb_sides": 5},
+                    "image": {"src": "img/github.svg", "width": 100, "height": 100}
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {"enable": false, "speed": 1, "opacity_min": 0.1, "sync": false}
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {"enable": false, "speed": 40, "size_min": 0.1, "sync": false}
+                },
+                "line_linked": {"enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1},
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {"enable": false, "rotateX": 600, "rotateY": 1200}
                 }
-            })
-            .bind("selectstart", function () {
-                return false;
-            })
-
-        $(document).mouseup(function () {
-            isMouseDown = false;
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {"enable": true, "mode": "repulse"},
+                    "onclick": {"enable": true, "mode": "push"},
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {"distance": 400, "line_linked": {"opacity": 1}},
+                    "bubble": {"distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3},
+                    "repulse": {"distance": 200, "duration": 0.4},
+                    "push": {"particles_nb": 4},
+                    "remove": {"particles_nb": 2}
+                }
+            },
+            "retina_detect": true
         });
     });
 
-    //clear all button
-    function ClearAll(){
-        var x = document.getElementById("calendar");
-        var y = x.getElementsByTagName("td");
-        for (var i = 0; i < y.length; i++) {
-            y[i].classList.remove("highlighted");
-        }
-        days.clear();
+    let socket = io.connect('http://localhost:3000');
+
+    function getCode(){
+        //check if code is valid
+        let code = document.entry.code.value;
+        window.sessionStorage.setItem("userCode", code);
+        console.log(code);
+        socket.emit('getUser', code);
+        socket.on('codeValidation', function(result){
+            if(result === true){
+                document.getElementById("entry").action =
+                    "selectTimesFromCode.html";
+                document.getElementById("entry").submit();
+
+            } else{
+                alert("Invalid code. Please try again.");
+                document.getElementById("entry").submit();
+            }
+        })
     }
-
-    window.onload = function() {
-        $("body").css("display", "block");
-        updatename();
-        function updatename(){
-            if(document.calForm.event.value!= ""){
-                document.getElementById('eventName').innerHTML = document.calForm.event.value;
-            }
-            setTimeout(updatename, 100);
-        }
-
-        document.getElementById("letsGo").onclick = function() {saveCal()};
-        function saveCal(){
-            if(days.size==0){
-                alert('Please select at least one day.');
-                return;
-            }
-            let name = document.calForm.name.value;
-            let event = document.calForm.event.value;
-            if (name == "") {
-                alert("Please enter your name.");
-                return;
-            }
-            if (event == ""){
-                alert("Please enter an event name.");
-                return;
-            }
-            let userCal = Array.from(days);
-            window.sessionStorage.setItem("name", name);
-            window.sessionStorage.setItem("event", event);
-            window.sessionStorage.setItem("userCal", JSON.stringify(userCal));
-            var cal = JSON.parse(sessionStorage.getItem("userCal")); // An object :D
-            console.log("user calendar length: " + cal.length);
-
-            $( "#calPanel" ).toggle( "slide");
-            setTimeout(function(){ window.location.href = "selectTimes.html"; }, 1000);
-        }
-    };
     </script>
 </head>
-
-
 <body>
 
-<form id = "calForm" name = "calForm" method = "GET" action = "">
-    What's your name? <br>
-    <input id = "name" type = "text" placeholder = "alex"><br>
-    What's the occasion? <br>
-    <input id = "event" type = "text" placeholder = "best coffee ever">
-</form>
+<div id="particles-js">
+    <div id = 'center' class = 'center'>
+        <div id="left" class = 'inline' style = "margin-right: 50px;">
+        <a href="createCal.html" class="blueButton" style = "font-size: 40px; padding: 3px 15px;">New Event</a>
+        </div>
 
-<div id = "calPanel" class = "bblue right">
-
-    <div id = "eventName" class = "title">coffee at joe's</div>
-
-    <table cellpadding="0" cellspacing="0" id="calendar" class = "right">
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-    </table>
-
-    <div class = "title whiteText" id = "month">July</div>
-    <button id = "clearAll" class = "button right" onclick="ClearAll();">Clear all</button>
-
-    <br>
-    <div id = "letsGo" class = "title right whiteText">Let's Go
-        <i class="fas fa-angle-right"></i>
+        <div id="right" class = 'inline left' style = "margin-left: 50px;">
+            <form id = "entry" name = "entry" onsubmit="getCode()">
+                <h1>Or enter code:</h1>
+                <input id = "code" type = "text" placeholder = "c0f3e">
+                <input id = "submitbutton" type = "button" value = "Go" onclick = "getCode()" class = "blueButton inline"/>
+            </form>
+        </div>
+        <div id = 'logo'>When Is Better</div>
     </div>
-</div>
-<script>
-    //set the dates
-    var table=document.getElementById("calendar");
-    var date = 1;
+    <a href="https://unsplash.com/@samuelzeller" style="float:right; margin-right: 10px;"> Photo by Samuel Zeller on Unsplash</a>
 
-    var r=0;
-    while(row=table.rows[r++])
-    {
-        var c=0;
-        while(cell=row.cells[c++])
-        {
-            cell.innerHTML=date; // do sth with cell
-            date++;
-        }
-    }
-</script>
+</div>
+
 </body>
 </html>

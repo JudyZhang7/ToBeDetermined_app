@@ -8,12 +8,17 @@
     --blueBackgroundColor: #AADEFF;
     --font: 'Exo', Helvetica, Arial, sans-serif;
 }
-
 body{
     margin: 0;
     font-family: var(--font);
     font-weight: 100;
     display: none;
+    overflow:hidden;
+}
+h1{
+    font-weight: 100;
+    margin-bottom: 5px;
+    font-size: 65px;
 }
 .blackText{
     color: black;
@@ -63,16 +68,41 @@ button:hover, td {cursor: pointer}
 
 .title{
     font-size: 30px;
-    /*position: relative;*/
-    /*display: block;*/
 }
 
 .title2{
     font-size: 20px;
-    /*position: relative;*/
-    /*display: block;*/
 }
 
 .marginTop{
     margin-top: 30px;
+}
+
+.center{
+    text-align: center;
+    position: relative;
+}
+.blueButton{
+    padding: 10px 25px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 26px;
+    border-radius: 10px;
+    background: var(--blueBackgroundColor);
+    font-family: var(--font);
+    font-weight: 100;
+}
+input[type=text] {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+#logo{
+    font-size: 150px;
+    margin: 20px;
+    margin-top: 50px;
 }

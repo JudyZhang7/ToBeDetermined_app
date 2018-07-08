@@ -11,12 +11,15 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-    console.log("server listening on port 3000");
     socket.emit('news', { hello: 'world' });
 
     socket.on('saveUser', function (userObject) {
-        var user = JSON.parse(userObject);
-        db.addNewUser(user.name, user.event, user.cal);
-        // console.log(userObject);
+        let user = JSON.parse(userObject);
+        db.addNewUser(user.name, user.event, user.cal, socket);
     });
+
+    //retrieve user by code
+    socket.on('getUser', function (code){
+        db.getUser(code, socket);
+    })
 });
