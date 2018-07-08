@@ -1,5 +1,5 @@
 {
-  "name": "nodejs_test",
+  "name": "WhenIsBetter",
   "version": "1.0.0",
   "description": "",
   "main": "access_mongoDB.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JudyZhang7/nodejs_test.git"
+    "url": "git+https://github.com/JudyZhang7/WhenIsBetter.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JudyZhang7/nodejs_test/issues"
+    "url": "https://github.com/JudyZhang7/WhenIsBetter/issues"
   },
-  "homepage": "https://github.com/JudyZhang7/nodejs_test#readme",
+  "homepage": "https://github.com/JudyZhang7/WhenIsBetter#readme",
   "dependencies": {
     "express": "^4.15.2",
     "mongodb": "^3.0.10",
