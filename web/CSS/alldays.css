@@ -1,14 +1,32 @@
+#calName{
+    text-align: center;
+    font-size: 50px;
+    margin: 10px 0px;
+    font-weight: 400;
+}
+#calCode{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+#calDays{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
 #dayTable{
     display:inline-block;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 #date{
-    margin:0;
-    margin-left: 20px;
+    text-align: center;
+
 }
 table{
     position: relative;
-    display: inline-block;
 }
 table td {
     width:100px;

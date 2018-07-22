@@ -40,10 +40,11 @@
 
                 }
                 $('#calDays').html(innerHTMLText);
-
+                $('#calName').html(event);
+                $('#calCode').html("code: " + code);
                 for(let j = 0; j < days.length; j++){
                     let hourIndex = hours*j;
-                    let timeIndex = hourIndex;
+                    let timeIndex = 0;
                     var timetable=document.getElementById(j);
                     var date = 8;
 
@@ -76,7 +77,8 @@
     </script>
 </head>
 <body>
-
+<div id = "calName"></div>
+<div id = "calCode"></div>
 <div id = "calDays"></div>
 
 </body>
