@@ -1,6 +1,7 @@
 :root {
     --darkGreyColor: #6F6F6F;
     --highlightedColor: #FFC99B;
+    --lightGreyColor: lightGray;
 }
 #event{
     margin-top: 20px;
@@ -59,7 +60,11 @@ table td.highlighted {
 .highlighted {
     background-color: var(--highlightedColor);
 }
-
+.notAvailable{
+    background-color: var(--lightGreyColor);
+    pointer-events: none;
+    /*color: var(--lightGreyColor);*/
+}
 #clearAll, #done{
     position:relative;
     text-align:center;

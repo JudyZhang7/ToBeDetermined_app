@@ -15,11 +15,15 @@ io.on('connection', function (socket) {
 
     socket.on('saveUser', function (userObject) {
         let user = JSON.parse(userObject);
-        db.addNewUser(user.name, user.event, user.cal, socket);
+        db.addNewUser(user, socket);
     });
 
-    //retrieve user by code
+    //check if user exists by code
     socket.on('getUser', function (code){
         db.getUser(code, socket);
+    })
+    //retrieve user by code
+    socket.on('getUserCal', function (code){
+        db.getUserCal(code, socket);
     })
 });

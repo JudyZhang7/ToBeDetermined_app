@@ -4,25 +4,33 @@ var User = require('./access_mongoDB.js');
 // User.remove({}, function (err) {});
 
 //timesAvailable is a 2D array of times available
-function addNewUser(_name, _event, _timesAvailable, socket){
-    console.log("name: " + _name + " event: " + _event + " timesAvailable: " + _timesAvailable);
-    let days = _timesAvailable.length;
-    let hours = _timesAvailable[0].length;
+function addNewUser(_user, socket){
+    let _code = _user.code;
+    let _calendarName = _user.calendarName;
+    let _name = _user.name;
+    let _days = _user.days;
+    let _newCalendar = _user.newCalendar;
+    let _calendar = _user.calendar;
+
+    console.log("name: " + _name + " event: " + _calendarName + " timesAvailable: " + _calendar);
+    let days = _calendar.length;
+    let hours = _calendar[0].length;
     let cal = [];
     for(let i = 0; i < days; i++){
         for(let j = 0; j < hours; j++){
-            var entry = {days: i, hour: j, available: _timesAvailable[i][j]};
+            var entry = {days: i, hour: j, available: _calendar[i][j]};
             cal.push(entry);
         }
     }
 
     var newUser = new User({
+        code: _code,
+        calendarName: _calendarName,
         name: _name,
-        calendarName: _event,
-        days: days,
+        days: _days,
         hours: hours,
+        newCalendar: _newCalendar,
         calendar: cal,
-        newCalendar: true
     })
 
     newUser.save(function(err, obj){
@@ -48,6 +56,19 @@ function getUser(code, socket){
     });
 }
 
+//code is guaranteed to exist
+function getUserCal(code, socket){
+    User.findOne({code: code}, function(err, result) {
+        if (err) throw err;
+        socket.emit('userCal', result);
+    });
+}
+
+module.exports = {
+    addNewUser,
+    getUser,
+    getUserCal
+}
 // var newUser = new User({
 //     name: 'starlord55',
 //     code: 'jkSN7',
@@ -91,7 +112,3 @@ function getUser(code, socket){
 //     }
 // })
 
-module.exports = {
-    addNewUser,
-    getUser
-}

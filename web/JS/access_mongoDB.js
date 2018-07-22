@@ -36,7 +36,7 @@ var userSchema = new Schema({
     code: {type: String},
     calendarName: {type: String},
     name: {type: String, required: true},
-    days: {type: Number},
+    days: [{type: Number}],
     hours: {type: Number},
     newCalendar: {type: Boolean, required: true},
     calendar: [{
@@ -150,15 +150,14 @@ userSchema.methods.updateCal = function (next) {
             //     var promise = Jedi.find({name:name}).exec();
             //     return promise;
             // }
-            var days = thisUser.days;
+            var days = thisUser.days.length;
             var hours = thisUser.hours;
             console.log("days: " + days + " hours: " + hours);
             for (var day = 0; day < days; day++) {
                 for (var hour = 0; hour < hours; hour++) {
-
                     var index = (day*hours + hour);
                     console.log("index: " + index);
-                    if (thisUser.calendar[index].available == false) {
+                    if (thisUser.calendar[index].available === false) {
                         console.log('not available! updating - day: ' + (day+1) + " hour: "+ (hour+1));
                         console.log("availability: " + joinCal.calendar[index].available);
 
