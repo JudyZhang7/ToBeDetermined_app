@@ -102,7 +102,7 @@ function arrow(isNextButton){
     }
     // must be legal to move in calendar, let's continue
     updateCal(isNextButton);
-    document.getElementById("currentDay").innerHTML = cal[currentDayIndex];
+    $('#currentDay').html(cal[currentDayIndex]);
 }
 
 function addNewUser(name, event, caldays, timesAvailableTotal) {

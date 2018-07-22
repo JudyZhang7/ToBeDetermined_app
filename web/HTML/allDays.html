@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WIB</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/alldays.css">
+    <script>
+        // let code = window.sessionStorage.getItem("userCode"); // remove whitespaces??!?!
+        let code = 'ndCXN'; // for testing purposes!
+        let socket = io.connect('http://localhost:3000');
+        let user;
+        let cal, hours, event, name, timesAvailableTemplate, days;
+
+        $(document).ready(function() {
+
+            socket.emit('getUserCal', code); // get code from calendar database
+            socket.on('userCal', function (result) {
+                cal = result.days;
+                hours = result.hours;
+                event = result.calendarName;
+                name = result.name;
+                days = result.days;
+                console.log("days: " + days);
+                timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
+
+                let innerHTMLText = '';
+                for(let i = 0; i < days.length; i++){
+                    innerHTMLText += '<div id = "dayTable">';
+                    innerHTMLText += '<div id = "date"> July ' + days[i] + '</div><br>';
+                    innerHTMLText += '<table cellpadding="0" cellspacing="0" id="' + i + '" class = "">\n' +
+                        '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                        '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                        '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                        '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                        '</table>'
+                    innerHTMLText += '</div>';
+
+                }
+                $('#calDays').html(innerHTMLText);
+
+                for(let j = 0; j < days.length; j++){
+                    let hourIndex = hours*j;
+                    let timeIndex = hourIndex;
+                    var timetable=document.getElementById(j);
+                    var date = 8;
+
+                    var r=0;
+                    while(row=timetable.rows[r++])
+                    {
+                        var c=0;
+                        while(cell=row.cells[c++])
+                        {
+                            if(date>12)
+                            {
+                                cell.innerHTML=(date-12) +":00 PM"; // do sth with cell
+                            }
+                            else{
+                                cell.innerHTML=date+":00 AM"; // do sth with cell
+                            }
+                            if(timesAvailableTemplate[hourIndex + timeIndex].available === true){
+                                cell.classList.add("highlighted");
+                            }
+                            date++;
+                            timeIndex++;
+                        }
+                    }
+                }
+
+            })
+            $("body").css("display", "block");
+        });
+
+    </script>
+</head>
+<body>
+
+<div id = "calDays"></div>
+
+</body>
+</html>

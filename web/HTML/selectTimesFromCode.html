@@ -20,7 +20,7 @@
         for(let i = 0; i < 16; i++){
             timesAvailableDay.push(false)
         }
-        let cal, hours, event, name;
+        let cal, hours, event, name, timesAvailableTemplate;
         $(document).ready(function() {
 
             socket.emit('getUserCal', code); // get code from calendar database
@@ -31,7 +31,7 @@
                 hours = result.hours;
                 event = result.calendarName;
                 name = result.name;
-                let timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
+                timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
 
                 $(function () {
                     let hourIndex = hours*currentDayIndex;
@@ -157,6 +157,55 @@
             console.log(timesAvailableTotal);
             socket.emit('saveUser', JSON.stringify(userData));
         }
+        function updateCal(isNextDay){
+            //[ *** save the previous calendar before moving to new one *** ]
+            saveHours();
+            //[ *** update the coloring on calendar. *NOTE: updateCalHighlight also increments/decrements on day *** ]
+            updateCalHighlight(isNextDay);
+            $(function () {
+                let hourIndex = hours*currentDayIndex;
+                let timeIndex = hourIndex;
+
+                let timetable = document.getElementById("hoursInADay");
+                let date = 8;
+
+                let r = 0;
+                while (row = timetable.rows[r++]) {
+                    let c = 0;
+                    while (cell = row.cells[c++]) {
+                        if (date > 12) {
+                            cell.innerHTML = (date - 12) + ":00 PM"; // do sth with cell
+                        }
+                        else {
+                            cell.innerHTML = date + ":00 AM"; // do sth with cell
+                        }
+                        // grey out if day is not available to be selected
+                        console.log("index of cal: " + (hourIndex + timeIndex));
+                        cell.classList.remove("notAvailable");
+                        if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
+                            cell.classList.add("notAvailable");
+                            cell.innerHTML = "NOT AVAILABLE";
+                        }
+                        date++;
+                        timeIndex++;
+                    }
+                }
+            });
+
+            //[ *** set up the hours cal to work on *** ]
+            if(currentDayIndex >= timesAvailableTotal.length){ // work on new blank day
+                console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
+                ClearAll();
+            }
+            else { // load and update already created day
+                console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
+                timesAvailableDay = timesAvailableTotal[currentDayIndex];
+                console.log(timesAvailableDay);
+                console.log(timesAvailableTotal);
+                setAll();
+            }
+        }
+
     </script>
 </head>
 <body>

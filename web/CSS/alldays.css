@@ -1,0 +1,27 @@
+#dayTable{
+    display:inline-block;
+    margin-right: 20px;
+}
+#date{
+    margin:0;
+    margin-left: 20px;
+}
+table{
+    position: relative;
+    display: inline-block;
+}
+table td {
+    width:100px;
+    height:15px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: var(--darkGreyColor);
+    border:2px solid white;
+    color: white;
+}
+table td.highlighted {
+    background-color: var(--highlightedColor);
+}
+.highlighted {
+    background-color: var(--highlightedColor);
+}

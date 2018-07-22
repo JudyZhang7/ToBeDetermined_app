@@ -58,7 +58,7 @@ function getUser(code, socket){
 
 //code is guaranteed to exist
 function getUserCal(code, socket){
-    User.findOne({code: code}, function(err, result) {
+    User.findOne({code: code, name: 'JoinCalendar'}, function(err, result) {
         if (err) throw err;
         socket.emit('userCal', result);
     });
