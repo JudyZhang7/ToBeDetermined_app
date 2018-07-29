@@ -5,31 +5,29 @@
     <title>WIB</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/alldays.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/viewCal.css">
     <script>
-        // let code = window.sessionStorage.getItem("userCode"); // remove whitespaces??!?!
-        let code = 'ndCXN'; // for testing purposes!
+        let acode = window.sessionStorage.getItem("userCode");
+        //let acode = 'ndCXN'; // for testing purposes!
         let socket = io.connect('http://localhost:3000');
-        let user;
-        let cal, hours, event, name, timesAvailableTemplate, days;
+        let acal, ahours, aevent, aname, atimesAvailableTemplate, adays;
 
         $(document).ready(function() {
 
-            socket.emit('getUserCal', code); // get code from calendar database
+            socket.emit('getUserCal', acode); // get acode from calendar database
             socket.on('userCal', function (result) {
-                cal = result.days;
-                hours = result.hours;
-                event = result.calendarName;
-                name = result.name;
-                days = result.days;
-                console.log("days: " + days);
-                timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
+                acal = result.days;
+                ahours = result.hours;
+                aevent = result.calendarName;
+                aname = result.name;
+                adays = result.days;
+                console.log("days: " + adays);
+                atimesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
 
                 let innerHTMLText = '';
-                for(let i = 0; i < days.length; i++){
+                for(let i = 0; i < adays.length; i++){
                     innerHTMLText += '<div id = "dayTable">';
-                    innerHTMLText += '<div id = "date"> July ' + days[i] + '</div><br>';
+                    innerHTMLText += '<div id = "date"> July ' + adays[i] + '</div><br>';
                     innerHTMLText += '<table cellpadding="0" cellspacing="0" id="' + i + '" class = "">\n' +
                         '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
                         '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
@@ -37,13 +35,12 @@
                         '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
                         '</table>'
                     innerHTMLText += '</div>';
-
                 }
                 $('#calDays').html(innerHTMLText);
-                $('#calName').html(event);
-                $('#calCode').html("code: " + code);
-                for(let j = 0; j < days.length; j++){
-                    let hourIndex = hours*j;
+                $('#calName').html(aevent);
+                $('#calCode').html("acode: " + acode);
+                for(let j = 0; j < adays.length; j++){
+                    let hourIndex = ahours*j;
                     let timeIndex = 0;
                     var timetable=document.getElementById(j);
                     var date = 8;
@@ -61,7 +58,7 @@
                             else{
                                 cell.innerHTML=date+":00 AM"; // do sth with cell
                             }
-                            if(timesAvailableTemplate[hourIndex + timeIndex].available === true){
+                            if(atimesAvailableTemplate[hourIndex + timeIndex].available === true){
                                 cell.classList.add("highlighted");
                             }
                             date++;
@@ -77,9 +74,10 @@
     </script>
 </head>
 <body>
+<div id = "panel">
 <div id = "calName"></div>
 <div id = "calCode"></div>
 <div id = "calDays"></div>
-
+</div>
 </body>
 </html>

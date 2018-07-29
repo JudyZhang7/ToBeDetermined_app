@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WIB</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/times.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/viewCal.css">
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        let code = window.sessionStorage.getItem("userCode");
+        console.log("userCode: " + code);
+        //let code = 'ndCXN'; // for testing purposes!
+        let socket = io.connect('http://localhost:3000');
+        let cal, hours, event, name, timesAvailableTemplate;
+
+        $(document).ready(function() {
+            socket.emit('getUserCal', code); // get code from calendar database
+
+            socket.on('userCal', function(result){
+                user = result;
+                cal = result.days;
+                hours = result.hours;
+                event = result.calendarName;
+                name = result.name;
+                console.log(name);
+                timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
+
+                $(function () {
+                    console.log("days: " + cal);
+                    timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
+
+                    let innerHTMLText = '';
+                    for (let i = 0; i < cal.length; i++) {
+                        innerHTMLText += '<div id = "dayTable">';
+                        innerHTMLText += '<div id = "date"> July ' + cal[i] + '</div><br>';
+                        innerHTMLText += '<table cellpadding="0" cellspacing="0" id="' + i + '" class = "summaryTable">\n' +
+                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
+                            '</table>'
+                        innerHTMLText += '</div>';
+                    }
+                    $('#calDays').html(innerHTMLText);
+                    $('#calName').html(event);
+                    $('#calCode').html("code: " + code);
+                    for (let j = 0; j < cal.length; j++) {
+                        let hourIndex = hours * j;
+                        let timeIndex = 0;
+                        var timetable = document.getElementById(j);
+                        var date = 8;
+
+                        var r = 0;
+                        while (row = timetable.rows[r++]) {
+                            var c = 0;
+                            while (cell = row.cells[c++]) {
+                                if (date > 12) {
+                                    cell.innerHTML = (date - 12) + ":00 PM"; // do sth with cell
+                                }
+                                else {
+                                    cell.innerHTML = date + ":00 AM"; // do sth with cell
+                                }
+                                if (timesAvailableTemplate[hourIndex + timeIndex].available === true) {
+                                    cell.classList.add("highlighted");
+                                }
+                                date++;
+                                timeIndex++;
+                            }
+                        }
+                    }
+                }); // update the pullup calendar
+            });
+            $("body").css("display", "block");
+        });
+
+    </script>
+</head>
+<body>
+<h1 class = "center marginTop" style="color: black">Perfect! You're all set.</h1>
+<div style="text-align:center;">
+    <button id="timesButton" class = "trigger button">Show all times</button>
+</div>
+
+<div class="slider close">
+
+    <div id = "xout" class = "trigger">[close X]</div>
+    <div id = "calName"></div>
+    <div id = "calCode"></div>
+    <div id = "calDays"></div>
+    <script>
+        $('.trigger').click(function() {
+            $('.slider').toggleClass('close');
+        });
+    </script>
+
+</div>
+
+
+</body>
+</html>

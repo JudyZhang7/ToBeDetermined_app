@@ -1,8 +1,4 @@
-:root {
-    --darkGreyColor: #6F6F6F;
-    --highlightedColor: #FFC99B;
-    --blueBackgroundColor: #AADEFF;
-}
+@import url("index.css");
 
 table{
     margin-top: 20px;
@@ -40,9 +36,9 @@ table td.highlighted {
 #eventName{
     position: relative;
     margin-top: 30px;
-    color: var(--darkGreyColor);
     font-style: italic;
     font-weight: 100;
+    color: white;
 }
 
 #letsGo:hover{

@@ -60,6 +60,7 @@ function getUser(code, socket){
 function getUserCal(code, socket){
     User.findOne({code: code, name: 'JoinCalendar'}, function(err, result) {
         if (err) throw err;
+        console.log(result.name);
         socket.emit('userCal', result);
     });
 }

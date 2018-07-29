@@ -1,10 +1,8 @@
-:root {
-    --darkGreyColor: #6F6F6F;
-    --highlightedColor: #FFC99B;
-    --lightGreyColor: lightGray;
-}
-#event{
+@import url("index.css");
+
+#event, #name{
     margin-top: 20px;
+    color: white;
 }
 .marginLeft{
     margin-left: 23px;
@@ -63,9 +61,8 @@ table td.highlighted {
 .notAvailable{
     background-color: var(--lightGreyColor);
     pointer-events: none;
-    /*color: var(--lightGreyColor);*/
 }
-#clearAll, #done{
+#clearAll, #done, #showAllDays{
     position:relative;
     text-align:center;
     left: 42%;
@@ -80,7 +77,6 @@ table td.highlighted {
 
 #day{
     position: absolute;
-    /*display:inline;*/
     margin: auto;
     top: 0;
     bottom: 10%;
@@ -121,10 +117,33 @@ table td.highlighted {
 }
 
 #rightPanel{
+    margin: auto;
+    text-align: center;
     top: 0px;
     height: 100vh;
     display:none;
     width: 40%;
     float: right;
     background-color: var(--blueBackgroundColor);
+}
+.slider {
+    position: absolute;
+    width: 90vw;
+    height: 100vh;
+    top: 0;
+    overflow: scroll;
+    background-color: var(--darkGreyColor);
+    color: #FFF;
+    transition: all 1s;
+}
+
+.slider.close {
+    top: 100vh;
+    height: 0;
+}
+
+#xout{
+    float: right;
+    cursor: pointer;
+    margin: 10px;
 }

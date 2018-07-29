@@ -146,10 +146,7 @@ userSchema.methods.updateCal = function (next) {
             next(newError);
         } else{
             console.log("Joined calendar: " + joinCal.name + thisUser.code + 'JoinCalendar');
-            // function getJedisPromise(name){
-            //     var promise = Jedi.find({name:name}).exec();
-            //     return promise;
-            // }
+
             var days = thisUser.days.length;
             var hours = thisUser.hours;
             console.log("days: " + days + " hours: " + hours);

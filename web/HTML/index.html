@@ -7,7 +7,6 @@
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
-    <!--<link rel="stylesheet" type="text/css" href="../CSS/index.css">-->
     <link rel="stylesheet" type="text/css" href="../CSS/cover.css">
 
     <script>
@@ -66,7 +65,7 @@
 
     let socket = io.connect('http://localhost:3000');
 
-    function getCode(){
+    function getCode(nextPage){
         //check if code is valid
         let code = document.entry.code.value;
         window.sessionStorage.setItem("userCode", code);
@@ -75,7 +74,7 @@
         socket.on('codeValidation', function(result){
             if(result === true){
                 document.getElementById("entry").action =
-                    "selectTimesFromCode.html";
+                    nextPage;
                 document.getElementById("entry").submit();
 
             } else{
@@ -84,24 +83,24 @@
             }
         })
     }
+
     </script>
 </head>
 <body>
 
 <div id="particles-js">
     <div id = 'center' class = 'center'>
-        <div id="left" class = 'inline' style = "margin-right: 50px;">
-        <a href="createCal.html" class="blueButton" style = "font-size: 40px; padding: 3px 15px;">New Event</a>
-        </div>
+        <a href="createCal.html" class="blueButton" style = "font-size: 40px; padding: 3px 15px;">new event</a>
 
-        <div id="right" class = 'inline left' style = "margin-left: 50px;">
-            <form id = "entry" name = "entry" onsubmit="getCode()">
-                <h1>Or enter code:</h1>
-                <input id = "code" type = "text" placeholder = "c0f3e">
-                <input id = "submitbutton" type = "button" value = "Go" onclick = "getCode()" class = "blueButton inline"/>
-            </form>
-        </div>
         <div id = 'logo'>when is better</div>
+
+        <form id = "entry" name = "entry" onsubmit="getCode()">
+            <h1>or enter code:</h1>
+            <input id = "code" type = "text" placeholder = "c0f3e"><br>
+            <input id = "editCal" type = "button" value = "edit" onclick = "getCode('selectTimesFromCode.html')" class = "blueButton inline"/>
+            <input id = "viewCal" type = "button" value = "view" onclick = "getCode('allDays.html')" class = "blueButton inline"/>
+        </form>
+
     </div>
     <a href="https://unsplash.com/@samuelzeller" style="float:right; margin-right: 10px;"> Photo by Samuel Zeller on Unsplash</a>
 
