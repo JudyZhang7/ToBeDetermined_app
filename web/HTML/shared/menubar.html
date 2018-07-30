@@ -1,0 +1,35 @@
+<!-- MENU BAR -->
+<link rel="stylesheet" type="text/css" href="../CSS/menubar.css" />
+
+<script>
+    function getCode(nextPage){
+        //check if code is valid
+        let code = document.entry.code.value;
+        window.sessionStorage.setItem("userCode", code);
+        console.log(code);
+        socket.emit('getUser', code);
+        socket.on('codeValidation', function(result){
+            if(result === true){
+                document.getElementById("entry").action =
+                    nextPage;
+                document.getElementById("entry").submit();
+
+            } else{
+                alert("Invalid code. Please try again.");
+                document.getElementById("entry").submit();
+            }
+        })
+    }
+</script>
+
+<div id = "navbar">
+    <a href="index.html" id = "wib">WHEN.</a>
+    <a href="createCal.html" id = "new">> new event</a>
+    <form id = "menubarForm" name = "entry" onsubmit="getCode()">
+        enter event code
+
+        <input id = "code" type = "text" placeholder = "c0f3e">
+        <input id = "editCal" type = "button" value = "edit" onclick = "getCode('selectTimesFromCode.html')" class = "menubutton"/>
+        <input id = "viewCal" type = "button" value = "view" onclick = "getCode('viewcalendar.html')" class = "menubutton"/>
+    </form>
+</div>

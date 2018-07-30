@@ -6,14 +6,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="../CSS/viewCal.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/menubar.css" />
+
+    <style>
+        body{
+            background-image: url("../viewCal.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            overflow: hidden;
+        }
+        td {
+            width:120px;
+            height:20px;
+            text-align:center;
+            vertical-align:middle;
+            background-color: var(--darkGreyColor);
+            color: white;
+        }
+    </style>
     <script>
-        let acode = window.sessionStorage.getItem("userCode");
-        //let acode = 'ndCXN'; // for testing purposes!
+        //let acode = window.sessionStorage.getItem("userCode");
+        let acode = 'aO3HY';
         let socket = io.connect('http://localhost:3000');
         let acal, ahours, aevent, aname, atimesAvailableTemplate, adays;
 
         $(document).ready(function() {
-
+            $("#navbar").load("shared/menubar.html");
             socket.emit('getUserCal', acode); // get acode from calendar database
             socket.on('userCal', function (result) {
                 acal = result.days;
@@ -27,7 +46,7 @@
                 let innerHTMLText = '';
                 for(let i = 0; i < adays.length; i++){
                     innerHTMLText += '<div id = "dayTable">';
-                    innerHTMLText += '<div id = "date"> July ' + adays[i] + '</div><br>';
+                    innerHTMLText += '<div id = "date"> July ' + adays[i] + '</div>';
                     innerHTMLText += '<table cellpadding="0" cellspacing="0" id="' + i + '" class = "">\n' +
                         '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
                         '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
@@ -74,10 +93,17 @@
     </script>
 </head>
 <body>
-<div id = "panel">
-<div id = "calName"></div>
-<div id = "calCode"></div>
-<div id = "calDays"></div>
+<div id="navbar"></div> <!--Navigation bar-->
+
+<div id = "content">
+    <div id = "panel">
+        <div id = "calName"></div>
+        <div id = "calCode"></div>
+        <div id = "calDays"></div>
+    </div>
+    <a href="https://unsplash.com/@j_harris_391" style="bottom: 0; right: 0; margin-right: 10px; position: fixed;">Photo by Joshua Harris on Unsplash</a>
+
 </div>
+
 </body>
 </html>

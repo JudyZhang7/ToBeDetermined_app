@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import url("index.css");
+
+#menubarForm input[type=text] {
+    width: 150px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 100;
+    margin: 0 5px;
+    padding: 2px 5px;
+    border: none;
+}
+#navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    overflow: hidden;
+    height: 29px;
+    padding: 5px;
+    font-size: 20px;
+    z-index: 2000;
+}
+#wib{
+    font-weight: 400;
+    font-size: 27px;
+    padding: 1px;
+}
+#favIcon{
+    font-size: 25px;
+    color: white;
+}
+.menubutton{
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    background: transparent;
+    font-family: var(--font);
+    font-weight: 100;
+}
+/* Menubar */
+form#menubarForm{
+    display: inline-block;
+    float: right;
+    margin-right: 50px;
+    color: white;
+}
+
+a {
+    display: inline-block;
+    margin: auto;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+a:hover{
+    color: var(--highlightedColor)
+}
+
+.logo{
+    height: 25px;
+    border-radius: 10px;
+    border: 2px solid white;
+    display: inline;
+    overflow: hidden;
+}

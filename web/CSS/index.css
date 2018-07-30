@@ -14,10 +14,17 @@ body{
     display: none;
     overflow: hidden;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 h1{
     font-weight: 100;
     margin-bottom: 5px;
     font-size: 65px;
+}
+#content{
+    margin-top: 29px;
 }
 .blackText{
     color: black;
@@ -98,6 +105,7 @@ input[type=text] {
     font-size: 20px;
     font-weight: 100;
     margin-bottom: 20px;
+    /*border: none;*/
 }
 #logo{
     font-size: 150px;

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/cal.css">
 
     <meta charset="UTF-8">
-    <title>WhenIsBetter</title>
+    <title>When.</title>
     <script>
     var days = new Set([]);
 
@@ -64,7 +64,8 @@
     }
 
     window.onload = function() {
-        $("body").css("display", "block");
+        $("#navbar").load("shared/menubar.html");
+
         updatename();
         function updatename(){
             if(document.calForm.event.value!= ""){
@@ -99,12 +100,16 @@
             $( "#calPanel" ).toggle( "slide");
             setTimeout(function(){ window.location.href = "selectTimes.html"; }, 1000);
         }
+        $("body").css("display", "block");
+
     };
     </script>
 </head>
 
 
 <body>
+<div id="navbar"></div> <!--Navigation bar-->
+<div id = "content">
 
 <form id = "calForm" name = "calForm" method = "GET" action = "">
     What's your name? <br>
@@ -163,5 +168,6 @@
         }
     }
 </script>
+</div>
 </body>
 </html>
