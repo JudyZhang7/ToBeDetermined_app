@@ -12,10 +12,12 @@
     <link rel="stylesheet" type="text/css" href="../CSS/cal.css">
 
     <meta charset="UTF-8">
-    <title>When.</title>
+    <title>tbd.</title>
     <script>
     var days = new Set([]);
-
+    function onbeforeunload(){
+        return "Your changes will not be saved.";
+    }
     $(function () {
         var isMouseDown = false,
             isHighlighted;
@@ -107,7 +109,7 @@
 </head>
 
 
-<body>
+<body onbeforeunload="return onbeforeunload()">
 <div id="navbar"></div> <!--Navigation bar-->
 <div id = "content">
 

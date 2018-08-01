@@ -9,6 +9,9 @@ function ClearAll(){
     }
 }
 
+function handler(){
+    return "Your changes will not be saved.";
+}
 // visually load the already created day cal
 function setAll(){
     console.log("[...in setAll function...]");
@@ -132,7 +135,6 @@ function finished(){
     window.sessionStorage.setItem("userDays", JSON.stringify(timesAvailableTotal));
     var userDays = JSON.parse(sessionStorage.getItem("userDays")); // An object :D
     console.log("user hours available length: " + userDays.length);
-
     // save to mongoDB...?
     addNewUser(name, event, cal, timesAvailableTotal);
 }

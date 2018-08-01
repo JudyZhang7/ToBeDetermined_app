@@ -21,8 +21,8 @@
     font-size: 20px;
     z-index: 2000;
 }
-#wib{
-    font-weight: 400;
+#tbd{
+    font-weight: 200;
     font-size: 27px;
     padding: 1px;
 }
@@ -55,8 +55,9 @@ a {
     text-align: center;
     text-decoration: none;
 }
-a:hover{
-    color: var(--highlightedColor)
+.menubutton:hover, a:hover{
+    color: var(--highlightedColor);
+    cursor: pointer
 }
 
 .logo{

@@ -35,7 +35,9 @@ h1{
 .italic{
     font-style: italic;
 }
-
+.bold{
+    font-weight: 600;
+}
 ::placeholder{
     font-style: italic;
     color: var(--lightGreyColor);
@@ -108,7 +110,7 @@ input[type=text] {
     /*border: none;*/
 }
 #logo{
-    font-size: 150px;
+    font-size: 70px;
     margin: 20px;
     margin-top: 50px;
 }

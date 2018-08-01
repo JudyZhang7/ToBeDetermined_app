@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../CSS/times.css">
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
     <script src="../JS/selectTimesFunctions.js"></script>
 
     <meta charset="UTF-8">
-    <title>WhenIsBetter</title>
+    <title>tbd.</title>
     <script>
         let socket = io.connect('http://localhost:3000');
         // testing
@@ -16,6 +17,9 @@
         socket.on('code', function(code){
             window.sessionStorage.setItem("code", code);
             console.log("saved to session. Code: " + code);
+            console.log("removing event listeners...");
+            $(window).unbind('beforeunload');
+
             window.location.href = "getCode.html";
         })
 
@@ -31,6 +35,8 @@
         }
 
         $(document).ready(function(){
+            $("#navbar").load("shared/menubar.html");
+
             let table = $("#calendar")[0];
 
             document.getElementById("currentDay").innerHTML = cal[currentDayIndex];
@@ -119,7 +125,8 @@
     </script>
 </head>
 <body>
-
+<div id="navbar"></div> <!--Navigation bar-->
+<div id = "content">
 <div id = "rightPanel">
     <div id = "event" class = "title italic marginLeft"></div>
     <div id = "name" class = "title2 italic marginLeft">by </div>
@@ -189,6 +196,6 @@
         }
 
     </script>
-
+</div>
 </body>
 </html>

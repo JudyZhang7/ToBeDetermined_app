@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WhenIsBetter</title>
+    <title>tbd.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
@@ -18,32 +18,45 @@
         }
     </style>
     <script>
-        let code = 'aO3HY';
-        // let code = window.sessionStorage.getItem("code");
+        let code = window.sessionStorage.getItem("code");
         $(document).ready(function(){
+            $("#navbar").load("shared/menubar.html");
             document.getElementById("code").innerHTML = code;
             console.log(code);
             $("body").css("display", "block");
         });
 
         function copyText() {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($('#code').text()).select();
-            document.execCommand("copy");
-            $temp.remove();
+            let txt = code;
+            txt = document.createTextNode(txt);
+            document.body.appendChild(txt);
+            if (document.body.createTextRange) {
+                var d = document.body.createTextRange();
+                d.moveToElementText(txt);
+                d.select();
+                document.execCommand('copy');
+            } else {
+                var d = document.createRange();
+                d.selectNodeContents(txt);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(d);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+            }
+            txt.remove();
         }
     </script>
 </head>
-<body>
-
-<a href="https://unsplash.com/@rucksackmag" style="float:right; margin-right: 10px;">Photo by Rucksack Magazine on Unsplash</a>
-
+<body style = "overflow:hidden;">
+<div id="navbar"></div> <!--Navigation bar-->
+<div id = "content">
 <div style = "text-align: center; padding-top: 100px;">
     <h1>Your code:</h1>
     <div id = "code" style = "font-size: 100px; font-weight: bold;"></div>
     <button id = "copy" class = "blueButton" onclick="copyText();">copy code to clipboard</button>
 </div>
+    <a href="https://unsplash.com/@rucksackmag" style="margin-left: 10px; position: fixed; bottom: 0;">Photo by Rucksack Magazine on Unsplash</a>
 
+</div>
 </body>
 </html>

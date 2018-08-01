@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WhenIsGood</title>
+    <title>tbd.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -11,6 +11,9 @@
     <link rel="stylesheet" type="text/css" href="../CSS/viewCal.css">
 
     <script>
+        // window.addEventListener("beforeunload", function(event) {
+        //     event.returnValue = "Write something clever here..";
+        // });
         let code = window.sessionStorage.getItem("userCode");
         console.log("code: " + code);
         let socket = io.connect('http://localhost:3000');
@@ -24,13 +27,14 @@
 
         socket.on('code', function(code){
             console.log("saved to joinCalendar" + code);
+            this.$window.onbeforeunload = () => null;
             window.location.href = "done.html";
         })
 
         let cal, hours, event, name, timesAvailableTemplate;
 
         $(document).ready(function() {
-
+            $("#navbar").load("shared/menubar.html");
             socket.emit('getUserCal', code); // get code from calendar database
 
             socket.on('userCal', function(result){
@@ -260,8 +264,9 @@
         }
     </script>
 </head>
-<body>
-
+<body onbeforeunload="return onbeforeunload()">
+<div id="navbar"></div> <!--Navigation bar-->
+<div id = "content">
 <div id = "rightPanel">
     <div id = "event" class = "title italic marginLeft"></div>
     <div id = "name" class = "title2 italic marginLeft">by </div>
@@ -318,6 +323,6 @@
     });
 </script>
 </div>
-
+</div>
 </body>
 </html>

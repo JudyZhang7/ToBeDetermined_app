@@ -2,10 +2,10 @@
   <artifact type="exploded-war" name="nodejs_test:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/nodejs_test_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="WhenIsBetter/web/Web" />
+      <element id="javaee-facet-resources" facet="tbd/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="WhenIsBetter" />
+          <element id="module-output" name="tbd" />
         </element>
       </element>
     </root>
