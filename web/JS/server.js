@@ -1,4 +1,4 @@
-const db = require('./user.js');
+const db = require('./userMongoFunctions.js');
 
 
 var express = require('express');
@@ -24,5 +24,9 @@ io.on('connection', function (socket) {
     //retrieve user by code
     socket.on('getUserCal', function (code){
         db.getUserCal(code, socket);
+    })
+    //retrieve all contributers
+    socket.on('getContributers', function(code){
+        db.getContributers(code, socket);
     })
 });

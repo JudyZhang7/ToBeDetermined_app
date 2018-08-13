@@ -36,6 +36,7 @@ var userSchema = new Schema({
     code: {type: String},
     calendarName: {type: String},
     name: {type: String, required: true},
+    hostname: {type: String, required: false},
     days: [{type: Number}],
     hours: {type: Number},
     newCalendar: {type: Boolean, required: true},
@@ -50,6 +51,7 @@ userSchema.methods.createJoinCal = function () {
     var cal = new User({
         code: this.code,
         name: 'JoinCalendar',
+        hostname: this.name,
         days: this.days,
         hours: this.hours,
         calendarName: this.calendarName,
@@ -70,6 +72,7 @@ userSchema.pre('save', function (next) {
         console.log('in pre-save newCalendar');
     }
     else if ((this.newCalendar !== true) && (this.name !== "JoinCalendar")){
+        console.log("[updating calendar... " + this.code + "]");
         this.updateCal(next);
     }
     next();
@@ -100,7 +103,6 @@ userSchema.methods.getCode = function() {
     }
 
     new Promise((r) => {
-        console.log("Making a promise...");
         getUniqueCode(r);
     }).then((result) => {
         //This will call if your algorithm succeeds!

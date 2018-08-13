@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>tbd.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="../JS/included/load_nav.js"></script>
+    <script src="../JS/included/select_times.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <style>
@@ -20,7 +23,6 @@
     <script>
         let code = window.sessionStorage.getItem("code");
         $(document).ready(function(){
-            $("#navbar").load("shared/menubar.html");
             document.getElementById("code").innerHTML = code;
             console.log(code);
             $("body").css("display", "block");

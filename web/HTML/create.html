@@ -1,0 +1,230 @@
+<!--things to do: -->
+<!--have the left and right arrow keys control the calendar-->
+<!--have the right panel of all available days-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="../JS/included/load_nav.js"></script>
+    <script src="../JS/included/realtime_cal.js"></script>
+    <!--<script src="../JS/included/select_times.js"></script>-->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../CSS/cal.css">
+
+    <meta charset="UTF-8">
+    <title>tbd.</title>
+    <script>
+        window.onbeforeunload = function () {
+            return 'You have not yet saved your work. Do you want to continue? Doing so, may cause loss of your work';
+        }
+
+        var days = new Set([]);
+
+        $(function () {
+            var isMouseDown = false,
+                isHighlighted;
+
+            $("#calendar td").mousedown(function () {
+                isMouseDown = true;
+                $(this).toggleClass("highlighted");
+                //if in array, remove. if not, add.
+                if (days.has(this.innerHTML)) {
+                    days.delete(this.innerHTML);
+                } else {
+                    days.add(this.innerHTML);
+                }
+                console.log("the day is: " + this.innerHTML + " calendar length: " + days.size);
+
+                isHighlighted = $(this).hasClass("highlighted");
+                return false; // prevent text selection
+            })
+                .mouseover(function () {
+                    if (isMouseDown) {
+                        $(this).toggleClass("highlighted", isHighlighted);
+                        if (days.has(this.innerHTML)) {
+                            days.delete(this.innerHTML);
+                        } else {
+                            days.add(this.innerHTML);
+                        }
+                    }
+                })
+                .bind("selectstart", function () {
+                    return false;
+                })
+
+            $(document).mouseup(function () {
+                isMouseDown = false;
+            });
+        });
+
+        //clear all button
+        function ClearAll() {
+            var x = document.getElementById("calendar");
+            var y = x.getElementsByTagName("td");
+            for (var i = 0; i < y.length; i++) {
+                y[i].classList.remove("highlighted");
+            }
+            days.clear();
+        }
+
+        window.onload = function () {
+            $("#navbar").load("shared/menubar.html");
+            document.getElementById("month").innerHTML += monthNames[new Date().getMonth()];
+            updatename();
+
+            function updatename() {
+                if (document.calForm.event.value != "") {
+                    document.getElementById('eventName').innerHTML = document.calForm.event.value;
+                }
+                setTimeout(updatename, 100);
+            }
+
+            document.getElementById("letsGo").onclick = function () {
+                saveCal()
+            };
+
+            function saveCal() {
+                if (days.size == 0) {
+                    alert('Please select at least one day.');
+                    return;
+                }
+                let name = document.calForm.name.value;
+                let event = document.calForm.event.value;
+                if (name === "") {
+                    alert("Please enter your name.");
+                    return;
+                }
+                if (event === "") {
+                    alert("Please enter an event name.");
+                    return;
+                }
+                let strUserCal = Array.from(days);
+                let userCal = strUserCal.map(Number);
+                userCal.sort(sortNumber); // sort in numerical order
+                window.sessionStorage.setItem("name", name);
+                window.sessionStorage.setItem("event", event);
+                window.sessionStorage.setItem("userCal", JSON.stringify(userCal));
+                var cal = JSON.parse(sessionStorage.getItem("userCal")); // An object :D
+                console.log("user calendar length: " + cal);
+
+                $("#calPanel").toggle("slide");
+                setTimeout(function () {
+                    window.onbeforeunload = null;
+                    window.location.href = "selectTimes.html";
+                }, 1000);
+            }
+
+            $("body").css("display", "block");
+
+        };
+    </script>
+</head>
+
+<body>
+<div id="navbar"></div> <!--Navigation bar-->
+<div id="content">
+
+    <form id="calForm" name="calForm" method="GET" action="">
+        What's your name? <br>
+        <input id="name" type="text" placeholder="alex"><br>
+        What's the occasion? <br>
+        <input id="event" type="text" placeholder="coffee at joe's"><br>
+        <div style = "font-weight: 400">Select the dates on the right >></div>
+
+    </form>
+
+    <div id="calPanel" class="bblue right">
+
+        <div id="eventName" class="title">coffee at joe's</div>
+
+        <table cellpadding="0" cellspacing="0" id="calendar_top" class = "right">
+            <tr><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr>
+        </table>
+
+        <table cellpadding="0" cellspacing="0" id="calendar" class="right">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="title whiteText" id="month" style="display:inline-block;"></div>
+        <div id="letsGo" class="title right whiteText" style="display: inline-block;">Let's Go
+            <i class="fas fa-angle-right"></i>
+        </div>
+        <button id="clearAll" class="button right" onclick="ClearAll();">Clear all</button>
+    </div>
+    <script>
+        //set the dates and grey out boxes that are not selectable (real) days
+        var table = document.getElementById("calendar");
+        var date = 0;
+
+        var r = 0;
+        while (row = table.rows[r++]) {
+            var c = 0;
+            while (cell = row.cells[c++]) {
+                if (DayArray[date] === "") {
+                    cell.classList.add("dbluestripes");
+                    cell.classList.add("notAvailable");
+                }
+                cell.innerHTML = DayArray[date]; // do sth with cell
+                date++;
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

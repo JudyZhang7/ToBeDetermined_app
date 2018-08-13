@@ -1,7 +1,7 @@
-var User = require('./access_mongoDB.js');
+var UserMongoFunctions = require('./access_mongoDB.js');
 
 //delete all users from database
-// User.remove({}, function (err) {});
+// UserMongoFunctions.remove({}, function (err) {});
 
 //timesAvailable is a 2D array of times available
 function addNewUser(_user, socket){
@@ -23,7 +23,7 @@ function addNewUser(_user, socket){
         }
     }
 
-    var newUser = new User({
+    var newUser = new UserMongoFunctions({
         code: _code,
         calendarName: _calendarName,
         name: _name,
@@ -46,7 +46,7 @@ function addNewUser(_user, socket){
 }
 
 function getUser(code, socket){
-    User.findOne({code: code}, function(err, result) {
+    UserMongoFunctions.findOne({code: code}, function(err, result) {
         if (err) throw err;
         if(result === null) {
             socket.emit('codeValidation', false);
@@ -58,19 +58,28 @@ function getUser(code, socket){
 
 //code is guaranteed to exist
 function getUserCal(code, socket){
-    User.findOne({code: code, name: 'JoinCalendar'}, function(err, result) {
+    UserMongoFunctions.findOne({code: code, name: 'JoinCalendar'}, function(err, result) {
         if (err) throw err;
-        console.log(result.name);
+        console.log("RESULT FROM: " + result.name + "\n" + result)
         socket.emit('userCal', result);
     });
+}
+
+function getContributers(code, socket){
+    UserMongoFunctions.find({code: code, name: { $ne: 'JoinCalendar' }}, { name: 1, _id: 0 }, function(err, result){
+        if (err) throw err;
+        console.log("GOT THE CONTRIBIUTERS USER MONGO FUNCTIONS " + result);
+        socket.emit('contributers', result);
+    })
 }
 
 module.exports = {
     addNewUser,
     getUser,
-    getUserCal
+    getUserCal,
+    getContributers
 }
-// var newUser = new User({
+// var newUser = new UserMongoFunctions({
 //     name: 'starlord55',
 //     code: 'jkSN7',
 //     days: 2,
@@ -87,7 +96,7 @@ module.exports = {
 //
 // });
 //
-// var newUser = new User({
+// var newUser = new UserMongoFunctions({
 //     name: 'gamora69',
 //     code: 'jkSN7',
 //     days: 2,

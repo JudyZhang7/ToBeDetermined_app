@@ -6,19 +6,18 @@
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <link rel="stylesheet" type="text/css" href="../CSS/times.css">
     <link rel="stylesheet" type="text/css" href="../CSS/viewCal.css">
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="../JS/included/load_nav.js"></script>
     <script>
+        let socket = io.connect('http://localhost:3000');
         let code = window.sessionStorage.getItem("userCode");
         console.log("userCode: " + code);
         //let code = 'ndCXN'; // for testing purposes!
-        let socket = io.connect('http://localhost:3000');
-        let cal, hours, event, name, timesAvailableTemplate;
+        let cal, hours, event, name, timesAvailableTemplate, host;
 
         $(document).ready(function() {
-            $("#navbar").load("shared/menubar.html");
+            $("#navbar").load("shared/menubar.html"); // need to keep bc not including selectTimesFunction
             socket.emit('getUserCal', code); // get code from calendar database
 
             socket.on('userCal', function(result){
@@ -27,6 +26,7 @@
                 hours = result.hours;
                 event = result.calendarName;
                 name = result.name;
+                host = result.hostname;
                 console.log(name);
                 timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
 
@@ -47,7 +47,7 @@
                         innerHTMLText += '</div>';
                     }
                     $('#calDays').html(innerHTMLText);
-                    $('#calName').html(event);
+                    $('#calName').html(event + " <div id = \"host\" style = \"font-weight: 100; display: inline-block; font-size: 40px;\">by: " + host + "</div>");
                     $('#calCode').html("code: " + code);
                     for (let j = 0; j < cal.length; j++) {
                         let hourIndex = hours * j;
@@ -83,14 +83,14 @@
 <body>
 <div id="navbar"></div> <!--Navigation bar-->
 <div id = "content">
-<h1 class = "center marginTop" style="color: black">Perfect! You're all set.</h1>
+<h1 class = "center marginTop" style="color: black; margin-top: 20%">Perfect! You're all set.</h1>
 <div style="text-align:center;">
     <button id="timesButton" class = "trigger button">Show all times</button>
 </div>
 
 <div class="slider close">
 
-    <div id = "xout" class = "trigger">[close X]</div>
+    <div id = "xout" class = "trigger">[close X]</div><br>
     <div id = "calName"></div>
     <div id = "calCode"></div>
     <div id = "calDays"></div>
@@ -99,7 +99,6 @@
             $('.slider').toggleClass('close');
         });
     </script>
-
 </div>
 </div>
 

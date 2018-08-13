@@ -6,35 +6,54 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script src="../JS/selectTimesFunctions.js"></script>
-    <link rel="stylesheet" type="text/css" href="../CSS/times.css">
+    <script src="../JS/included/load_nav.js"></script>
+    <script src="../JS/included/realtime_cal.js"></script>
+    <script src="../JS/included/select_times.js"></script>
+    <script src="../JS/included/pullup_cal.js"></script>
+
+
     <link rel="stylesheet" type="text/css" href="../CSS/viewCal.css">
-
+    <link rel="stylesheet" type="text/css" href="../CSS/times.css">
     <script>
-        // window.addEventListener("beforeunload", function(event) {
-        //     event.returnValue = "Write something clever here..";
-        // });
-        let code = window.sessionStorage.getItem("userCode");
-        console.log("code: " + code);
-        let socket = io.connect('http://localhost:3000');
-        let user;
-        let currentDayIndex = 0;
-        let timesAvailableTotal = [];
-        let timesAvailableDay = []; //array of days available init to FALSE
-        for(let i = 0; i < 16; i++){
-            timesAvailableDay.push(false)
+        window.onbeforeunload = function () {
+            return 'You have not yet saved your work. Do you want to continue? Doing so, may cause loss of your work';
         }
-
         socket.on('code', function(code){
-            console.log("saved to joinCalendar" + code);
-            this.$window.onbeforeunload = () => null;
+            window.sessionStorage.setItem("code", code);
+            console.log("saved to session. Code: " + code);
+            console.log("removing event listeners...");
+            window.onbeforeunload = null;
             window.location.href = "done.html";
         })
+        let code = window.sessionStorage.getItem("userCode");
+        console.log("code: " + code);
+        let user;
 
-        let cal, hours, event, name, timesAvailableTemplate;
+        let currentDayIndex = 0; //keeps track of which day array in timesAvailableTotal we are on.
+        let timesAvailableTotal = [];
+        let timesAvailableDay = []; //array of days available init to FALSE
+        // fill up all the timesAvailableDay with false
+        for(let i = 0; i < hoursInADay; i++){
+            timesAvailableDay.push(false);
+        }
+
+        let cal, hours, timesAvailableTemplate;
 
         $(document).ready(function() {
-            $("#navbar").load("shared/menubar.html");
+            // !!!get user input name
+            $('#getNameForm').submit(function (e) {
+                e.preventDefault(); // Prevent form submission which refreshes page
+                let userInputName = document.getNameForm.yourName.value;
+                console.log("userInputname: " + userInputName);
+                if(userInputName === ""){
+                    alert("Please enter a name.");
+                } else{
+                    name = userInputName;
+                    $("#greyOut").css("display", "none");
+                    $("#getNamePopup").css("display", "none");
+                    $("#content").css("pointer-events", "all");
+                }
+            });
             socket.emit('getUserCal', code); // get code from calendar database
 
             socket.on('userCal', function(result){
@@ -42,166 +61,25 @@
                 cal = result.days;
                 hours = result.hours;
                 event = result.calendarName;
-                name = result.name;
+                // name = result.hostname;
+                host = result.hostname
                 timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
-
-
-                $(function () {
-                    console.log("days: " + cal);
-                    timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
-
-                    let innerHTMLText = '';
-                    for (let i = 0; i < cal.length; i++) {
-                        innerHTMLText += '<div id = "dayTable">';
-                        innerHTMLText += '<div id = "date"> July ' + cal[i] + '</div><br>';
-                        innerHTMLText += '<table cellpadding="0" cellspacing="0" id="' + i + '" class = "summaryTable">\n' +
-                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
-                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
-                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
-                            '    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>\n' +
-                            '</table>'
-                        innerHTMLText += '</div>';
+                // fill up all the timesAvailableTotal with false to start with
+                for(let j = 0; j < cal.length; j++ ){
+                    let emptyDays = [];
+                    for(let i = 0; i < hoursInADay; i++){
+                        emptyDays.push(false);
                     }
-                    $('#calDays').html(innerHTMLText);
-                    $('#calName').html(event);
-                    $('#calCode').html("code: " + code);
-                    for (let j = 0; j < cal.length; j++) {
-                        let hourIndex = hours * j;
-                        let timeIndex = 0;
-                        var timetable = document.getElementById(j);
-                        var date = 8;
-
-                        var r = 0;
-                        while (row = timetable.rows[r++]) {
-                            var c = 0;
-                            while (cell = row.cells[c++]) {
-                                if (date > 12) {
-                                    cell.innerHTML = (date - 12) + ":00 PM"; // do sth with cell
-                                }
-                                else {
-                                    cell.innerHTML = date + ":00 AM"; // do sth with cell
-                                }
-                                if (timesAvailableTemplate[hourIndex + timeIndex].available === true) {
-                                    cell.classList.add("highlighted");
-                                }
-                                date++;
-                                timeIndex++;
-                            }
-                        }
-                    }
-                }); // update the pullup calendar
-                $(function () {
-                    let hourIndex = hours*currentDayIndex;
-                    let timeIndex = hourIndex;
-
-                    let timetable = document.getElementById("hoursInADay");
-                    let date = 8;
-
-                    let r = 0;
-                    while (row = timetable.rows[r++]) {
-                        let c = 0;
-                        while (cell = row.cells[c++]) {
-                            if (date > 12) {
-                                cell.innerHTML = (date - 12) + ":00 PM"; // do sth with cell
-                            }
-                            else {
-                                cell.innerHTML = date + ":00 AM"; // do sth with cell
-                            }
-                            // grey out if day is not available to be selected
-                            console.log("index of cal: " + (hourIndex + timeIndex));
-                            if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
-                                cell.classList.add("notAvailable");
-                                cell.innerHTML = "NOT AVAILABLE";
-                            }
-                            date++;
-                            timeIndex++;
-                        }
-                    }
-                }) //display the time in hours of the day and grey out any day that is false from calendar already
-
-                let table = $("#calendar")[0];
-                // set name, event name, and the current date
-                document.getElementById("currentDay").innerHTML = cal[currentDayIndex];
-                document.getElementById("event").innerHTML = event;
-                document.getElementById("name").innerHTML += name;
-
-                $("#rightPanel").slideDown("");
-
-                //set the color of current day on calendar
-                let date = 1;
-                let r=0;
-                let first = true;
-                while(row=table.rows[r++])
-                {
-                    let c=0;
-                    while(cell=row.cells[c++])
-                    {
-                        console.log(date);
-                        cell.innerHTML=date;
-                        let color = '#CBCBCB';
-                        if(cal.includes(date)){ // in database, date is saved as a number
-                            if (first){
-                                color = '#FFC99B';
-                                first = false;
-                            }
-                            let cell = table.rows[r-1].cells[c-1];
-                            //highlight selected cells
-                            $(cell).css('background-color', color);
-                        }
-                        date++;
-                    }
+                    timesAvailableTotal.push(emptyDays);
+                    console.log("[timesAvailableTotal just created... length is: ] " + timesAvailableTotal.length);
                 }
-                $(function () {
-                    let isMouseDown = false,
-                        isHighlighted;
 
-                    $("#hoursInADay td").mousedown(function () {
-                        let selectedIndex = ($( "td" ).index( this ) - 35);
-                        console.log("index of selected: " + selectedIndex);
-                        isMouseDown = true;
-                        $(this).toggleClass("highlighted");
-                        //if in array, remove. if not, add.
-                        if(timesAvailableDay[selectedIndex] === true){
-                            timesAvailableDay[selectedIndex] = false;
-                        } else{
-                            timesAvailableDay[selectedIndex] = true;
-                        }
-                        // TESTING
-                        let daysAvailable = 0;
-                        for(let p = 0; p < timesAvailableDay.length; p++){
-                            if(timesAvailableDay[p] === true){
-                                daysAvailable ++;
-                            }
-                        }
-                        console.log("the day is: " + this.innerHTML + " calendar length: " + daysAvailable);
-
-                        isHighlighted = $(this).hasClass("highlighted");
-                        return false; // prevent text selection
-                    })
-                        .mouseover(function () {
-                            if (isMouseDown) {
-                                let selectedIndex = ($( "td" ).index( this ) - 35);
-                                $(this).toggleClass("highlighted", isHighlighted);
-                                if(timesAvailableDay[selectedIndex] === true){
-                                    timesAvailableDay[selectedIndex] = false;
-                                } else{
-                                    timesAvailableDay[selectedIndex] = true;
-                                }
-                            }
-                        })
-                        .bind("selectstart", function () {
-                            return false;
-                        })
-
-                    $(document).mouseup(function () {
-                        isMouseDown = false;
-                    });
-                }); // selecting times
+                callback(false); // isNewCal = false
+                pullupCal(result); // init pull-up calendar
             })
-            $("body").css("display", "block");
         });
 
-        // redefining addNewUser function for user saving to not a new cal
+        // redefining addNewUser function for user saving to NOT a new cal
         function addNewUser(name, event, caldays, timesAvailableTotal) {
             var userData = {
                 code: code,
@@ -211,106 +89,77 @@
                 newCalendar: false,
                 calendar: timesAvailableTotal
             };
-            console.log(timesAvailableTotal);
+            console.log(name + "'s availability: " + timesAvailableTotal);
             socket.emit('saveUser', JSON.stringify(userData));
         }
-        function updateCal(isNextDay){
-            //[ *** save the previous calendar before moving to new one *** ]
-            saveHours();
-            //[ *** update the coloring on calendar. *NOTE: updateCalHighlight also increments/decrements on day *** ]
-            updateCalHighlight(isNextDay);
-            $(function () {
-                let hourIndex = hours*currentDayIndex;
-                let timeIndex = hourIndex;
-
-                let timetable = document.getElementById("hoursInADay");
-                let date = 8;
-
-                let r = 0;
-                while (row = timetable.rows[r++]) {
-                    let c = 0;
-                    while (cell = row.cells[c++]) {
-                        if (date > 12) {
-                            cell.innerHTML = (date - 12) + ":00 PM"; // do sth with cell
-                        }
-                        else {
-                            cell.innerHTML = date + ":00 AM"; // do sth with cell
-                        }
-                        // grey out if day is not available to be selected
-                        console.log("index of cal: " + (hourIndex + timeIndex));
-                        cell.classList.remove("notAvailable");
-                        if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
-                            cell.classList.add("notAvailable");
-                            cell.innerHTML = "NOT AVAILABLE";
-                        }
-                        date++;
-                        timeIndex++;
-                    }
-                }
-            });
-
-            //[ *** set up the hours cal to work on *** ]
-            if(currentDayIndex >= timesAvailableTotal.length){ // work on new blank day
-                console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
-                ClearAll();
-            }
-            else { // load and update already created day
-                console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
-                timesAvailableDay = timesAvailableTotal[currentDayIndex];
-                console.log(timesAvailableDay);
-                console.log(timesAvailableTotal);
-                setAll();
-            }
-        }
+        // function updateCal(isNextDay){
+        //     //[ *** save the previous calendar before moving to new one *** ]
+        //     saveHours();
+        //     //[ *** update the coloring on calendar. *NOTE: updateCalHighlight also increments/decrements on day *** ]
+        //     updateCalHighlight(isNextDay);
+        //     $(function () {
+        //         let hourIndex = hours*currentDayIndex;
+        //         // let timeIndex = hourIndex;
+        //         let timeIndex = 0;
+        //         console.log("hours: " + hours + " currentDayIndex: " + currentDayIndex + " hourIndex: " + hourIndex);
+        //         let timetable = document.getElementById("hoursInADay");
+        //         let hourtime = 8;
+        //         console.log("HOURINDEX: " + hourIndex + " TIMEINDEX: " + timeIndex);
+        //         let r = 0;
+        //         while (row = timetable.rows[r++]) {
+        //             let c = 0;
+        //             while (cell = row.cells[c++]) {
+        //                 if (hourtime > 12) {
+        //                     cell.innerHTML = (hourtime - 12) + ":00 PM"; // do sth with cell
+        //                 }
+        //                 else {
+        //                     cell.innerHTML = hourtime + ":00 AM"; // do sth with cell
+        //                 }
+        //                 // grey out if day is not available to be selected
+        //                 // console.log("index of cal: " + (hourIndex + timeIndex));
+        //                 cell.classList.remove("greystripes");
+        //                 if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
+        //                     cell.classList.add("greystripes");
+        //                     cell.innerHTML = "NOT AVAILABLE";
+        //                 }
+        //                 hourtime++;
+        //                 timeIndex++;
+        //             }
+        //         }
+        //     });
+        //
+        //     //[ *** set up the hours cal to work on *** ]
+        //     if(currentDayIndex >= timesAvailableTotal.length){ // work on new blank day
+        //         console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
+        //         clearAll();
+        //     }
+        //     else { // load and update already created day
+        //         console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
+        //         timesAvailableDay = timesAvailableTotal[currentDayIndex];
+        //         console.log(timesAvailableDay);
+        //         console.log(timesAvailableTotal);
+        //         setHoursCal();
+        //     }
+        // }
     </script>
 </head>
 <body onbeforeunload="return onbeforeunload()">
 <div id="navbar"></div> <!--Navigation bar-->
-<div id = "content">
-<div id = "rightPanel">
-    <div id = "event" class = "title italic marginLeft"></div>
-    <div id = "name" class = "title2 italic marginLeft">by </div>
-    <br>
-    <!--right panel calendar -->
 
-    <table cellpadding="0" cellspacing="0" id="calendar" class = "">
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-    </table>
-
+<div id = "greyOut"></div>
+<div id="getNamePopup">
+    <form id = "getNameForm" name = "getNameForm">
+        what's your name?
+        <input id = "yourName" name = "yourName" type = "text">
+    </form>
 </div>
 
-<table cellpadding="0" cellspacing="0" id="hoursInADay" class = "">
-    <div id = "day" style="top: 20px" class = "title">July <div id = "currentDay"></div></div>
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-</table>
 
-<button id = "prevButton" onclick="arrow(false);"> <i id="prev" class="fas fa-angle-left"></i> </button>
-<button id = "nextButton" onclick="arrow(true);"> <i id="next" class="fas fa-angle-right"></i> </button>
+<div id = "content" style = "pointer-events: none;">
+    <div id = "rightPanel"></div> <!--Month calendar panel-->
+    <div id = "selectHours"></div> <!--Select hours in a day panel-->
 
-<button id = "clearAll" class = "button" onclick="ClearAll();">Clear all</button>
 <button id = "showAllDays" class = "trigger button">Show all times</button>
-<button id = "done" class = "button" onclick="finished();">I'm done!</button>
 
 <div class="slider close">
     <div id = "xout" class = "trigger">[close X]</div>

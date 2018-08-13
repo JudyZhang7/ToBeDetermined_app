@@ -1,14 +1,13 @@
 @import url("index.css");
 
 table{
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    /*margin-bottom: 20px;*/
     position: relative;
-    width: 100%;
 }
 table td {
-    width:70px;
-    height:70px;
+    width: 10vh;
+    height: 10vh;
     text-align:center;
     background-color: white;
     border:3px solid var(--blueBackgroundColor);
@@ -16,6 +15,15 @@ table td {
 
 table td.highlighted {
     background-color: var(--highlightedColor);
+}
+#calendar_top td{
+    height: 2vh;
+    background-color: transparent;
+    width: 10vh;
+    text-align: center;
+    color: white;
+    border: none;
+    border:3px solid transparent;
 }
 
 #month{
@@ -26,11 +34,11 @@ table td.highlighted {
     position:relative;
     text-align:center;
     background-color: var(--darkGreyColor);
-    width: 150px;
+    width: 100px;
     height: 30px;
     color: white;
     display:block;
-    margin-bottom: 20px;
+    margin: 10px 0;
 }
 
 #eventName{
@@ -50,4 +58,8 @@ table td.highlighted {
     margin-left: 10%;
     margin-top: 20%;
     font-size: 30px;
+}
+#calPanel{
+    width: 40%;
+    height: 100vh;
 }

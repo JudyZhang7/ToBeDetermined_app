@@ -19,6 +19,9 @@ table#hoursInADay{
     left: 20%;
     display:inline;
 }
+#calendar{
+    margin-left: 0;
+}
 table td {
     width:200px;
     height:30px;
@@ -29,44 +32,44 @@ table td {
     color: white;
 }
 
-table#calendar{
-    margin-top: 20px;
-    margin-bottom: 60px;
-    position: relative;
-    left: 5%;
+table#calendar, table#calendar_top{
+    margin: 0px 8%;
+    left: 0;
 }
 
-#calendar td{
-    width:65px;
-    height:65px;
+#calendar td, #calendar_top td{
+    width: 9vh;
+    height: 9vh;
     text-align:center;
     vertical-align:middle;
     background-color: white;
-    border:1px solid var(--blueBackgroundColor);
+    border:2px solid var(--blueBackgroundColor);
     color: black;
+}
+#calendar_top td{
+    height: 2vh;
+    background-color: transparent;
+    color: white;
+    border: none;
 }
 
 #days{
-    /*background-color: black;*/
     margin: 20px;
 }
 
 table td.highlighted {
     background-color: var(--highlightedColor);
+
 }
 
 .highlighted {
     background-color: var(--highlightedColor);
+    z-index: 100;
 }
-.notAvailable{
-    background-color: var(--lightGreyColor);
-    pointer-events: none;
-}
-#clearAll, #done, #showAllDays{
+
+#clearAll, #showAllDays, #done{
     position:relative;
     text-align:center;
-    left: 42%;
-    top: -85px;
     background-color:var(--darkGreyColor);
     width: 150px;
     height: 30px;
@@ -74,7 +77,15 @@ table td.highlighted {
     display:block;
     margin-bottom: 20px;
 }
-
+#clearAll, #showAllDays{
+    left: 42%;
+    top: -85px;
+}
+#done{
+    top: 20px;
+    float: right;
+    margin-right: 10%;
+}
 #day{
     position: absolute;
     margin: auto;
@@ -86,19 +97,19 @@ table td.highlighted {
 }
 #next, #prev{
     font-size: 100px;
-    display:inline;
+    display: block;
     margin: auto;
     top: 0;
     bottom: 20%;
     left: 45%;
     width: 100px;
     height: 100px;
-    position: absolute;
 }
 
 #nextButton, #prevButton{
-    margin: 20px;
+    margin: 5px;
     position: relative;
+    display: inline;
     left: 22%;
     top: 250px;
     border: none;
@@ -107,6 +118,7 @@ table td.highlighted {
     font-size: 16px;
     border-radius: 20px;
     color: var(--darkGreyColor);
+    background-color: transparent;
 }
 
 #nextButton:active, #prevButton:active{
@@ -128,13 +140,15 @@ table td.highlighted {
 }
 .slider {
     position: absolute;
-    width: 90vw;
+    left: 10vw;
+    width: 80vw;
     height: 100vh;
     top: 0;
     overflow: scroll;
-    background-color: var(--darkGreyColor);
+    background-color: rgba(0, 0, 0, 0.8);
     color: #FFF;
     transition: all 1s;
+    z-index: 9000;
 }
 
 .slider.close {
@@ -143,7 +157,47 @@ table td.highlighted {
 }
 
 #xout{
-    float: right;
     cursor: pointer;
     margin: 10px;
+    position: fixed;
+    right: 10vw;
+}
+
+#getNamePopup{
+    position: fixed;
+    margin: 30%;
+    margin-top: 15%;
+    text-align: center;
+    z-index: 10002;
+    font-size: 40px;
+    color: white;
+}
+#getNameForm input[type=text] {
+    text-align: center;
+    margin: 0px;
+    width: 300px;
+    height: 30px;
+    font-size: 30px;
+    font-weight: 100;
+    outline: none;
+    border: none;
+    padding: 5px;
+    background-color: var(--darkGreyColor);
+    color: white;
+}
+#greyOut{
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10001;
+}
+#currentDayAndMonth{
+    width: 200px;
+    position: fixed;
+    top: 50vh;
+    left: 5vh;
 }

@@ -23,9 +23,20 @@ h1{
     margin-bottom: 5px;
     font-size: 65px;
 }
+
 #content{
     margin-top: 29px;
 }
+/*.notAvailable{*/
+    /*background: repeating-linear-gradient(*/
+            /*45deg,*/
+            /*#2e536f,*/
+            /*#2e536f 5px,*/
+            /*#78a3c5 5px,*/
+            /*#78a3c5 10px*/
+    /*);*/
+    /*pointer-events: none;*/
+/*}*/
 .blackText{
     color: black;
 }
@@ -38,6 +49,20 @@ h1{
 .bold{
     font-weight: 600;
 }
+.dbluestripes{
+    background: repeating-linear-gradient(
+            45deg,
+            #2e536f,
+            #2e536f 5px,
+            #78a3c5 5px,
+            #78a3c5 10px
+    );
+    pointer-events: none;
+}
+.available{
+    background-color: rgba(0, 200, 0, 0.5);
+}
+
 ::placeholder{
     font-style: italic;
     color: var(--lightGreyColor);

@@ -1,30 +1,14 @@
 <!-- MENU BAR -->
 <link rel="stylesheet" type="text/css" href="../CSS/menubar.css" />
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
 <script>
-    function getCode(nextPage){
-        //check if code is valid
-        let code = document.entry.code.value;
-        window.sessionStorage.setItem("userCode", code);
-        console.log(code);
-        socket.emit('getUser', code);
-        socket.on('codeValidation', function(result){
-            if(result === true){
-                document.getElementById("entry").action =
-                    nextPage;
-                document.getElementById("entry").submit();
-
-            } else{
-                alert("Invalid code. Please try again.");
-                document.getElementById("entry").submit();
-            }
-        })
-    }
+    let socket = io.connect('http://localhost:3000');
 </script>
 
 <div id = "navbar">
     <a href="index.html" id = "tbd">tb<div class = 'bold' style = "display: inline-block">d</div>.</a>
-    <a href="createCal.html" id = "new">> new event</a>
+    <a href="create.html" id = "new">> new event</a>
     <form id = "menubarForm" name = "entry" onsubmit="getCode()">
         enter event code
 

@@ -5,197 +5,51 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../CSS/times.css">
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-
-    <script src="../JS/selectTimesFunctions.js"></script>
+    <script src="../JS/included/load_nav.js"></script>
+    <script src="../JS/included/realtime_cal.js"></script>
+    <script src="../JS/included/select_times.js"></script>
 
     <meta charset="UTF-8">
     <title>tbd.</title>
     <script>
-        let socket = io.connect('http://localhost:3000');
-        // testing
+        window.onbeforeunload = function () {
+            return 'You have not yet saved your work. Do you want to continue? Doing so, may cause loss of your work';
+        }
         // socket.emit('getUser', 'CFwo2');
         socket.on('code', function(code){
             window.sessionStorage.setItem("code", code);
             console.log("saved to session. Code: " + code);
             console.log("removing event listeners...");
-            $(window).unbind('beforeunload');
-
+            window.onbeforeunload = null;
             window.location.href = "getCode.html";
         })
-
+        // !!!SETUP FOR NEW CALENDAR -- DO NOT MOVE THESE: cal, currenDayIndex, timesAvailableTotal/Day are variables for a NEW calendar
         let cal = JSON.parse(window.sessionStorage.getItem("userCal")); // An object :D, 1D array of days
         console.log(cal);
-        let currentDayIndex = 0;
-        let event = window.sessionStorage.getItem("event"); // An object :D, 1D array of days
-        let name = window.sessionStorage.getItem("name");
+        let currentDayIndex = 0; //keeps track of which day array in timesAvailableTotal we are on.
         let timesAvailableTotal = [];
         let timesAvailableDay = []; //array of days available init to FALSE
-        for(let i = 0; i < 16; i++){
-            timesAvailableDay.push(false)
-        }
-
-        $(document).ready(function(){
-            $("#navbar").load("shared/menubar.html");
-
-            let table = $("#calendar")[0];
-
-            document.getElementById("currentDay").innerHTML = cal[currentDayIndex];
-            document.getElementById("event").innerHTML = event;
-            document.getElementById("name").innerHTML += name;
-
-            $("body").css("display", "block");
-            $("#rightPanel").slideDown("");
-
-            //set the dates
-            let date = 1;
-
-            let r=0;
-            let first = true;
-            while(row=table.rows[r++])
-            {
-                let c=0;
-                while(cell=row.cells[c++])
-                {
-                    console.log();
-                    cell.innerHTML=date;
-                    let color = '#CBCBCB';
-                    if(cal.includes(date.toString())){
-                        if (first){
-                            color = '#FFC99B';
-                            first = false;
-                        }
-                        console.log("FOUND!!" + date);
-                        let cell = table.rows[r-1].cells[c-1];
-                        //highlight selected cells
-                        $(cell).css('background-color', color);
-                    }
-                    date++;
-                }
+        // fill up all the timesAvailableTotal with false to start with
+        for(let j = 0; j < cal.length; j++ ){
+            let emptyDays = [];
+            for(let i = 0; i < hoursInADay; i++){
+                emptyDays.push(false);
             }
-        });
-
-        console.log("first day is: " + cal[0]);
-
-        $(function () {
-            let isMouseDown = false,
-                isHighlighted;
-
-            $("#hoursInADay td").mousedown(function () {
-                let selectedIndex = ($( "td" ).index( this ) - 35);
-                console.log("index of selected: " + selectedIndex);
-                isMouseDown = true;
-                $(this).toggleClass("highlighted");
-                //if in array, remove. if not, add.
-                if(timesAvailableDay[selectedIndex] === true){
-                    timesAvailableDay[selectedIndex] = false;
-                } else{
-                    timesAvailableDay[selectedIndex] = true;
-                }
-                // TESTING
-                let daysAvailable = 0;
-                for(let p = 0; p < timesAvailableDay.length; p++){
-                    if(timesAvailableDay[p] === true){
-                        daysAvailable ++;
-                    }
-                }
-                console.log("the day is: " + this.innerHTML + " calendar length: " + daysAvailable);
-
-                isHighlighted = $(this).hasClass("highlighted");
-                return false; // prevent text selection
-            })
-                .mouseover(function () {
-                    if (isMouseDown) {
-                        let selectedIndex = ($( "td" ).index( this ) - 35);
-                        $(this).toggleClass("highlighted", isHighlighted);
-                        if(timesAvailableDay[selectedIndex] === true){
-                            timesAvailableDay[selectedIndex] = false;
-                        } else{
-                            timesAvailableDay[selectedIndex] = true;
-                        }
-                    }
-                })
-                .bind("selectstart", function () {
-                    return false;
-                })
-
-            $(document).mouseup(function () {
-                isMouseDown = false;
-            });
-        });
+            timesAvailableTotal.push(emptyDays);
+            console.log("[timesAvailableTotal just created... length is: ] " + timesAvailableTotal.length);
+        }
+        // fill up all the timesAvailableDay with false
+        for(let i = 0; i < hoursInADay; i++){
+            timesAvailableDay.push(false);
+        }
+        callback(true); // is NewCal = true;
     </script>
 </head>
 <body>
 <div id="navbar"></div> <!--Navigation bar-->
 <div id = "content">
-<div id = "rightPanel">
-    <div id = "event" class = "title italic marginLeft"></div>
-    <div id = "name" class = "title2 italic marginLeft">by </div>
-    <br>
-    <!--right panel calendar -->
-
-    <table cellpadding="0" cellspacing="0" id="calendar" class = "">
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
-        </tr>
-    </table>
-
-</div>
-
-    <table cellpadding="0" cellspacing="0" id="hoursInADay" class = "">
-    <div id = "day" style="top: 20px" class = "title">July <div id = "currentDay"></div></div>
-
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-    <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-    </table>
-
-    <button id = "prevButton" onclick="arrow(false);"> <i id="prev" class="fas fa-angle-left"></i> </button>
-    <button id = "nextButton" onclick="arrow(true);"> <i id="next" class="fas fa-angle-right"></i> </button>
-
-    <button id = "clearAll" class = "button" onclick="ClearAll();">Clear all</button>
-
-    <button id = "done" class = "button" onclick="finished();">I'm done!</button>
-
-    <script>
-        //set the dates
-        var timetable=document.getElementById("hoursInADay");
-        var date = 8;
-
-        var r=0;
-        while(row=timetable.rows[r++])
-        {
-            var c=0;
-            while(cell=row.cells[c++])
-            {
-                if(date>12)
-                {
-                    cell.innerHTML=(date-12) +":00 PM"; // do sth with cell
-                }
-                else{
-                    cell.innerHTML=date+":00 AM"; // do sth with cell
-                }
-                date++;
-            }
-        }
-
-    </script>
+    <div id = "rightPanel"></div> <!--Month calendar panel-->
+    <div id = "selectHours"></div> <!--Select hours in a day panel-->
 </div>
 </body>
 </html>
