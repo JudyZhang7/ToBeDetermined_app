@@ -1,8 +1,5 @@
 var UserMongoFunctions = require('./access_mongoDB.js');
 
-//delete all users from database
-// UserMongoFunctions.remove({}, function (err) {});
-
 //timesAvailable is a 2D array of times available
 function addNewUser(_user, socket){
     let _code = _user.code;
@@ -79,46 +76,3 @@ module.exports = {
     getUserCal,
     getContributers
 }
-// var newUser = new UserMongoFunctions({
-//     name: 'starlord55',
-//     code: 'jkSN7',
-//     days: 2,
-//     hours: 4,
-//     calendar: [ {day: 1, hour: 1, available: true},
-//                 {day: 1, hour: 2, available: true},
-//                 {day: 1, hour: 3, available: true},
-//                 {day: 1, hour: 4, available: true},
-//                 {day: 2, hour: 1, available: true},
-//                 {day: 2, hour: 2, available: true},
-//                 {day: 2, hour: 3, available: true},
-//         {day: 2, hour: 4, available: true}],
-//     newCalendar: true
-//
-// });
-//
-// var newUser = new UserMongoFunctions({
-//     name: 'gamora69',
-//     code: 'jkSN7',
-//     days: 2,
-//     hours: 4,
-//     calendar: [ {day: 1, hour: 1, available: false},
-//                 {day: 1, hour: 2, available: false},
-//                 {day: 1, hour: 3, available: false},
-//                 {day: 1, hour: 4, available: false},
-//                 {day: 2, hour: 1, available: false},
-//                 {day: 2, hour: 2, available: false},
-//                 {day: 2, hour: 3, available: false},
-//         {day: 2, hour: 4, available: false}],
-//     newCalendar: false
-// });
-//
-// newUser.save(function(err){
-//     if(err) {
-//         console.log(err.message); //does not save
-//         console.log('user not saved successfully');
-//     }
-//     else{
-//         console.log('user saved successfully');
-//     }
-// })
-

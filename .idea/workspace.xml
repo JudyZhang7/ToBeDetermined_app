@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ca169e-57b2-42fb-b612-220ec19cdfd0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/cal.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/cal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/cover.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/cover.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/times.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/times.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/done.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/getCode.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/getCode.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/selectTimes.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/selectTimes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/shared/menubar.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/menubar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/shared/select_hours.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/select_hours.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/viewcalendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/viewcalendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/included/load_nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/load_nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/included/realtime_cal.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/realtime_cal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/included/select_times.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/select_times.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/access_mongoDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/access_mongoDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/query.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/userMongoFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/userMongoFunctions.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="selectTimesFromCode.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="selectTimesFromCode.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/HTML/selectTimesFromCode.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="241">
@@ -45,11 +29,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selectTimes.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
+      <file leaf-file-name="access_mongoDB.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-33">
-              <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="9" />
+            <state relative-caret-position="-1683" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/JS/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userMongoFunctions.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/JS/userMongoFunctions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -129,7 +129,6 @@
         <option value="$PROJECT_DIR$/web/HTML/createCal.html" />
         <option value="$PROJECT_DIR$/web/JS/server.js" />
         <option value="$PROJECT_DIR$/web/CSS/viewCal.css" />
-        <option value="$PROJECT_DIR$/web/JS/userMongoFunctions.js" />
         <option value="$PROJECT_DIR$/web/JS/general.js" />
         <option value="$PROJECT_DIR$/web/JS/selectTimesFunctions.js" />
         <option value="$PROJECT_DIR$/web/JS/full_calendar_preview.js" />
@@ -138,7 +137,6 @@
         <option value="$PROJECT_DIR$/web/JS/included/full_calendar_preview.js" />
         <option value="$PROJECT_DIR$/web/JS/included/pull_up_cal.js" />
         <option value="$PROJECT_DIR$/web/JS/included/pullup_cal.js" />
-        <option value="$PROJECT_DIR$/web/JS/access_mongoDB.js" />
         <option value="$PROJECT_DIR$/web/JS/included/realtime_cal.js" />
         <option value="$PROJECT_DIR$/web/HTML/shared/menubar.html" />
         <option value="$PROJECT_DIR$/web/JS/included/load_nav.js" />
@@ -156,6 +154,8 @@
         <option value="$PROJECT_DIR$/web/CSS/cover.css" />
         <option value="$PROJECT_DIR$/web/CSS/index.css" />
         <option value="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" />
+        <option value="$PROJECT_DIR$/web/JS/access_mongoDB.js" />
+        <option value="$PROJECT_DIR$/web/JS/userMongoFunctions.js" />
       </list>
     </option>
   </component>
@@ -201,12 +201,6 @@
               <item name="tbd" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="CSS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tbd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="HTML" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
@@ -328,12 +322,12 @@
       <workItem from="1532884709208" duration="15064000" />
       <workItem from="1533084660618" duration="2881000" />
       <workItem from="1533265341743" duration="47784000" />
-      <workItem from="1534185198164" duration="18422000" />
+      <workItem from="1534185198164" duration="18789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277990000" />
+    <option name="totallyTimeSpent" value="278357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="0" />
@@ -461,41 +455,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/testcal.html" />
     <entry file="file://$PROJECT_DIR$/web/JS/data.json" />
-    <entry file="file://$PROJECT_DIR$/web/JS/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="42" selection-start-column="42" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/userMongoFunctions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-263">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="83" column="19" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/JS/included/full_calendar_preview.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -636,18 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/CSS/cover.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -712,6 +659,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/selectTimesFromCode.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -719,6 +678,39 @@
           <folding>
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/userMongoFunctions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
         </state>
       </provider>
     </entry>
