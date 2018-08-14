@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tbd.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -83,21 +84,26 @@
             }
         })
     }
+    function showCodeEntry(){
+        $("#enterCode").css("display", "none");
+        $("#entry").css("display", "block");
+    }
 
     </script>
 </head>
 <body>
 
 <div id="particles-js">
-    <div id = 'center' class = 'center'>
-        <a href="create.html" class="blueButton" style = "font-size: 40px; padding: 3px 15px;">new event</a>
 
+    <div id = 'frontcenter' class = 'center'>
+
+        <a href="create.html" class="blueButton" id = "newEvent">new event</a>
         <div id = 'logo'>to be <div class = 'bold' style = "display: inline-block">determined</div>.</div>
-
+        <input id = "enterCode" type = "button" value = "have a code?" onclick = "showCodeEntry()" class = "blueButton inline"/>
         <form id = "entry" name = "entry" onsubmit="getCode()">
             <h1>or enter code:</h1>
             <input id = "code" type = "text" placeholder = "c0f3e"><br>
-            <input id = "editCal" type = "button" value = "edit" onclick = "getCode('selectTimesFromCode.html')" class = "blueButton inline"/>
+            <input id = "editCal" type = "button" value = "modify" onclick = "getCode('selectTimesFromCode.html')" class = "blueButton inline"/>
             <input id = "viewCal" type = "button" value = "view" onclick = "getCode('viewcalendar.html')" class = "blueButton inline"/>
         </form>
 

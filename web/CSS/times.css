@@ -1,141 +1,153 @@
 @import url("index.css");
-
 #event, #name{
-    margin-top: 20px;
+    margin-top: 0.5vh;
     color: white;
 }
-.marginLeft{
-    margin-left: 23px;
-}
-#test{
-    position: absolute;
-    width: 20%;
+#name{
+    margin-top: 0.7vh;
 }
 table#hoursInADay{
-    top: 50px;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    top: calc(12vh - var(--menubarHeight));
     position: relative;
-    left: 20%;
+    left: 40vw;
     display:inline;
 }
 #calendar{
     margin-left: 0;
 }
 table td {
-    width:200px;
-    height:30px;
+    width: 15vw;
+    height: 5vh;
     text-align:center;
     vertical-align:middle;
     background-color: var(--darkGreyColor);
-    border:3px solid white;
+    border: 0.2vh solid var(--canvas);
     color: white;
 }
 
 table#calendar, table#calendar_top{
-    margin: 0px 8%;
+    margin: 0 3vw;
     left: 0;
 }
 
 #calendar td, #calendar_top td{
-    width: 9vh;
+    width: 12vw;
     height: 9vh;
-    text-align:center;
-    vertical-align:middle;
+    text-align: center;
+    vertical-align: middle;
     background-color: white;
-    border:2px solid var(--blueBackgroundColor);
+    border: 0.2vh solid var(--blueBackgroundColor);
     color: black;
 }
 #calendar_top td{
+    font-size: 1.3vw;
     height: 2vh;
-    background-color: transparent;
+    background-color: var(--blueBackgroundColor);
     color: white;
-    border: none;
-}
-
-#days{
-    margin: 20px;
 }
 
 table td.highlighted {
-    background-color: var(--highlightedColor);
-
+    background: var(--highlightedColor);
 }
 
 .highlighted {
-    background-color: var(--highlightedColor);
+    background: var(--highlightedColor);
     z-index: 100;
 }
 
 #clearAll, #showAllDays, #done{
-    position:relative;
+    position: relative;
     text-align:center;
     background-color:var(--darkGreyColor);
-    width: 150px;
-    height: 30px;
+    width: 12vw;
+    height: 5vh;
     color: white;
     display:block;
-    margin-bottom: 20px;
+    margin: 10px 0;
+    font-weight: 100;
 }
 #clearAll, #showAllDays{
-    left: 42%;
-    top: -85px;
+    left: 25vw;
+    top: -25vh;
 }
 #done{
-    top: 20px;
+    top: 5vh;
     float: right;
     margin-right: 10%;
 }
-#day{
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 10%;
-    left: 100px;
-    width: 100px;
-    height: 100px;
-}
 #next, #prev{
-    font-size: 100px;
+    font-size: 400%;
     display: block;
-    margin: auto;
+    margin: 0;
     top: 0;
-    bottom: 20%;
-    left: 45%;
-    width: 100px;
-    height: 100px;
 }
-
+#next:hover, #prev:hover{
+    color: var(--highlightedColor)
+}
 #nextButton, #prevButton{
-    margin: 5px;
-    position: relative;
+    position: absolute;
     display: inline;
-    left: 22%;
-    top: 250px;
+    margin: 0.2vh 0.3vw;
+    width: 9vw;
+    left: 25vw;
+    top: 48vh;
     border: none;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
-    border-radius: 20px;
+    font-size: 120%;
     color: var(--darkGreyColor);
     background-color: transparent;
+    font-weight: 100;
+}
+#nextButton{
+    left: 30vw;
 }
 
 #nextButton:active, #prevButton:active{
     color: var(--highlightedColor);
 }
-#currentDay{
+
+#currentDayAndMonth{
+    position: absolute;
+    font-size: 400%;
+    font-weight: 400;
+    top: 85vh;
+    left: 3vw;
+}
+#instructions{
+    color: white;
+    background: var(--blueBackgroundColor);
+    border-radius: 5px;
+    padding: 1vh;
+    width: 33vw;
+    font-size: 90%;
+    position: absolute;
+    top: 12vh;
+    left: 3vw;
+}
+#sampleBox{
+    width: 3vh;
+    height: 3vh;
     display: inline-block;
 }
-
+#tip{
+    position: fixed;
+    top: 60vh;
+    left: 3vw;
+    background-color: var(--darkBlueColor);
+    border-radius: 5px;
+    width: 15vw;
+    color: white;
+    padding: 10px;
+}
 #rightPanel{
-    margin: auto;
     text-align: center;
-    top: 0px;
-    height: 100vh;
+    top: 0;
     display:none;
+    height: calc(100vh - var(--menubarHeight));
     width: 40%;
     float: right;
+    overflow: scroll;
     background-color: var(--blueBackgroundColor);
 }
 .slider {
@@ -169,15 +181,15 @@ table td.highlighted {
     margin-top: 15%;
     text-align: center;
     z-index: 10002;
-    font-size: 40px;
+    font-size: 240%;
     color: white;
 }
 #getNameForm input[type=text] {
     text-align: center;
-    margin: 0px;
-    width: 300px;
-    height: 30px;
-    font-size: 30px;
+    margin: 0;
+    width: 30vw;
+    height: 6vh;
+    font-size: 90%;
     font-weight: 100;
     outline: none;
     border: none;
@@ -194,10 +206,4 @@ table td.highlighted {
     position: fixed;
     pointer-events: none;
     z-index: 10001;
-}
-#currentDayAndMonth{
-    width: 200px;
-    position: fixed;
-    top: 50vh;
-    left: 5vh;
 }

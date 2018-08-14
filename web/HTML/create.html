@@ -4,19 +4,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tbd.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script src="../JS/included/load_nav.js"></script>
     <script src="../JS/included/realtime_cal.js"></script>
-    <!--<script src="../JS/included/select_times.js"></script>-->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../CSS/cal.css">
 
-    <meta charset="UTF-8">
-    <title>tbd.</title>
     <script>
+        let socket = io.connect('http://localhost:3000');
         window.onbeforeunload = function () {
             return 'You have not yet saved your work. Do you want to continue? Doing so, may cause loss of your work';
         }
@@ -128,11 +129,15 @@
 <div id="content">
 
     <form id="calForm" name="calForm" method="GET" action="">
-        What's your name? <br>
+        what's your name? <br>
         <input id="name" type="text" placeholder="alex"><br>
-        What's the occasion? <br>
+        what's the occasion? <br>
         <input id="event" type="text" placeholder="coffee at joe's"><br>
-        <div style = "font-weight: 400">Select the dates on the right >></div>
+        <div style = "font-weight: 400">select the dates on the right >></div>
+        <div id = "instructions">
+        <span style= "font-weight: 400"> > </span> when you are finished selecting the days you are available, click on '<span style= "font-weight: 400">let's go</span>'<br>
+        <span style= "font-weight: 400"> > </span> to deselect all days, click on '<span style= "font-weight: 400">clear all</span>'<br>
+        </div>
 
     </form>
 
@@ -141,7 +146,7 @@
         <div id="eventName" class="title">coffee at joe's</div>
 
         <table cellpadding="0" cellspacing="0" id="calendar_top" class = "right">
-            <tr><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr>
+            <tr><td>sun</td><td>mon</td><td>tue</td><td>wed</td><td>thu</td><td>fri</td><td>sat</td></tr>
         </table>
 
         <table cellpadding="0" cellspacing="0" id="calendar" class="right">
@@ -202,10 +207,10 @@
         </table>
 
         <div class="title whiteText" id="month" style="display:inline-block;"></div>
-        <div id="letsGo" class="title right whiteText" style="display: inline-block;">Let's Go
+        <div id="letsGo" class="title right whiteText" style="display: inline-block;">let's go
             <i class="fas fa-angle-right"></i>
         </div>
-        <button id="clearAll" class="button right" onclick="ClearAll();">Clear all</button>
+        <button id="clearAll" class="button right" onclick="ClearAll();">clear all</button>
     </div>
     <script>
         //set the dates and grey out boxes that are not selectable (real) days

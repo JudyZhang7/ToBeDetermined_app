@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tbd.</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -62,7 +64,11 @@
                 hours = result.hours;
                 event = result.calendarName;
                 // name = result.hostname;
-                host = result.hostname
+                host = result.hostname;
+                window.sessionStorage.setItem("event", event);
+                window.sessionStorage.setItem("name", host);
+
+
                 timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
                 // fill up all the timesAvailableTotal with false to start with
                 for(let j = 0; j < cal.length; j++ ){
@@ -78,8 +84,7 @@
                 pullupCal(result); // init pull-up calendar
             })
         });
-
-        // redefining addNewUser function for user saving to NOT a new cal
+        // !!!redefining addNewUser function for user saving to NOT a new cal
         function addNewUser(name, event, caldays, timesAvailableTotal) {
             var userData = {
                 code: code,
@@ -92,58 +97,37 @@
             console.log(name + "'s availability: " + timesAvailableTotal);
             socket.emit('saveUser', JSON.stringify(userData));
         }
-        // function updateCal(isNextDay){
-        //     //[ *** save the previous calendar before moving to new one *** ]
-        //     saveHours();
-        //     //[ *** update the coloring on calendar. *NOTE: updateCalHighlight also increments/decrements on day *** ]
-        //     updateCalHighlight(isNextDay);
-        //     $(function () {
-        //         let hourIndex = hours*currentDayIndex;
-        //         // let timeIndex = hourIndex;
-        //         let timeIndex = 0;
-        //         console.log("hours: " + hours + " currentDayIndex: " + currentDayIndex + " hourIndex: " + hourIndex);
-        //         let timetable = document.getElementById("hoursInADay");
-        //         let hourtime = 8;
-        //         console.log("HOURINDEX: " + hourIndex + " TIMEINDEX: " + timeIndex);
-        //         let r = 0;
-        //         while (row = timetable.rows[r++]) {
-        //             let c = 0;
-        //             while (cell = row.cells[c++]) {
-        //                 if (hourtime > 12) {
-        //                     cell.innerHTML = (hourtime - 12) + ":00 PM"; // do sth with cell
-        //                 }
-        //                 else {
-        //                     cell.innerHTML = hourtime + ":00 AM"; // do sth with cell
-        //                 }
-        //                 // grey out if day is not available to be selected
-        //                 // console.log("index of cal: " + (hourIndex + timeIndex));
-        //                 cell.classList.remove("greystripes");
-        //                 if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
-        //                     cell.classList.add("greystripes");
-        //                     cell.innerHTML = "NOT AVAILABLE";
-        //                 }
-        //                 hourtime++;
-        //                 timeIndex++;
-        //             }
-        //         }
-        //     });
-        //
-        //     //[ *** set up the hours cal to work on *** ]
-        //     if(currentDayIndex >= timesAvailableTotal.length){ // work on new blank day
-        //         console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
-        //         clearAll();
-        //     }
-        //     else { // load and update already created day
-        //         console.log("currentDayIndex: " + currentDayIndex + " timesAvailableTotal: " + timesAvailableTotal.length);
-        //         timesAvailableDay = timesAvailableTotal[currentDayIndex];
-        //         console.log(timesAvailableDay);
-        //         console.log(timesAvailableTotal);
-        //         setHoursCal();
-        //     }
-        // }
+        function updateCal(isNextDay){
+            saveHours();
+            updateCalHighlight(isNextDay, function(){
+                let hourIndex = hours*currentDayIndex;
+                let timeIndex = 0;
+                let timetable = document.getElementById("hoursInADay");
+                let hourtime = 8;
+                let r = 0;
+                while (row = timetable.rows[r++]) {
+                    let c = 0;
+                    while (cell = row.cells[c++]) {
+                        if (hourtime > 12) {
+                            cell.innerHTML = (hourtime - 12) + ":00 PM"; // do sth with cell
+                        }
+                        else {
+                            cell.innerHTML = hourtime + ":00 AM"; // do sth with cell
+                        }
+                        cell.classList.remove("unavailable");
+                        if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
+                            cell.classList.add("unavailable");
+                        }
+                        hourtime++;
+                        timeIndex++;
+                    }
+                }
+            });
+            setHoursCal();
+        }
     </script>
 </head>
-<body onbeforeunload="return onbeforeunload()">
+<body>
 <div id="navbar"></div> <!--Navigation bar-->
 
 <div id = "greyOut"></div>
@@ -159,7 +143,7 @@
     <div id = "rightPanel"></div> <!--Month calendar panel-->
     <div id = "selectHours"></div> <!--Select hours in a day panel-->
 
-<button id = "showAllDays" class = "trigger button">Show all times</button>
+<button id = "showAllDays" class = "trigger button">show all times</button>
 
 <div class="slider close">
     <div id = "xout" class = "trigger">[close X]</div>

@@ -1,14 +1,27 @@
-<table cellpadding="0" cellspacing="0" id="hoursInADay" class = "">
-    <div id = "day" style="top: 20px" class = "title"><div id = "currentDayAndMonth"></div></div>
+<div id = "instructions">
+    <span style= "font-weight: 400"> > </span> select the times you are available on the left and navigate with the <span style= "font-weight: 400">arrow keys</span><br>
+    <span style= "font-weight: 400"> > </span> to deselect all times on the current day, click on '<span style= "font-weight: 400">clear selected</span>'<br>
+    <span style= "font-weight: 400"> > </span> when you are finished selecting the times you are available, click on '<span style= "font-weight: 400">i'm done!</span>'<br>
 
+    <!--to show all times available, click on 'show all times'<br>-->
+</div>
+
+<table cellpadding="0" cellspacing="0" id="hoursInADay" class = "">
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
 </table>
 
-<button id = "prevButton" onclick="arrow(false);"> <i id="prev" class="fas fa-angle-left"></i>Previous</button>
 
-<button id = "nextButton" onclick="arrow(true);"> <i id="next" class="fas fa-angle-right"></i>Next</button>
+<div id = "currentDayAndMonth"></div>
 
-<button id = "clearAll" class = "button" onclick="clearAll();">Clear selected</button>
+<button id = "prevButton" onclick="arrow(false);"> <i id="prev" class="fas fa-angle-left"></i>prev</button>
+
+<button id = "nextButton" onclick="arrow(true);"> <i id="next" class="fas fa-angle-right"></i>next</button>
+
+<button id = "clearAll" class = "button" onclick="clearAll();">clear selected</button>
+
+<div id = "tip">
+    tip: control calendar navigation with your keyboard arrow keys
+</div>

@@ -2,33 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ca169e-57b2-42fb-b612-220ec19cdfd0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/HTML/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/HTML/shared/select_hours.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/JS/included/full_calendar_preview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/JS/included/load_nav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/JS/included/pullup_cal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/JS/included/realtime_cal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/JS/included/select_times.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/CSS/cal.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/cal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/CSS/cover.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/cover.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/CSS/times.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/times.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/viewCal.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/viewCal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/HTML/createCal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/done.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/done.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/getCode.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/getCode.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/selectTimes.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/selectTimes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/shared/menubar.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/menubar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/shared/select_hours.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/select_hours.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/viewcalendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/viewcalendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/access_mongoDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/access_mongoDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/selectTimesFunctions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/userMongoFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/included/load_nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/load_nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/included/realtime_cal.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/realtime_cal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/included/select_times.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/select_times.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,12 +32,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="selectTimesFromCode.html" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="selectTimesFromCode.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/HTML/selectTimesFromCode.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1265">
-              <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+            <state relative-caret-position="241">
+              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -52,44 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="select_times.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
+      <file leaf-file-name="selectTimes.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="242" column="64" selection-start-line="242" selection-start-column="64" selection-end-line="242" selection-end-column="64" />
-              <folding>
-                <element signature="n#!!block;n#updateCalHighlight#0" />
-                <element signature="n#!!block;n#arrow#0" />
-                <element signature="n#!!block;n#saveHours#0" />
-                <element signature="n#!!block;n#getCode#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/CSS/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="select_hours.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/HTML/shared/select_hours.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="94" selection-start-line="9" selection-start-column="94" selection-end-line="9" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="times.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/CSS/times.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="104" selection-start-line="104" selection-end-line="105" selection-end-column="18" />
+            <state relative-caret-position="-33">
+              <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -107,36 +67,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>currentdayindex</find>
-      <find>cal</find>
-      <find>timesava</find>
-      <find>timesAvailableTotal</find>
-      <find>addclass</find>
-      <find>done</find>
-      <find>remove</find>
-      <find>add</find>
-      <find>dbluestripes</find>
-      <find>not</find>
-      <find>greystripes</find>
-      <find>notav</find>
-      <find>notAvailable</find>
-      <find>timesavailabletotal</find>
-      <find>grey</find>
-      <find>setall</find>
-      <find>addnewuser</find>
-      <find>updatecal</find>
-      <find>highligh</find>
-      <find>currentDayIndex</find>
-      <find>updateCal</find>
-      <find>boxesInCal</find>
-      <find>timesAvailableTotal[currentDayIndex] = timesAvailableDay;</find>
-      <find>im done</find>
-      <find>code</find>
-      <find>socket.on</find>
-      <find>highlig</find>
       <find>high</find>
+      <find>.class</find>
+      <find>highlig</find>
+      <find>unav</find>
       <find>prev</find>
-      <find>todo</find>
+      <find>document.</find>
+      <find>date</find>
+      <find>current day</find>
+      <find>calendar</find>
+      <find>currentDayAndMonth</find>
+      <find>currentDay</find>
+      <find>clear al</find>
+      <find>marginlef</find>
+      <find>over</find>
+      <find>39</find>
+      <find>.inner</find>
+      <find>session</find>
+      <find>overflow</find>
+      <find>relative</find>
+      <find>white</find>
+      <find>absolute</find>
+      <find>day</find>
+      <find>left</find>
+      <find>radius</find>
+      <find>entry</find>
+      <find>bluebu</find>
+      <find>bluebutton</find>
+      <find>logo</find>
+      <find>px</find>
+      <find>beforeunl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,43 +119,43 @@
         <option value="$PROJECT_DIR$/web/CSS/alldays.css" />
         <option value="$PROJECT_DIR$/web/HTML/viewCale.html" />
         <option value="$PROJECT_DIR$/web/HTML/viewCal.html" />
-        <option value="$PROJECT_DIR$/web/CSS/cover.css" />
         <option value="$PROJECT_DIR$/web/HTML/menubar.html" />
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
         <option value="$PROJECT_DIR$/.idea/.name" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/web/HTML/index.html" />
         <option value="$PROJECT_DIR$/web/CSS/menubar.css" />
         <option value="$PROJECT_DIR$/web/HTML/testcal.html" />
         <option value="$PROJECT_DIR$/web/HTML/createCal.html" />
-        <option value="$PROJECT_DIR$/web/HTML/shared/menubar.html" />
         <option value="$PROJECT_DIR$/web/JS/server.js" />
         <option value="$PROJECT_DIR$/web/CSS/viewCal.css" />
         <option value="$PROJECT_DIR$/web/JS/userMongoFunctions.js" />
         <option value="$PROJECT_DIR$/web/JS/general.js" />
         <option value="$PROJECT_DIR$/web/JS/selectTimesFunctions.js" />
         <option value="$PROJECT_DIR$/web/JS/full_calendar_preview.js" />
-        <option value="$PROJECT_DIR$/web/JS/included/load_nav.js" />
-        <option value="$PROJECT_DIR$/web/HTML/getCode.html" />
-        <option value="$PROJECT_DIR$/web/HTML/viewcalendar.html" />
         <option value="$PROJECT_DIR$/web/HTML/shared/rightPanelCal.html" />
         <option value="$PROJECT_DIR$/web/JS/included/select_cal.js" />
-        <option value="$PROJECT_DIR$/web/JS/included/realtime_cal.js" />
         <option value="$PROJECT_DIR$/web/JS/included/full_calendar_preview.js" />
-        <option value="$PROJECT_DIR$/web/HTML/create.html" />
-        <option value="$PROJECT_DIR$/web/CSS/cal.css" />
         <option value="$PROJECT_DIR$/web/JS/included/pull_up_cal.js" />
         <option value="$PROJECT_DIR$/web/JS/included/pullup_cal.js" />
-        <option value="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" />
         <option value="$PROJECT_DIR$/web/JS/access_mongoDB.js" />
-        <option value="$PROJECT_DIR$/web/HTML/selectTimes.html" />
-        <option value="$PROJECT_DIR$/web/HTML/done.html" />
-        <option value="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" />
+        <option value="$PROJECT_DIR$/web/JS/included/realtime_cal.js" />
+        <option value="$PROJECT_DIR$/web/HTML/shared/menubar.html" />
+        <option value="$PROJECT_DIR$/web/JS/included/load_nav.js" />
+        <option value="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" />
+        <option value="$PROJECT_DIR$/web/CSS/cal.css" />
         <option value="$PROJECT_DIR$/web/JS/included/select_times.js" />
-        <option value="$PROJECT_DIR$/web/CSS/index.css" />
+        <option value="$PROJECT_DIR$/web/HTML/done.html" />
+        <option value="$PROJECT_DIR$/web/HTML/getCode.html" />
+        <option value="$PROJECT_DIR$/web/HTML/selectTimes.html" />
+        <option value="$PROJECT_DIR$/web/HTML/viewcalendar.html" />
+        <option value="$PROJECT_DIR$/web/HTML/create.html" />
         <option value="$PROJECT_DIR$/web/HTML/shared/select_hours.html" />
         <option value="$PROJECT_DIR$/web/CSS/times.css" />
+        <option value="$PROJECT_DIR$/web/HTML/index.html" />
+        <option value="$PROJECT_DIR$/web/CSS/cover.css" />
+        <option value="$PROJECT_DIR$/web/CSS/index.css" />
+        <option value="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" />
       </list>
     </option>
   </component>
@@ -223,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -253,26 +212,13 @@
               <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
               <item name="tbd" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="HTML" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tbd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="JS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tbd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="JS" type="462c0819:PsiDirectoryNode" />
-              <item name="included" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -382,11 +328,12 @@
       <workItem from="1532884709208" duration="15064000" />
       <workItem from="1533084660618" duration="2881000" />
       <workItem from="1533265341743" duration="47784000" />
+      <workItem from="1534185198164" duration="18422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259568000" />
+    <option name="totallyTimeSpent" value="277990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="0" />
@@ -401,8 +348,8 @@
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="8" />
       <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Run" order="8" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="1" />
@@ -414,8 +361,8 @@
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="0" />
@@ -435,7 +382,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -485,13 +432,6 @@
     <entry file="file://$PROJECT_DIR$/web/HTML/viewCal.html" />
     <entry file="file://$PROJECT_DIR$/web/HTML/viewCal.html" />
     <entry file="file://$PROJECT_DIR$/web/HTML/viewCal.html" />
-    <entry file="file://$PROJECT_DIR$/web/CSS/cover.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/.name">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -519,20 +459,8 @@
     <entry file="file://$USER_HOME$/Perforce/AGP2018_EMPATH_qianzhiz/Empath/Source/Empath/Private/EmpathAIManager.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/testcal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/testcal.html" />
+    <entry file="file://$PROJECT_DIR$/web/JS/data.json" />
     <entry file="file://$PROJECT_DIR$/web/JS/query.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -540,120 +468,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/CSS/menubar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/JS/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/shared/menubar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/included/load_nav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/getCode.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="92" column="23" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="23" />
-          <folding>
-            <element signature="e#461#2663#0" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/viewcalendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-          <folding>
-            <element signature="e#483#698#0" />
-            <element signature="e#710#915#0" />
-            <element signature="e#929#1064#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/CSS/viewCal.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/included/full_calendar_preview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/included/realtime_cal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="n#!!block;n#getMonthDays#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/CSS/cal.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/included/pullup_cal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="158" selection-start-line="158" selection-end-line="158" />
         </state>
       </provider>
     </entry>
@@ -671,10 +489,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="83" column="19" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/included/full_calendar_preview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="54" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/included/realtime_cal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!block;n#getMonthDays#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/included/pullup_cal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/included/load_nav.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CSS/cal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="61" column="12" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CSS/viewCal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2865">
+          <caret line="193" column="67" lean-forward="true" selection-start-line="193" selection-start-column="67" selection-end-line="193" selection-end-column="67" />
+          <folding>
+            <element signature="n#!!block;n#saveHours#0" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/shared/menubar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/done.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+        <state relative-caret-position="60">
+          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -683,17 +575,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
+    <entry file="file://$PROJECT_DIR$/web/HTML/getCode.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        <state relative-caret-position="60">
+          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/viewcalendar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/shared/select_hours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="98" selection-start-line="20" selection-start-column="98" selection-end-line="20" selection-end-column="98" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CSS/times.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+          <folding>
+            <element signature="e#39#82#0" />
+            <element signature="e#88#113#0" />
+            <element signature="e#218#342#0" />
+            <element signature="e#352#375#0" />
+            <element signature="e#385#562#0" />
+            <element signature="e#598#634#0" />
+            <element signature="e#1022#1067#0" />
+            <element signature="e#1082#1144#0" />
+            <element signature="e#1176#1362#0" />
+            <element signature="e#1386#1421#0" />
+            <element signature="e#1427#1486#0" />
+            <element signature="e#1632#1707#0" />
+            <element signature="e#1720#1795#0" />
+            <element signature="e#1733#2048#0" />
+            <element signature="e#2060#2078#0" />
+            <element signature="e#2118#2157#0" />
+            <element signature="e#2178#2300#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CSS/menubar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+        <state relative-caret-position="90">
+          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -702,32 +648,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/selectTimesFromCode.html">
+    <entry file="file://$PROJECT_DIR$/web/CSS/cover.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1265">
-          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+        <state relative-caret-position="286">
+          <caret line="80" column="15" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="15" />
           <folding>
-            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/shared/select_hours.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="94" selection-start-line="9" selection-start-column="94" selection-end-line="9" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="242" column="64" selection-start-line="242" selection-start-column="64" selection-end-line="242" selection-end-column="64" />
-          <folding>
-            <element signature="n#!!block;n#updateCalHighlight#0" />
-            <element signature="n#!!block;n#arrow#0" />
-            <element signature="n#!!block;n#saveHours#0" />
-            <element signature="n#!!block;n#getCode#0" />
+            <element signature="e#1011#1218#0" />
+            <element signature="e#1584#1609#0" />
+            <element signature="e#1636#1713#0" />
+            <element signature="e#1722#1779#0" />
+            <element signature="e#1798#1833#0" />
           </folding>
         </state>
       </provider>
@@ -735,14 +665,60 @@
     <entry file="file://$PROJECT_DIR$/web/CSS/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="e#478#605#0" />
+            <element signature="e#607#655#0" />
+            <element signature="e#738#779#0" />
+            <element signature="e#791#812#0" />
+            <element signature="e#823#844#0" />
+            <element signature="e#852#879#0" />
+            <element signature="e#885#910#0" />
+            <element signature="e#924#1182#0" />
+            <element signature="e#1195#1431#0" />
+            <element signature="e#1577#1737#0" />
+            <element signature="e#1746#1784#0" />
+            <element signature="e#2035#2059#0" />
+            <element signature="e#2068#2092#0" />
+            <element signature="e#2137#2188#0" />
+            <element signature="e#2200#2455#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/CSS/times.css">
+    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="104" selection-start-line="104" selection-end-line="105" selection-end-column="18" />
+        <state relative-caret-position="349">
+          <caret line="97" column="17" lean-forward="true" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+          <folding>
+            <element signature="e#536#2738#0" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/selectTimesFromCode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

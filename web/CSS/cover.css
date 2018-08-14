@@ -9,58 +9,58 @@ body {
     color: white;
     font-family: var(--font);
 }
-#center{
-    position: absolute;
-    margin: auto;
-    width: 100%;
-    margin-top: 200px;
-}
-.center{
-    text-align: center;
-}
 .inline{
     display:inline-block;
 }
-.left{
-    text-align: left;
-}
 h1{
     font-weight: 100;
-    margin-bottom: 5px;
-    font-size: 25px;
+    margin-bottom: 2vh;
+    font-size: 150%;
 }
 
 input[type=text] {
-    width: 195px;
-    height: 30px;
-    font-size: 20px;
+    width: 13vw;
+    height: 3vh;
+    font-size: 3vh;
     font-weight: 100;
     outline: none;
-    border: 0px solid;
-    padding: 5px;
-    margin-bottom: 10px;
+    border: 0;
+    padding: 1vh;
+    margin-bottom: 2vh;
 }
 
+#frontcenter{
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    top: 30vh;
+}
 #logo{
-    font-size: 150px;
-    margin: 20px;
+    text-align: center;
+    font-size: 10vw;
+    margin: 3vh 2vw;
 }
 canvas {
     display: block;
     vertical-align: bottom;
 }
 #editCal, #viewCal{
-    width: 100px;
-    height: 40px;
-    padding: 0px;
+    width: 7vw;
+    height: 5vh;
+    padding: 0;
+    font-size: 3vh;
+}
+#entry{
+    display:none;
 }
 #editCal:hover, #viewCal:hover{
     cursor: pointer
 }
-#editCal{
+#editCal, #enterCode{
     background-color: var(--darkGreyColor);
+    cursor: pointer;
 }
-
 /* ---- particles.js container ---- */
 #particles-js {
     position: absolute;

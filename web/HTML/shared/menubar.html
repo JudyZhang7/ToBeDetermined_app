@@ -1,17 +1,11 @@
 <!-- MENU BAR -->
 <link rel="stylesheet" type="text/css" href="../CSS/menubar.css" />
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-
-<script>
-    let socket = io.connect('http://localhost:3000');
-</script>
 
 <div id = "navbar">
     <a href="index.html" id = "tbd">tb<div class = 'bold' style = "display: inline-block">d</div>.</a>
     <a href="create.html" id = "new">> new event</a>
-    <form id = "menubarForm" name = "entry" onsubmit="getCode()">
+    <form id = "menubarForm" name = "entry" onsubmit="getCode('viewcalendar.html')">
         enter event code
-
         <input id = "code" type = "text" placeholder = "c0f3e">
         <input id = "editCal" type = "button" value = "edit" onclick = "getCode('selectTimesFromCode.html')" class = "menubutton"/>
         <input id = "viewCal" type = "button" value = "view" onclick = "getCode('viewcalendar.html')" class = "menubutton"/>

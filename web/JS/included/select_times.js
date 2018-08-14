@@ -1,8 +1,12 @@
 let event, name;
 let boxesInCalendar = 49;
 let hoursInADay = 16; // allow user to pick from 16 hours
+const current = new Date();
+let currentMonth = current.getMonth()
+let currentYear = current.getFullYear()
 
 let socket = io.connect('http://localhost:3000');
+const weekNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 // visually clear all hours on day cal and reset timesAvailableDay set to FALSE
 function clearAll(){
@@ -17,6 +21,7 @@ function clearAll(){
 
 // load the next day hours calendar
 function setHoursCal(){
+    document.getElementById("currentDayAndMonth").innerHTML = weekNames[new Date(currentYear, currentMonth, cal[currentDayIndex]).getDay()] + " " + cal[currentDayIndex];
     timesAvailableDay = timesAvailableTotal[currentDayIndex]; // update to next day calendar
     let x = document.getElementById("hoursInADay");
     let y = x.getElementsByTagName("td");
@@ -101,7 +106,6 @@ function arrow(isNextButton){
     }
     // must be legal to move in calendar, let's continue
     updateCal(isNextButton);
-    $('#currentDay').html(cal[currentDayIndex]);
 }
 
 // save hours in timesAvailableTotal array
@@ -139,28 +143,6 @@ function finished(){
     // save to mongoDB...?
     console.log(name+event);
     addNewUser(name, event, cal, timesAvailableTotal);
-}
-
-function getCode(nextPage){
-    //check if code is valid
-    let code = document.entry.code.value;
-    window.sessionStorage.setItem("userCode", code);
-    console.log(code);
-    socket.emit('getUser', code);
-    let validCode = false;
-    socket.on('codeValidation', function(result){
-        if(result === true) {
-            validCode = true;
-        }
-        else{
-            validCode = false;
-        }
-    });
-    if(validCode){
-        window.location.href = nextPage;
-    } else{
-        alert("Invalid code. Please try again.");
-    }
 }
 
 function callback(isNewCal) {
@@ -208,7 +190,12 @@ function callback(isNewCal) {
         });
         $("#selectHours").load("shared/select_hours.html", function () {
             //set the dates
-            document.getElementById("currentDayAndMonth").innerHTML = monthNames[new Date().getMonth()] + " " + cal[currentDayIndex];
+            if(!isNewCal){
+                document.getElementById("instructions").innerHTML+=
+                "    <span style= \"font-weight: 400\"> > </span> to view all the times for this event, click on '<span style= \"font-weight: 400\">show all times</span>'<br>\n" +
+                    "<span style= \"font-weight: 400\"> > </span> <div id = \"sampleBox\" class = \"unavailable\"></div> indicates there is at least one person who is unavailable at that time ";
+            }
+            document.getElementById("currentDayAndMonth").innerHTML = weekNames[new Date(currentYear, currentMonth, cal[currentDayIndex]).getDay()] + " " + cal[currentDayIndex];
             let timetable = document.getElementById("hoursInADay");
             let date = 8;
 
@@ -227,7 +214,7 @@ function callback(isNewCal) {
                     }
                 }
             }
-            else{ // TODO: for an already created calendar show other calendar inputs
+            else { // TODO: for an already created calendar show other calendar inputs
                 let hourIndex = hours*currentDayIndex;
                 // let timeIndex = hourIndex;
                 let timeIndex = 0;
@@ -242,8 +229,8 @@ function callback(isNewCal) {
                         }
                         // grey out if day is not available to be selected
                         // console.log("index of cal: " + (hourIndex + timeIndex));
-                        if(timesAvailableTemplate[hourIndex + timeIndex].available === true){
-                            cell.classList.add("available");
+                        if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
+                            cell.classList.add("unavailable");
                         }
                         date++;
                         timeIndex++;
@@ -297,7 +284,24 @@ function callback(isNewCal) {
                     isMouseDown = false;
                 });
             });
-        })
 
+            // !!!fade the tip
+            setTimeout(function(){ $("#tip").fadeOut(1900); }, 7000);
+        })
     });
 }
+document.addEventListener("keyup", event => {
+    if (event.defaultPrevented) return
+    switch (event.key) {
+        case "ArrowLeft":
+            $("#prevButton").css("color", "var(--highlightedColor)");
+            setTimeout(function(){$("#prevButton").css("color", "var(--darkGreyColor)")}, 200);
+            arrow(false);
+            break;
+        case "ArrowRight":
+            $("#nextButton").css("color", "var(--highlightedColor)");
+            setTimeout(function(){$("#nextButton").css("color", "var(--darkGreyColor)")}, 200);
+            arrow(true);
+            break;
+    }
+})
