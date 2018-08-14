@@ -1,8 +1,15 @@
 //using mongoose
 let mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/calDB', function (err, db) {
-    if (err) throw err;
-}); //connect to mongoDB database
+mongoose.connect('mongodb://Judy:whenisgood1@ds121382.mlab.com:21382/tbd_db', function (err, db){
+    if (err){
+        console.log("[Database error... cannot connect... ]");
+        throw err;
+    }
+}); //connect to mlab sandbox database
+
+// mongoose.connect('mongodb://localhost/calDB', function (err, db) {
+//     if (err) throw err;
+// }); //connect to local database
 
 let Schema = mongoose.Schema;
 

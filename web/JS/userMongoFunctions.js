@@ -40,8 +40,9 @@ function addNewUser(_user, socket){
                 console.log('user saved successfully. Code is: ' + obj.code);
                 socket.emit('code', obj.code);
             }
-        })
-    } catch{
+        });
+
+    } catch(err){
         console.log("[Error within addNewUser function...]");
     }
 }
@@ -56,7 +57,7 @@ function getUser(code, socket){
                 socket.emit('codeValidation', true);
             }
         });
-    } catch{
+    } catch(err){
         console.log("[Error within getUser function...]");
         socket.emit('codeValidation', false);
     }
@@ -70,7 +71,7 @@ function getUserCal(code, socket){
             console.log("RESULT FROM: " + result.name + "\n" + result);
             socket.emit('userCal', result);
         });
-    } catch{
+    } catch(err){
         console.log("[Error within getUserCal function...]");
 
     }
@@ -82,8 +83,8 @@ function getContributors(code, socket){
             if (err) throw err;
             console.log("GOT THE CONTRIBIUTERS USER MONGO FUNCTIONS " + result);
             socket.emit('contributers', result);
-        })
-    } catch{
+        });
+    } catch(err){
         console.log("[Error within getContributors function...]");
     }
 }
