@@ -1,12 +1,12 @@
 //using mongoose
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/calDB', function (err, db) {
     if (err) throw err;
 }); //connect to mongoDB database
 
-var Schema = mongoose.Schema;
+let Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+let userSchema = new Schema({
     code: {type: String},
     calendarName: {type: String},
     name: {type: String, required: true},
@@ -22,7 +22,7 @@ var userSchema = new Schema({
 });
 
 userSchema.methods.createJoinCal = function () {
-    var cal = new User({
+    let cal = new User({
         code: this.code,
         name: 'JoinCalendar',
         hostname: this.name,
@@ -56,10 +56,8 @@ userSchema.pre('save', function (next) {
  if approved, set code
 */
 userSchema.methods.getCode = function() {
-
     function getUniqueCode(resolve) {
-        //If you're using NodeJS you can use Es6 syntax:
-        var code = getNewUniqueCode(function( err, count){
+        let code = getNewUniqueCode(function( err, count){
             console.log( "unique code:" + count );
         });
         User.find({code: code}, function(err, users) {
@@ -88,9 +86,9 @@ userSchema.methods.getCode = function() {
 }
 
 function getNewUniqueCode(){
-    var randomstring = require("randomstring");
+    let randomstring = require("randomstring");
     // var code = '9ozuq';
-    var code = randomstring.generate({length: 5, charset: 'alphanumeric'});
+    let code = randomstring.generate({length: 5, charset: 'alphanumeric'});
     console.log("Code is: " + code);
     return code;
 }
@@ -118,26 +116,21 @@ userSchema.methods.updateCal = function (next) {
         // no users found
         if (joinCal == null) {
             // do stuff here
-            var newError = new Error('That is not a valid code.');
+            let newError = new Error('That is not a valid code.');
             next(newError);
         } else{
             console.log("Joined calendar: " + joinCal.name + thisUser.code + 'JoinCalendar');
 
-            var days = thisUser.days.length;
-            var hours = thisUser.hours;
+            let days = thisUser.days.length;
+            let hours = thisUser.hours;
             console.log("days: " + days + " hours: " + hours);
-            for (var day = 0; day < days; day++) {
-                for (var hour = 0; hour < hours; hour++) {
-                    var index = (day*hours + hour);
+            for (let day = 0; day < days; day++) {
+                for (let hour = 0; hour < hours; hour++) {
+                    let index = (day*hours + hour);
                     console.log("index: " + index);
                     if (thisUser.calendar[index].available === false) {
                         console.log('not available! updating - day: ' + (day+1) + " hour: "+ (hour+1));
                         console.log("availability: " + joinCal.calendar[index].available);
-
-                        //for some reason only works for day: 1
-                        // User.update(
-                        //     { name: 'JoinCalendar', code: thisUser.code, "calendar.day": day+1, "calendar.hour": hour+1},
-                        //     { $set: { "calendar.$.available" : false }}, function(err, result){console.log(result)});
                         joinCal.calendar[index].available = false;
                         joinCal.save(function(err){});
                     }
@@ -147,5 +140,5 @@ userSchema.methods.updateCal = function (next) {
     });
 };
 // create a model using it
-var User = mongoose.model('User', userSchema);
+let User = mongoose.model('User', userSchema);
 module.exports = User; //make available to users in Node application

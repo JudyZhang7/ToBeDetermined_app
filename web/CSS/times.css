@@ -114,17 +114,7 @@ table td.highlighted {
     top: 85vh;
     left: 3vw;
 }
-#instructions{
-    color: white;
-    background: var(--blueBackgroundColor);
-    border-radius: 5px;
-    padding: 1vh;
-    width: 33vw;
-    font-size: 90%;
-    position: absolute;
-    top: 12vh;
-    left: 3vw;
-}
+
 #sampleBox{
     width: 3vh;
     height: 3vh;
@@ -206,4 +196,27 @@ table td.highlighted {
     position: fixed;
     pointer-events: none;
     z-index: 10001;
+}
+/* collapsible */
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+#instructions:hover {
+    background-color: var(--darkGreyColor);
+}
+
+#instructions{
+    width: 33vw;
+    padding: 1vh;
+    border-radius: 5px;
+    color: white;
+    background: var(--blueBackgroundColor);
+    font-size: 90%;
+    position: absolute;
+    top: 12vh;
+    left: 3vw;
+    /* collapsible */
+    max-height: 40vh;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+    cursor: pointer;
 }

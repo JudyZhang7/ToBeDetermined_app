@@ -9,7 +9,7 @@ $(document).ready(function() {
     let cal, hours, event, name, timesAvailableTemplate, days, host;
 
     socket.emit('getUserCal', code); // get code from calendar database
-    socket.emit('getContributers', code);
+    socket.emit('getContributors', code);
     socket.on('userCal', function (result) {
         cal = result.days;
         hours = result.hours;

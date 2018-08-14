@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ca169e-57b2-42fb-b612-220ec19cdfd0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/CSS/cover.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/cover.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/CSS/times.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/times.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/done.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/getCode.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/getCode.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/shared/select_hours.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/select_hours.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/JS/access_mongoDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/access_mongoDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JS/query.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/included/full_calendar_preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/full_calendar_preview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/included/select_times.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/select_times.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/JS/userMongoFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/userMongoFunctions.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,8 +28,8 @@
       <file leaf-file-name="selectTimesFromCode.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/HTML/selectTimesFromCode.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+            <state relative-caret-position="65">
+              <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -29,27 +37,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="access_mongoDB.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
+      <file leaf-file-name="select_times.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1683" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/JS/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state relative-caret-position="399">
+              <caret line="299" column="19" selection-start-line="299" selection-start-column="19" selection-end-line="299" selection-end-column="19" />
+              <folding>
+                <element signature="n#!!block;n#saveHours#0" />
+                <element signature="e#5180#6814#0" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
+                <element signature="e#8141#8658#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userMongoFunctions.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/JS/userMongoFunctions.js">
+      <file leaf-file-name="times.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/CSS/times.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
+            <state relative-caret-position="507">
+              <caret line="217" column="8" lean-forward="true" selection-start-line="217" selection-end-line="218" />
             </state>
           </provider>
         </entry>
@@ -67,18 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>high</find>
-      <find>.class</find>
-      <find>highlig</find>
-      <find>unav</find>
-      <find>prev</find>
-      <find>document.</find>
-      <find>date</find>
-      <find>current day</find>
-      <find>calendar</find>
-      <find>currentDayAndMonth</find>
-      <find>currentDay</find>
-      <find>clear al</find>
       <find>marginlef</find>
       <find>over</find>
       <find>39</find>
@@ -97,6 +94,18 @@
       <find>logo</find>
       <find>px</find>
       <find>beforeunl</find>
+      <find>toggle</find>
+      <find>err</find>
+      <find>getcon</find>
+      <find>newEven</find>
+      <find>alert</find>
+      <find>instruct</find>
+      <find>33vw</find>
+      <find>collaps</find>
+      <find>callback</find>
+      <find>maxheight</find>
+      <find>instruc</find>
+      <find>instr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,20 +151,20 @@
         <option value="$PROJECT_DIR$/web/JS/included/load_nav.js" />
         <option value="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" />
         <option value="$PROJECT_DIR$/web/CSS/cal.css" />
-        <option value="$PROJECT_DIR$/web/JS/included/select_times.js" />
-        <option value="$PROJECT_DIR$/web/HTML/done.html" />
-        <option value="$PROJECT_DIR$/web/HTML/getCode.html" />
         <option value="$PROJECT_DIR$/web/HTML/selectTimes.html" />
         <option value="$PROJECT_DIR$/web/HTML/viewcalendar.html" />
         <option value="$PROJECT_DIR$/web/HTML/create.html" />
-        <option value="$PROJECT_DIR$/web/HTML/shared/select_hours.html" />
-        <option value="$PROJECT_DIR$/web/CSS/times.css" />
-        <option value="$PROJECT_DIR$/web/HTML/index.html" />
-        <option value="$PROJECT_DIR$/web/CSS/cover.css" />
         <option value="$PROJECT_DIR$/web/CSS/index.css" />
-        <option value="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" />
+        <option value="$PROJECT_DIR$/web/HTML/getCode.html" />
+        <option value="$PROJECT_DIR$/web/HTML/done.html" />
         <option value="$PROJECT_DIR$/web/JS/access_mongoDB.js" />
         <option value="$PROJECT_DIR$/web/JS/userMongoFunctions.js" />
+        <option value="$PROJECT_DIR$/web/CSS/cover.css" />
+        <option value="$PROJECT_DIR$/web/HTML/index.html" />
+        <option value="$PROJECT_DIR$/web/HTML/shared/select_hours.html" />
+        <option value="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" />
+        <option value="$PROJECT_DIR$/web/CSS/times.css" />
+        <option value="$PROJECT_DIR$/web/JS/included/select_times.js" />
       </list>
     </option>
   </component>
@@ -183,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,14 +214,35 @@
               <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
               <item name="tbd" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tbd" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tbd" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="JS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tbd" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="JS" type="462c0819:PsiDirectoryNode" />
+              <item name="included" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,12 +351,13 @@
       <workItem from="1532884709208" duration="15064000" />
       <workItem from="1533084660618" duration="2881000" />
       <workItem from="1533265341743" duration="47784000" />
-      <workItem from="1534185198164" duration="18789000" />
+      <workItem from="1534185198164" duration="27484000" />
+      <workItem from="1534273527613" duration="3177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278357000" />
+    <option name="totallyTimeSpent" value="290229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="0" />
@@ -350,7 +380,6 @@
       <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21484375" />
       <window_info id="Web" order="0" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.484375" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -363,6 +392,7 @@
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.484375" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,9 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="54" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -499,92 +526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2865">
-          <caret line="193" column="67" lean-forward="true" selection-start-line="193" selection-start-column="67" selection-end-line="193" selection-end-column="67" />
-          <folding>
-            <element signature="n#!!block;n#saveHours#0" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/shared/menubar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/done.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/getCode.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/viewcalendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/shared/select_hours.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="98" selection-start-line="20" selection-start-column="98" selection-end-line="20" selection-end-column="98" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#5;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/CSS/times.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
-          <folding>
-            <element signature="e#39#82#0" />
-            <element signature="e#88#113#0" />
-            <element signature="e#218#342#0" />
-            <element signature="e#352#375#0" />
-            <element signature="e#385#562#0" />
-            <element signature="e#598#634#0" />
-            <element signature="e#1022#1067#0" />
-            <element signature="e#1082#1144#0" />
-            <element signature="e#1176#1362#0" />
-            <element signature="e#1386#1421#0" />
-            <element signature="e#1427#1486#0" />
-            <element signature="e#1632#1707#0" />
-            <element signature="e#1720#1795#0" />
-            <element signature="e#1733#2048#0" />
-            <element signature="e#2060#2078#0" />
-            <element signature="e#2118#2157#0" />
-            <element signature="e#2178#2300#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -592,20 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/CSS/cover.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="80" column="15" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="15" />
-          <folding>
-            <element signature="e#1011#1218#0" />
-            <element signature="e#1584#1609#0" />
-            <element signature="e#1636#1713#0" />
-            <element signature="e#1722#1779#0" />
-            <element signature="e#1798#1833#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -629,18 +560,6 @@
             <element signature="e#2068#2092#0" />
             <element signature="e#2137#2188#0" />
             <element signature="e#2200#2455#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="97" column="17" lean-forward="true" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
-          <folding>
-            <element signature="e#536#2738#0" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -671,46 +590,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/app.js" />
+    <entry file="file://$PROJECT_DIR$/web/JS/query.js" />
+    <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-729">
+          <caret line="54" column="58" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/viewcalendar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/userMongoFunctions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="84" column="10" lean-forward="true" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/done.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/getCode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CSS/cover.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/shared/select_hours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CSS/times.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="217" column="8" lean-forward="true" selection-start-line="217" selection-end-line="218" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/selectTimesFromCode.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+        <state relative-caret-position="65">
+          <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
           <folding>
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/app.js">
+    <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/access_mongoDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1683" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/userMongoFunctions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
+        <state relative-caret-position="399">
+          <caret line="299" column="19" selection-start-line="299" selection-start-column="19" selection-end-line="299" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!block;n#saveHours#0" />
+            <element signature="e#5180#6814#0" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
+            <element signature="e#8141#8658#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -9,7 +9,7 @@ let socket = io.connect('http://localhost:3000');
 const weekNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 // visually clear all hours on day cal and reset timesAvailableDay set to FALSE
-function clearAll(){
+function clearAll() {
     console.log("[Clearing all from day cal...]");
     let x = document.getElementById("hoursInADay");
     let y = x.getElementsByTagName("td");
@@ -20,14 +20,14 @@ function clearAll(){
 }
 
 // load the next day hours calendar
-function setHoursCal(){
+function setHoursCal() {
     document.getElementById("currentDayAndMonth").innerHTML = weekNames[new Date(currentYear, currentMonth, cal[currentDayIndex]).getDay()] + " " + cal[currentDayIndex];
     timesAvailableDay = timesAvailableTotal[currentDayIndex]; // update to next day calendar
     let x = document.getElementById("hoursInADay");
     let y = x.getElementsByTagName("td");
     for (let i = 0; i < y.length; i++) {
         y[i].classList.remove("highlighted");
-        if(timesAvailableDay[i] === true){ // this is new calendar
+        if (timesAvailableDay[i] === true) { // this is new calendar
             y[i].classList.add("highlighted");
         }
     }
@@ -35,34 +35,34 @@ function setHoursCal(){
 }
 
 // increments the current day index
-function updateCalHighlight(nextDay, setHours_cb){
+function updateCalHighlight(nextDay, setHours_cb) {
     // change the previously highlighted day back to grey
     let today = parseInt(cal[currentDayIndex]) + buffer;
     let table = $("#calendar")[0];
     let week, day;
-    if(today % 7 === 0){
-        week = today/7 - 1;
+    if (today % 7 === 0) {
+        week = today / 7 - 1;
         day = 6;
-    } else{
-        week = today/7;
-        day = today%7 - 1;
+    } else {
+        week = today / 7;
+        day = today % 7 - 1;
     }
     let cell = table.rows[parseInt(week)].cells[day];
     let color = '#CBCBCB';
     $(cell).css('background-color', color); //highlight selected cells
     // update the next day's color
-    if(nextDay){
+    if (nextDay) {
         currentDayIndex++;
-    } else{
+    } else {
         currentDayIndex--;
     }
     today = cal[currentDayIndex] + buffer;
-    if(today %7 === 0){
-        week = today/7 - 1;
+    if (today % 7 === 0) {
+        week = today / 7 - 1;
         day = 6;
-    } else{
-        week = today/7;
-        day = today%7 - 1;
+    } else {
+        week = today / 7;
+        day = today % 7 - 1;
     }
     cell = table.rows[parseInt(week)].cells[day];
     color = '#FFC99B';
@@ -71,19 +71,19 @@ function updateCalHighlight(nextDay, setHours_cb){
 }
 
 // update all calendars
-function updateCal(isNextDay){
+function updateCal(isNextDay) {
     // save the previous calendar before moving to new one
     saveHours();
     // update the coloring on calendar.
     // !!!NOTE: updateCalHighlight also increments/decrements on day
-    updateCalHighlight(isNextDay, function(){
+    updateCalHighlight(isNextDay, function () {
         // set up the hours cal to work on
         setHoursCal();
     });
 }
 
 // function to handle when user uses the arrow
-function arrow(isNextButton){
+function arrow(isNextButton) {
     console.log("[...in arrow function...]");
     // make sure at least one time is selected
     // TODO: is checking if at least one time ...this necessary? No I don't think so.
@@ -92,14 +92,14 @@ function arrow(isNextButton){
     //     return;
     // }
     // check legality of move (forward or backwards)
-    if(isNextButton){
+    if (isNextButton) {
         //end of calendar, cannot access more
-        if((currentDayIndex + 1) >= cal.length) {
+        if ((currentDayIndex + 1) >= cal.length) {
             alert("Error: You are at the end of your calendar.");
             return;
         }
-    } else{ // going to previous day
-        if((currentDayIndex - 1) < 0){
+    } else { // going to previous day
+        if ((currentDayIndex - 1) < 0) {
             alert("Error: You are at the beginning of your calendar.");
             return;
         }
@@ -109,7 +109,7 @@ function arrow(isNextButton){
 }
 
 // save hours in timesAvailableTotal array
-function saveHours(){
+function saveHours() {
     timesAvailableTotal[currentDayIndex] = timesAvailableDay;
 }
 
@@ -126,7 +126,7 @@ function addNewUser(name, event, caldays, timesAvailableTotal) {
     socket.emit('saveUser', JSON.stringify(userData));
 }
 
-function finished(){
+function finished() {
     console.log("[...finished picking times... saving to database]");
     saveHours();
     // if(!timesAvailableDay.includes(true)){
@@ -141,7 +141,7 @@ function finished(){
     let userDays = JSON.parse(sessionStorage.getItem("userDays")); // An object :D
     console.log("user hours available length: " + userDays.length);
     // save to mongoDB...?
-    console.log(name+event);
+    console.log(name + event);
     addNewUser(name, event, cal, timesAvailableTotal);
 }
 
@@ -189,10 +189,20 @@ function callback(isNewCal) {
             $("#rightPanel").slideDown("");
         });
         $("#selectHours").load("shared/select_hours.html", function () {
+            document.getElementById("instructions").addEventListener("click", function () {
+                var content = this;
+                if (content.style.maxHeight === "40vh") {
+                    console.log("setting height to null");
+                    content.style.maxHeight = 0;
+                } else {
+                    content.style.maxHeight = "40vh";
+                }
+            });
+            document.getElementById("instructions").click();
             //set the dates
-            if(!isNewCal){
-                document.getElementById("instructions").innerHTML+=
-                "    <span style= \"font-weight: 400\"> > </span> to view all the times for this event, click on '<span style= \"font-weight: 400\">show all times</span>'<br>\n" +
+            if (!isNewCal) {
+                document.getElementById("instructions").innerHTML +=
+                    "    <span style= \"font-weight: 400\"> > </span> to view all the times for this event, click on '<span style= \"font-weight: 400\">show all times</span>'<br>\n" +
                     "<span style= \"font-weight: 400\"> > </span> <div id = \"sampleBox\" class = \"unavailable\"></div> indicates there is at least one person who is unavailable at that time ";
             }
             document.getElementById("currentDayAndMonth").innerHTML = weekNames[new Date(currentYear, currentMonth, cal[currentDayIndex]).getDay()] + " " + cal[currentDayIndex];
@@ -200,7 +210,7 @@ function callback(isNewCal) {
             let date = 8;
 
             let r = 0;
-            if(isNewCal) {
+            if (isNewCal) {
                 while (row = timetable.rows[r++]) {
                     let c = 0;
                     while (cell = row.cells[c++]) {
@@ -215,7 +225,7 @@ function callback(isNewCal) {
                 }
             }
             else { // TODO: for an already created calendar show other calendar inputs
-                let hourIndex = hours*currentDayIndex;
+                let hourIndex = hours * currentDayIndex;
                 // let timeIndex = hourIndex;
                 let timeIndex = 0;
                 while (row = timetable.rows[r++]) {
@@ -229,7 +239,7 @@ function callback(isNewCal) {
                         }
                         // grey out if day is not available to be selected
                         // console.log("index of cal: " + (hourIndex + timeIndex));
-                        if(timesAvailableTemplate[hourIndex + timeIndex].available === false){
+                        if (timesAvailableTemplate[hourIndex + timeIndex].available === false) {
                             cell.classList.add("unavailable");
                         }
                         date++;
@@ -286,21 +296,31 @@ function callback(isNewCal) {
             });
 
             // !!!fade the tip
-            setTimeout(function(){ $("#tip").fadeOut(1900); }, 7000);
+            setTimeout(function () {
+                $("#tip").fadeOut(1900);
+            }, 7000);
+            setTimeout(function () {
+                $("#instructions").css("maxHeight", "0");
+            }, 14000);
         })
     });
 }
+
 document.addEventListener("keyup", event => {
     if (event.defaultPrevented) return
     switch (event.key) {
         case "ArrowLeft":
             $("#prevButton").css("color", "var(--highlightedColor)");
-            setTimeout(function(){$("#prevButton").css("color", "var(--darkGreyColor)")}, 200);
+            setTimeout(function () {
+                $("#prevButton").css("color", "var(--darkGreyColor)")
+            }, 200);
             arrow(false);
             break;
         case "ArrowRight":
             $("#nextButton").css("color", "var(--highlightedColor)");
-            setTimeout(function(){$("#nextButton").css("color", "var(--darkGreyColor)")}, 200);
+            setTimeout(function () {
+                $("#nextButton").css("color", "var(--darkGreyColor)")
+            }, 200);
             arrow(true);
             break;
     }

@@ -10,6 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script src="../JS/included/load_nav.js"></script>
+    <style>
+        body {
+            background-image: url("../white_done.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
     <script>
         let socket = io.connect('http://localhost:3000');
         let code = window.sessionStorage.getItem("userCode");
@@ -101,6 +108,7 @@
         });
     </script>
 </div>
+    <a href="https://unsplash.com/@evstyle" style="margin-left: 10px; position: fixed; top: 45px; color: black;">Photo by Ev on Unsplash</a>
 </div>
 
 </body>

@@ -61,6 +61,9 @@ canvas {
     background-color: var(--darkGreyColor);
     cursor: pointer;
 }
+#newEvent{
+    font-size: 6vh;
+}
 /* ---- particles.js container ---- */
 #particles-js {
     position: absolute;

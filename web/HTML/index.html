@@ -66,29 +66,39 @@
 
     let socket = io.connect('http://localhost:3000');
 
+    $(function(){
+        $('#entry').on('submit', function(event){
+            event.preventDefault();
+            return false;
+        });
+    });
+    let notInit = true;
     function getCode(nextPage){
         //check if code is valid
         let code = document.entry.code.value;
         window.sessionStorage.setItem("userCode", code);
         console.log(code);
         socket.emit('getUser', code);
-        socket.on('codeValidation', function(result){
-            if(result === true){
-                document.getElementById("entry").action =
-                    nextPage;
-                document.getElementById("entry").submit();
-
-            } else{
-                alert("Invalid code. Please try again.");
-                document.getElementById("entry").submit();
-            }
-        })
+        if(notInit) {
+            socket.on('codeValidation', function (result) {
+                if (result === true) {
+                    document.getElementById("entry").action =
+                        nextPage;
+                    document.getElementById("entry").submit();
+                    return true;
+                } else {
+                    //document.getElementById("entry").submit();
+                    alert("Invalid code. Please try again.");
+                    return false;
+                }
+            })
+            notInit=false;
+        }
     }
     function showCodeEntry(){
         $("#enterCode").css("display", "none");
         $("#entry").css("display", "block");
     }
-
     </script>
 </head>
 <body>
@@ -100,7 +110,8 @@
         <a href="create.html" class="blueButton" id = "newEvent">new event</a>
         <div id = 'logo'>to be <div class = 'bold' style = "display: inline-block">determined</div>.</div>
         <input id = "enterCode" type = "button" value = "have a code?" onclick = "showCodeEntry()" class = "blueButton inline"/>
-        <form id = "entry" name = "entry" onsubmit="getCode()">
+
+        <form id = "entry" name = "entry">
             <h1>or enter code:</h1>
             <input id = "code" type = "text" placeholder = "c0f3e"><br>
             <input id = "editCal" type = "button" value = "modify" onclick = "getCode('selectTimesFromCode.html')" class = "blueButton inline"/>

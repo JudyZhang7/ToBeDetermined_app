@@ -26,7 +26,7 @@ io.on('connection', function (socket) {
         db.getUserCal(code, socket);
     })
     //retrieve all contributers
-    socket.on('getContributers', function(code){
-        db.getContributers(code, socket);
+    socket.on('getContributors', function(code){
+        db.getContributors(code, socket);
     })
 });
