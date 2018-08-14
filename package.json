@@ -1,29 +1,30 @@
 {
-  "name": "to_be_determined",
+  "name": "tbd",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JudyZhang7/WhenIsBetter.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JudyZhang7/WhenIsBetter/issues"
-  },
-  "homepage": "https://github.com/JudyZhang7/WhenIsBetter#readme",
   "dependencies": {
     "express": "^4.15.2",
     "mongodb": "^3.0.10",
     "particles.js": "^2.0.0",
     "randomstring": "^1.1.5",
-    "shim-keyboard-event-key": "^1.0.2",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "shim-keyboard-event-key": "^1.0.2"
   },
   "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JudyZhang7/nodejs_test.git"
+  },
   "keywords": [],
-  "description": ""
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JudyZhang7/nodejs_test/issues"
+  },
+  "homepage": "https://github.com/JudyZhang7/nodejs_test#readme"
 }
