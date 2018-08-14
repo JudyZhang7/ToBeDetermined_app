@@ -1,6 +1,6 @@
 //using mongoose
 let mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI, function (err, db){
+mongoose.connect("mongodb://Judy:whenisgood1@ds121382.mlab.com:21382/tbd_db", function (err, db){
     if (err){
         console.log("[Database error... cannot connect... ]");
         throw err;
