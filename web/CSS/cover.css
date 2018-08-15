@@ -9,6 +9,10 @@ body {
     color: white;
     font-family: var(--font);
 }
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
 .inline{
     display:inline-block;
 }
@@ -17,7 +21,6 @@ h1{
     margin-bottom: 2vh;
     font-size: 150%;
 }
-
 input[type=text] {
     width: 13vw;
     height: 3vh;
@@ -28,7 +31,6 @@ input[type=text] {
     padding: 1vh;
     margin-bottom: 2vh;
 }
-
 #frontcenter{
     position: absolute;
     text-align: center;
@@ -40,10 +42,16 @@ input[type=text] {
     text-align: center;
     font-size: 10vw;
     margin: 3vh 2vw;
+    margin-bottom: 0;
 }
-canvas {
-    display: block;
-    vertical-align: bottom;
+#credits{
+    font-size: 1.5vw;
+    top: -3vh;
+    left: 22vw;
+    position: relative;
+}
+#credits a{
+    color: var(--highlightedColor);
 }
 #editCal, #viewCal{
     width: 7vw;
@@ -73,40 +81,4 @@ canvas {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-}
-
-/* ---- stats.js ---- */
-.count-particles {
-    background: #000022;
-    position: absolute;
-    top: 48px;
-    left: 0;
-    width: 80px;
-    color: #13E8E9;
-    font-size: .8em;
-    text-align: left;
-    text-indent: 4px;
-    line-height: 14px;
-    padding-bottom: 2px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-}
-
-.js-count-particles {
-    font-size: 1.1em;
-}
-
-#stats, .count-particles {
-    -webkit-user-select: none;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
-#stats {
-    border-radius: 3px 3px 0 0;
-    overflow: hidden;
-}
-
-.count-particles {
-    border-radius: 0 0 3px 3px;
 }
