@@ -1,7 +1,6 @@
 {
   "name": "tbd",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "dependencies": {
     "express": "^4.15.2",
@@ -27,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/JudyZhang7/nodejs_test/issues"
   },
-  "homepage": "https://github.com/JudyZhang7/nodejs_test#readme"
+  "homepage": "https://github.com/JudyZhang7/nodejs_test#readme",
+  "description": ""
 }
