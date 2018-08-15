@@ -10,13 +10,13 @@ app.use(express.static(__dirname + '/web/HTML'));//Store all HTML files in view 
 app.use(express.static(__dirname + '/web/CSS'));
 
 app.get('/', function (req, res) {
-    res.sendfile(__dirname + 'index.html');
+    res.sendfile(__dirname + '/index.html');
 });
 app.get('/CSS/cover.css', function (req, res) {
-    res.sendfile(__dirname + 'cover.css');
+    res.sendfile(__dirname + '/cover.css');
 });
 app.get('/CSS/index.css', function (req, res) {
-    res.sendfile(__dirname + 'index.css');
+    res.sendfile(__dirname + '/index.css');
 });
 
 io.on('connection', function (socket) {
