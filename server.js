@@ -7,7 +7,7 @@ var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io').listen(server);
 
 let CSS_PATH = '/web/CSS/';
-let HTML_PATH = '/web.HTML/';
+let HTML_PATH = '/web/HTML/';
 
 var distDir = __dirname + "/web/";
 app.use(express.static(distDir));
