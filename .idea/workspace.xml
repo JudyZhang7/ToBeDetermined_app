@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ca169e-57b2-42fb-b612-220ec19cdfd0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/shared/menubar.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/shared/menubar.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +26,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
               <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menubar.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/HTML/shared/menubar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,7 +146,6 @@
         <option value="$PROJECT_DIR$/web/JS/included/pull_up_cal.js" />
         <option value="$PROJECT_DIR$/web/JS/included/pullup_cal.js" />
         <option value="$PROJECT_DIR$/web/JS/included/realtime_cal.js" />
-        <option value="$PROJECT_DIR$/web/HTML/shared/menubar.html" />
         <option value="$PROJECT_DIR$/web/JS/included/load_nav.js" />
         <option value="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" />
         <option value="$PROJECT_DIR$/web/CSS/cal.css" />
@@ -154,6 +164,7 @@
         <option value="$PROJECT_DIR$/web/HTML/index.html" />
         <option value="$PROJECT_DIR$/web/CSS/index.css" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/web/HTML/shared/menubar.html" />
       </list>
     </option>
   </component>
@@ -341,12 +352,12 @@
       <workItem from="1533084660618" duration="2881000" />
       <workItem from="1533265341743" duration="47784000" />
       <workItem from="1534185198164" duration="27484000" />
-      <workItem from="1534273527613" duration="9003000" />
+      <workItem from="1534273527613" duration="9277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296055000" />
+    <option name="totallyTimeSpent" value="296329000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="0" />
@@ -508,13 +519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="541">
           <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/shared/menubar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -689,6 +693,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/shared/menubar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
