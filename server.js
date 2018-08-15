@@ -9,15 +9,18 @@ var io = require('socket.io').listen(server);
 let CSS_PATH = '/web/CSS/';
 let HTML_PATH = '/web.HTML/';
 
+var distDir = __dirname + "/web/";
+app.use(express.static(distDir));
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + HTML_PATH + 'index.html');
 });
-app.get('/CSS/cover.css', function (req, res) {
-    res.sendFile(__dirname + CSS_PATH + 'cover.css');
-});
-app.get('/CSS/index.css', function (req, res) {
-    res.sendFile(__dirname + CSS_PATH + 'index.css');
-});
+// app.get('/CSS/cover.css', function (req, res) {
+//     res.sendFile(__dirname + CSS_PATH + 'cover.css');
+// });
+// app.get('/CSS/index.css', function (req, res) {
+//     res.sendFile(__dirname + CSS_PATH + 'index.css');
+// });
 
 io.on('connection', function (socket) {
     socket.on('saveUser', function (userObject) {
