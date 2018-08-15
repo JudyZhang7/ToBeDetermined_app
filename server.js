@@ -9,6 +9,9 @@ var io = require('socket.io').listen(server);
 app.get('/', function (req, res) {
     res.sendfile(__dirname + '/web/HTML/index.html');
 });
+app.get('/CSS/cover.css', function (req, res) {
+    res.sendfile(__dirname + '/web/CSS/cover.css');
+});
 
 io.on('connection', function (socket) {
     socket.on('saveUser', function (userObject) {
