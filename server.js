@@ -7,7 +7,7 @@ var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io').listen(server);
 
 app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/HTML/index.html');
+    res.sendfile(__dirname + '/web/HTML/index.html');
 });
 
 io.on('connection', function (socket) {
