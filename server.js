@@ -62,3 +62,7 @@ io.on('connection', function (socket) {
         db.getContributors(code, socket);
     })
 });
+
+server.listen((process.env.PORT || 3000), function(){
+    console.log('listening on *:3000');
+});

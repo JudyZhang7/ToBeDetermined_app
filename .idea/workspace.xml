@@ -3,8 +3,111 @@
   <component name="ChangeListManager">
     <list default="true" id="33ca169e-57b2-42fb-b612-220ec19cdfd0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/cover.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/cover.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/component.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/component.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/src/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/src/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/src/debug.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/src/debug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/src/node.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/src/node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/ms/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/ms/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/ms/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/node_modules/ms/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/finalhandler/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/finalhandler/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/finalhandler/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/finalhandler/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/finalhandler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/finalhandler/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fresh/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fresh/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fresh/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fresh/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fresh/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fresh/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fresh/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fresh/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/statuses/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/statuses/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/statuses/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/statuses/codes.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/statuses/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/statuses/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/Cakefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ipaddr.js/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/ipaddr.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ipaddr.js/ipaddr.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/lib/ipaddr.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ipaddr.js/lib/ipaddr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ipaddr.js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/src/ipaddr.coffee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/test/ipaddr.test.coffee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mime/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mime/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mime/build/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/build/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mime/mime.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/mime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mime/types.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/types.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/.jscs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/dist/qs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/dist/qs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/lib/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/lib/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/lib/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/lib/stringify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/lib/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/test/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/test/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/test/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/test/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/test/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/test/stringify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/qs/test/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/test/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/component.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/component.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/debug.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/debug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/node.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/ms/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/ms/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/ms/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/ms/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/send/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/setprototypeof/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/setprototypeof/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/setprototypeof/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/setprototypeof/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/statuses/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/statuses/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/statuses/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/statuses/codes.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/codes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/statuses/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/statuses/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/utils-merge/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/utils-merge/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/utils-merge/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/utils-merge/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/utils-merge/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/utils-merge/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/utils-merge/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/HTML/selectTimes.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/HTML/selectTimes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/included/select_times.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/included/select_times.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +122,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="113" column="128" selection-start-line="113" selection-start-column="128" selection-end-line="113" selection-end-column="128" />
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#537#2739#0" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -30,20 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cover.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/CSS/cover.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-374">
-              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="select_times.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="145" column="1" lean-forward="true" selection-start-line="145" selection-start-column="1" selection-end-line="145" selection-end-column="1" />
+            <state relative-caret-position="45">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
               <folding>
                 <element signature="n#!!block;n#saveHours#0" />
                 <element signature="e#5180#6814#0" />
@@ -51,6 +145,38 @@
                 <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selectTimes.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/HTML/create.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="54" column="6" lean-forward="true" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -141,22 +267,22 @@
         <option value="$PROJECT_DIR$/web/JS/included/load_nav.js" />
         <option value="$PROJECT_DIR$/web/HTML/shared/right_panel_cal.html" />
         <option value="$PROJECT_DIR$/web/CSS/cal.css" />
-        <option value="$PROJECT_DIR$/web/HTML/selectTimes.html" />
         <option value="$PROJECT_DIR$/web/HTML/viewcalendar.html" />
-        <option value="$PROJECT_DIR$/web/HTML/create.html" />
         <option value="$PROJECT_DIR$/web/HTML/getCode.html" />
         <option value="$PROJECT_DIR$/web/HTML/done.html" />
         <option value="$PROJECT_DIR$/web/HTML/shared/select_hours.html" />
         <option value="$PROJECT_DIR$/web/HTML/selectTimesFromCode.html" />
         <option value="$PROJECT_DIR$/web/CSS/times.css" />
-        <option value="$PROJECT_DIR$/web/JS/included/select_times.js" />
         <option value="$PROJECT_DIR$/web/JS/userMongoFunctions.js" />
         <option value="$PROJECT_DIR$/web/JS/access_mongoDB.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/web/HTML/shared/menubar.html" />
         <option value="$PROJECT_DIR$/web/CSS/index.css" />
-        <option value="$PROJECT_DIR$/web/HTML/index.html" />
         <option value="$PROJECT_DIR$/web/CSS/cover.css" />
+        <option value="$PROJECT_DIR$/web/JS/included/select_times.js" />
+        <option value="$PROJECT_DIR$/web/HTML/index.html" />
+        <option value="$PROJECT_DIR$/web/HTML/create.html" />
+        <option value="$PROJECT_DIR$/web/HTML/selectTimes.html" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -175,8 +301,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="640" />
     <option name="y" value="22" />
-    <option name="width" value="1280" />
+    <option name="width" value="640" />
     <option name="height" value="778" />
   </component>
   <component name="ProjectView">
@@ -200,12 +327,6 @@
               <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
               <item name="tbd" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="CSS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tbd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="HTML" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -214,19 +335,6 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="HTML" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tbd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="JS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tbd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tbd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="JS" type="462c0819:PsiDirectoryNode" />
-              <item name="included" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -344,15 +452,15 @@
       <workItem from="1533084660618" duration="2881000" />
       <workItem from="1533265341743" duration="47784000" />
       <workItem from="1534185198164" duration="27484000" />
-      <workItem from="1534273527613" duration="10535000" />
+      <workItem from="1534273527613" duration="12739000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297587000" />
+    <option name="totallyTimeSpent" value="299791000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="778" extended-state="0" />
+    <frame x="640" y="22" width="640" height="778" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
@@ -369,7 +477,7 @@
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21484375" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.0828125" />
       <window_info id="Web" order="0" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.484375" />
@@ -398,7 +506,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server.js</url>
+          <line>45</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="18" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -528,25 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/JS/app.js" />
     <entry file="file://$PROJECT_DIR$/web/JS/query.js" />
     <entry file="file://$PROJECT_DIR$/web/HTML/viewcalendar.html">
@@ -628,45 +725,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/HTML/shared/menubar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="145" column="1" lean-forward="true" selection-start-line="145" selection-start-column="1" selection-end-line="145" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#saveHours#0" />
-            <element signature="e#5180#6814#0" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="113" column="128" selection-start-line="113" selection-start-column="128" selection-end-line="113" selection-end-column="128" />
-          <folding>
-            <element signature="e#537#2739#0" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -680,8 +744,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/CSS/cover.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
+        <state relative-caret-position="330">
           <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JS/included/select_times.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!block;n#saveHours#0" />
+            <element signature="e#5180#6814#0" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/selectTimes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#537#2739#0" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/HTML/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="54" column="6" lean-forward="true" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
         </state>
       </provider>
     </entry>
