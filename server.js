@@ -12,6 +12,9 @@ app.get('/', function (req, res) {
 app.get('/CSS/cover.css', function (req, res) {
     res.sendfile(__dirname + '/web/CSS/cover.css');
 });
+app.get('/CSS/index.css', function (req, res) {
+    res.sendfile(__dirname + '/web/CSS/index.css');
+});
 
 io.on('connection', function (socket) {
     socket.on('saveUser', function (userObject) {
