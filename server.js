@@ -6,14 +6,17 @@ var app = express();
 var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io').listen(server);
 
+app.use(express.static(__dirname + '/web/HTML'));//Store all HTML files in view folder.
+app.use(express.static(__dirname + '/web/CSS'));
+
 app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/web/HTML/index.html');
+    res.sendfile(__dirname + 'index.html');
 });
 app.get('/CSS/cover.css', function (req, res) {
-    res.sendfile(__dirname + '/web/CSS/cover.css');
+    res.sendfile(__dirname + 'cover.css');
 });
 app.get('/CSS/index.css', function (req, res) {
-    res.sendfile(__dirname + '/web/CSS/index.css');
+    res.sendfile(__dirname + 'index.css');
 });
 
 io.on('connection', function (socket) {
