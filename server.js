@@ -6,7 +6,6 @@ var app = express();
 var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io').listen(server);
 
-let CSS_PATH = '/web/CSS/';
 let HTML_PATH = '/web/HTML/';
 
 var distDir = __dirname + "/web/";
@@ -15,12 +14,24 @@ app.use(express.static(distDir));
 app.get('/', function (req, res) {
     res.sendFile(__dirname + HTML_PATH + 'index.html');
 });
-// app.get('/CSS/cover.css', function (req, res) {
-//     res.sendFile(__dirname + CSS_PATH + 'cover.css');
-// });
-// app.get('/CSS/index.css', function (req, res) {
-//     res.sendFile(__dirname + CSS_PATH + 'index.css');
-// });
+app.get('/create.html', function (req, res) {
+    res.sendFile(__dirname + HTML_PATH + 'create.html');
+});
+app.get('/done.html', function (req, res) {
+    res.sendFile(__dirname + HTML_PATH + 'done.html');
+});
+app.get('/getcode.html', function (req, res) {
+    res.sendFile(__dirname + HTML_PATH + 'getCode.html');
+});
+app.get('/selecttimes.html', function (req, res) {
+    res.sendFile(__dirname + HTML_PATH + 'selectTimes.html');
+});
+app.get('/selecttimesfromcode.html', function (req, res) {
+    res.sendFile(__dirname + HTML_PATH + 'selectTimesFromCode.html');
+});
+app.get('/viewcalendar.html', function (req, res) {
+    res.sendFile(__dirname + HTML_PATH + 'viewcalendar.html');
+});
 
 io.on('connection', function (socket) {
     socket.on('saveUser', function (userObject) {
