@@ -7,6 +7,7 @@ var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io').listen(server);
 
 let HTML_PATH = '/web/HTML/';
+let HTML_SHAREDPATH = '/web/HTML/shared/';
 
 var distDir = __dirname + "/web/";
 app.use(express.static(distDir));
@@ -31,6 +32,15 @@ app.get('/selecttimesfromcode.html', function (req, res) {
 });
 app.get('/viewcalendar.html', function (req, res) {
     res.sendFile(__dirname + HTML_PATH + 'viewcalendar.html');
+});
+app.get('/menubar.html', function (req, res) {
+    res.sendFile(__dirname + HTML_SHAREDPATH + 'menubar.html');
+});
+app.get('/right_panel_cal.html', function (req, res) {
+    res.sendFile(__dirname + HTML_SHAREDPATH + 'right_panel_cal.html');
+});
+app.get('/select_hours.html', function (req, res) {
+    res.sendFile(__dirname + HTML_SHAREDPATH + 'select_hours.html');
 });
 
 io.on('connection', function (socket) {
