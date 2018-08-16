@@ -18,7 +18,7 @@ let HTML_PATH = '/web/HTML/';
 let HTML_SHAREDPATH = '/web/HTML/shared/';
 
 var distDir = __dirname + "/web/";
-app.use(express.static(__dirname));
+app.use(express.static(distDir));
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + HTML_PATH + 'index.html');
