@@ -6,6 +6,7 @@ let currentMonth = current.getMonth()
 let currentYear = current.getFullYear()
 
 let socket = io.connect('http://localhost:3000');
+
 const weekNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 // visually clear all hours on day cal and reset timesAvailableDay set to FALSE

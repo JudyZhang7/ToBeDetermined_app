@@ -1,6 +1,6 @@
 //using mongoose
 let mongoose = require('mongoose');
-mongoose.connect("mongodb://Judy:whenisgood1@ds121382.mlab.com:21382/tbd_db", function (err, db){
+mongoose.connect("mongodb://Judy:whenisgood1@ds121382.mlab.com:21382/tbd_db", { useNewUrlParser: true }, function (err, db){
     if (err){
         console.log("[Database error... cannot connect... ]");
         throw err;
