@@ -1,4 +1,4 @@
-let socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://www.tbd.red:34532');
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];

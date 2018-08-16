@@ -9,7 +9,7 @@ let currentMonth = current.getMonth()
 let currentYear = current.getFullYear()
 
 // let socket = io.connect('http://www.tbd.red:'+process.env.PORT);
-var socket = io('http://localhost');
+var socket = io.connect('http://www.tbd.red:34532');
 
 // var socket = io();
 const weekNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];

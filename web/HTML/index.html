@@ -6,7 +6,7 @@
     <title>tbd.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://www.tbd.red:34532/socket.io/socket.io.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../CSS/cover.css">
 
@@ -64,7 +64,7 @@
         });
     });
 
-    let socket = io.connect('http://www.tbd.red:'+process.env.PORT);
+    var socket = io.connect('http://www.tbd.red:34532');
 
     $(function(){
         $('#entry').on('submit', function(event){
