@@ -1,6 +1,3 @@
-const server = require('../../server.js');
-
-
 let event, name;
 let boxesInCalendar = 49;
 let hoursInADay = 16; // allow user to pick from 16 hours
