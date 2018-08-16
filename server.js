@@ -1,16 +1,18 @@
 const db = require('./web/JS/userMongoFunctions.js');
 
-
 var express = require('express');
 var app = express();
-var server = app.listen(process.env.PORT || 3000);
+let port = (process.env.PORT || 3000);
+var server = app.listen(port);
 var io = require('socket.io').listen(server);
+
+console.log("PORt: " + port);
 
 let HTML_PATH = '/web/HTML/';
 let HTML_SHAREDPATH = '/web/HTML/shared/';
 
 var distDir = __dirname + "/web/";
-app.use(express.static(distDir));
+app.use(express.static(__dirname));
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + HTML_PATH + 'index.html');
@@ -61,8 +63,4 @@ io.on('connection', function (socket) {
     socket.on('getContributors', function(code){
         db.getContributors(code, socket);
     })
-});
-
-server.listen((process.env.PORT || 3000), function(){
-    console.log('listening on *:3000');
 });
