@@ -1,9 +1,18 @@
 const db = require('./web/JS/userMongoFunctions.js');
+// =================================================
+// var express = require('express');
+// var app = express();
+// var server = app.listen(process.env.PORT || 3000);
+// var io = require('socket.io').listen(server);
+// =================================================
 
-var express = require('express');
-var app = express();
-var server = app.listen(process.env.PORT || 3000);
-var io = require('socket.io').listen(server);
+var http = require('http');
+var express = require('express'),
+    app = module.exports.app = express();
+
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);  //pass a http.Server instance
+server.listen(process.env.PORT || 3000);  //listen on port 80
 
 let HTML_PATH = '/web/HTML/';
 let HTML_SHAREDPATH = '/web/HTML/shared/';
