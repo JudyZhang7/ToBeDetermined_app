@@ -2,7 +2,7 @@ const db = require('./web/JS/userMongoFunctions.js');
 
 var express = require('express');
 var app = express();
-let port = (process.env.PORT || 3000);
+let port = (process.env.PORT || 34532);
 var server = app.listen(port);
 var io = require('socket.io').listen(server);
 
