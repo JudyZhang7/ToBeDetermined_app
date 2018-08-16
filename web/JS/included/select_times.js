@@ -1,3 +1,6 @@
+const server = require('../../server.js');
+
+
 let event, name;
 let boxesInCalendar = 49;
 let hoursInADay = 16; // allow user to pick from 16 hours
@@ -6,6 +9,7 @@ let currentMonth = current.getMonth()
 let currentYear = current.getFullYear()
 
 let socket = io.connect('http://www.tbd.red');
+
 const weekNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 // visually clear all hours on day cal and reset timesAvailableDay set to FALSE
