@@ -25,12 +25,13 @@
         let code = window.sessionStorage.getItem("code");
         $(document).ready(function(){
             document.getElementById("code").innerHTML = code;
+            document.getElementById("link").innerHTML = "www.tbd.red/"+code;
             console.log(code);
             $("body").css("display", "block");
         });
 
         function copyText() {
-            let txt = code;
+            let txt = "www.tbd.red/"+code;
             txt = document.createTextNode(txt);
             document.body.appendChild(txt);
             if (document.body.createTextRange) {
@@ -55,8 +56,13 @@
 <div id = "content">
 <div style = "text-align: center; padding-top: 100px;">
     <h1>Your code:</h1>
-    <div id = "code" style = "font-size: 100px; font-weight: bold;"></div>
-    <button id = "copy" class = "blueButton" onclick="copyText();">copy code to clipboard</button>
+    <div id = "code" style = "font-size: 7vh; font-weight: bold;"></div>
+    <div id = "linkbox">
+        Share this link with your friends!
+        <div id = "link" style = "font-size: 6vh; font-weight: bold;"></div>
+        <button id = "copy" class = "blueButton" style = "font-size: 3vh" onclick="copyText();">copy link to clipboard</button>
+
+    </div>
 </div>
     <a href="https://unsplash.com/@rucksackmag" style="margin-left: 10px; position: fixed; bottom: 0;">Photo by Rucksack Magazine on Unsplash</a>
 

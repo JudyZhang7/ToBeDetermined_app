@@ -130,7 +130,7 @@ button:hover, td {cursor: pointer}
     position: relative;
 }
 .blueButton{
-    font-size: 200%;
+    font-size: 5vh;
     padding: 1vh 1vw;
     border-radius: 1vh;
     border: none;
@@ -147,4 +147,14 @@ input[type=text] {
     font-size: 20px;
     font-weight: 100;
     margin-bottom: 20px;
+}
+#linkbox{
+    position: relative;
+    color: white;
+    font-size: 4vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 35vw;
+    border-radius: 1vh;
+    margin: auto;
+    padding: 2vh;
 }
