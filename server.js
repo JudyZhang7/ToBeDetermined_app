@@ -56,7 +56,7 @@ app.get('/shared/right_panel_cal.html', function (req, res) {
 app.get('/shared/select_hours.html', function (req, res) {
     res.sendFile(__dirname + HTML_SHAREDPATH + 'select_hours.html');
 });
-app.get('/share/:code', function(req, res) {
+app.get('/:code', function(req, res) {
     let code = req.params.code;
     // client.setCode(code);
     res.render(__dirname + HTML_PATH + 'selectTimesFromCode.html', {code:code});
