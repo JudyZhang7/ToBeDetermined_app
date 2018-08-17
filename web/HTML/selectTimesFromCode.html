@@ -25,15 +25,12 @@
             window.onbeforeunload = null;
             window.location.href = "done.html";
         });
-        let code;
-        if ("<%= code %>" != null){
-            code ="<%= code %>";
-        } else{
-            code = window.sessionStorage.getItem("userCode");
+        let code = window.sessionStorage.getItem("userCode");
+        if (code === null){
+            code ="{{code}}";
         }
         console.log("code: " + code);
         let user;
-
         let currentDayIndex = 0; //keeps track of which day array in timesAvailableTotal we are on.
         let timesAvailableTotal = [];
         let timesAvailableDay = []; //array of days available init to FALSE
