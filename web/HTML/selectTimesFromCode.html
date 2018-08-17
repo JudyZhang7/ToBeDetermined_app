@@ -26,10 +26,9 @@
             window.location.href = "done.html";
         });
 
-
         let code = code = window.sessionStorage.getItem("userCode");
         if (code === null){
-            let code = "{{code}}";
+            code = "{{code}}";
         }
         console.log("code: " + code);
         let user;
