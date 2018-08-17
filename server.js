@@ -54,7 +54,7 @@ app.get('/shared/select_hours.html', function (req, res) {
 app.get('/share/:code', function(req, res) {
     let code = req.params.code;
     // client.setCode(code);
-    res.sendFile(__dirname + HTML_PATH + 'selectTimesFromCode.html');
+    res.render(__dirname + HTML_PATH + 'selectTimesFromCode.html', {code:code});
     console.log("code is " + code);
 });
 
