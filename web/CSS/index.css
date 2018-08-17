@@ -158,3 +158,6 @@ input[type=text] {
     margin: auto;
     padding: 2vh;
 }
+.done:hover{
+    cursor: pointer;
+}

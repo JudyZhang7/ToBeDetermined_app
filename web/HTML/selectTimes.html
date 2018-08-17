@@ -16,15 +16,15 @@
     <script>
         window.onbeforeunload = function () {
             return 'You have not yet saved your work. Do you want to continue? Doing so, may cause loss of your work';
-        }
-        // socket.emit('getUser', 'CFwo2');
+        };
+        socket.emit('getUser', 'CFwo2');
         socket.on('code', function(code){
             window.sessionStorage.setItem("code", code);
             console.log("saved to session. Code: " + code);
             console.log("removing event listeners...");
             window.onbeforeunload = null;
             window.location.href = "getCode.html";
-        })
+        });
         // !!!SETUP FOR NEW CALENDAR -- DO NOT MOVE THESE: cal, currenDayIndex, timesAvailableTotal/Day are variables for a NEW calendar
         let cal = JSON.parse(window.sessionStorage.getItem("userCal")); // An object :D, 1D array of days
         console.log(cal);

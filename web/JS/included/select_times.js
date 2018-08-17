@@ -151,6 +151,9 @@ function callback(isNewCal) {
         // !!!load the right panel month calendar
         $("#rightPanel").load("shared/right_panel_cal.html", function () {
             //once loaded,
+            document.getElementById("letsGo").onclick = function () {
+                finished();
+            };
             console.log("setting date");
             let table = $("#calendar")[0];
 

@@ -46,10 +46,6 @@ table td.highlighted {
     color: white;
 }
 
-#letsGo:hover{
-    cursor: pointer;
-}
-
 #calForm{
     position: fixed;
     margin-left: 10%;
