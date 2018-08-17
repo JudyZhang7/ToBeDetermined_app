@@ -83,6 +83,9 @@ function getUserCal(code, socket){
     try {
         UserMongoFunctions.findOne({code: code, name: 'JoinCalendar'}, function (err, result) {
             // if (err) throw err;
+            if(result === null){
+                return;
+            }
             console.log("RESULT FROM: " + result.name + "\n" + result);
             socket.emit('userCal', result);
         });
