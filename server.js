@@ -60,7 +60,14 @@ app.get('/:code', function(req, res) {
     let code = req.params.code;
     // client.setCode(code);
     // todo: check if code is valid
-    res.render(__dirname + HTML_PATH + 'selectTimesFromCode.html', {code:code});
+    db.doesUserExist(code, function(exists){
+        if (exists){
+            res.render(__dirname + HTML_PATH + 'selectTimesFromCode.html', {code:code});
+        }
+        else{
+            res.sendFile(__dirname + HTML_PATH + 'error.html');
+        }
+    });
     console.log("code is " + code);
 });
 

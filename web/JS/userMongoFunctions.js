@@ -63,6 +63,21 @@ function getUser(code, socket){
     }
 }
 
+function doesUserExist(code, cb){
+    try {
+        UserMongoFunctions.findOne({code: code}, function (err, result) {
+            if (err) throw err;
+            if (result === null) {
+                cb(false);
+            } else{
+                cb(true);
+            }
+        });
+    } catch(err){
+        console.log("[Error within getUser function...]");
+    }
+}
+
 //code is guaranteed to exist
 function getUserCal(code, socket){
     try {
@@ -81,7 +96,7 @@ function getContributors(code, socket){
     try {
         UserMongoFunctions.find({code: code, name: {$ne: 'JoinCalendar'}}, {name: 1, _id: 0}, function (err, result) {
             if (err) throw err;
-            console.log("GOT THE CONTRIBIUTERS USER MONGO FUNCTIONS " + result);
+            console.log("GOT THE CONTRIBUTORS USER MONGO FUNCTIONS " + result);
             socket.emit('contributers', result);
         });
     } catch(err){
@@ -94,4 +109,5 @@ module.exports = {
     getUser,
     getUserCal,
     getContributors,
+    doesUserExist
 };
