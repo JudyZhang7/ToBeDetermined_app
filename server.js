@@ -6,8 +6,6 @@ const db = require('./web/JS/userMongoFunctions.js');
 // var server = app.listen(process.env.PORT || 3000);
 // var io = require('socket.io').listen(server);
 // =================================================
-var bodyParser = require('body-parser');
-
 var http = require('http');
 var express = require('express'),
     app = module.exports.app = express();
@@ -21,11 +19,12 @@ let HTML_SHAREDPATH = '/web/HTML/shared/';
 
 var distDir = __dirname + "/web/";
 app.use(express.static(distDir));
-app.use(bodyParser.urlencoded({extend:true}));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-app.set('views', __dirname);
 
+var engine = require('consolidate');
+
+app.set('views', __dirname + '/views');
+app.engine('html', engine.mustache);
+app.set('view engine', 'html');
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + HTML_PATH + 'index.html');

@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "consolidate": "^0.15.1",
     "express": "^4.16.3",
     "mongodb": "^3.0.10",
     "mongoose": "^5.2.8",
+    "mustache": "^2.3.1",
     "particles.js": "^2.0.0",
     "randomstring": "^1.1.5",
     "shim-keyboard-event-key": "^1.0.2",
