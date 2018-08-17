@@ -1,5 +1,4 @@
 const db = require('./web/JS/userMongoFunctions.js');
-const client = require('./web/JS/included/select_times.js');
 
 // =================================================
 // var express = require('express');
@@ -54,7 +53,7 @@ app.get('/shared/select_hours.html', function (req, res) {
 });
 app.get('/share/:code', function(req, res) {
     let code = req.params.code;
-    client.setCode(code);
+    // client.setCode(code);
     res.sendFile(__dirname + HTML_PATH + 'selectTimesFromCode.html');
     console.log("code is " + code);
 });

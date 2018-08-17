@@ -327,10 +327,7 @@ document.addEventListener("keyup", event => {
     }
 });
 
-function setCode(code, cb){
-    window.sessionStorage.setItem("userCode", code);
-    cb();
-}
-module.exports = {
-    setCode
-};
+// function setCode(code, cb){
+//     window.sessionStorage.setItem("userCode", code);
+//     cb();
+// }
