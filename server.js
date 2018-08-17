@@ -50,6 +50,13 @@ app.get('/shared/right_panel_cal.html', function (req, res) {
 app.get('/shared/select_hours.html', function (req, res) {
     res.sendFile(__dirname + HTML_SHAREDPATH + 'select_hours.html');
 });
+app.get('/share/:code', function(req, res) {
+    let code = req.params.code;
+    db.setCode(code, function(){
+        res.sendFile(__dirname + HTML_PATH + 'selectTimesFromCode.html');
+    });
+    console.log("code is " + code);
+});
 
 io.on('connection', function (socket) {
     socket.on('saveUser', function (userObject) {
