@@ -25,9 +25,9 @@
             window.onbeforeunload = null;
             window.location.href = "done.html";
         });
-        let code = window.sessionStorage.getItem("userCode");
+        let code = "{{code}}";
         if (code === null){
-            code ="{{code}}";
+            code = window.sessionStorage.getItem("userCode");
         }
         console.log("code: " + code);
         let user;
