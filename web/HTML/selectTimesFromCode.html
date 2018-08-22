@@ -26,10 +26,17 @@
             window.location.href = "done.html";
         });
 
-        let code = window.sessionStorage.getItem("userCode");
+        let code = window.sessionStorage.getItem("userCode"); //!!!sessionStorage fix?
         if (code === null){
-            code = "{{code}}";
+            code = "{{code}}"; //todo: what does {{}}} return if there is no defined paramter? can you do code != "{{code}}"
+            console.log("pulling code from URL: " + code);
+            window.sessionStorage.setItem("userCode", code);
         }
+        // 1. session storage, and then going to the URL
+        // 2. URL, then entering a session code
+        //
+        // clear sessionStorage item?
+        // window.sessionStorage.setItem("userCode", null);
         console.log("code: " + code);
         let user;
         let currentDayIndex = 0; //keeps track of which day array in timesAvailableTotal we are on.
@@ -39,9 +46,7 @@
         for(let i = 0; i < hoursInADay; i++){
             timesAvailableDay.push(false);
         }
-
         let cal, hours, timesAvailableTemplate;
-
         $(document).ready(function() {
             // !!!get user input name
             $('#getNameForm').submit(function (e) {
@@ -69,7 +74,6 @@
                 window.sessionStorage.setItem("event", event);
                 window.sessionStorage.setItem("name", host);
 
-
                 timesAvailableTemplate = result.calendar.slice(); // make a hard copy of calendar array
                 // fill up all the timesAvailableTotal with false to start with
                 for(let j = 0; j < cal.length; j++ ){
@@ -80,7 +84,6 @@
                     timesAvailableTotal.push(emptyDays);
                     console.log("[timesAvailableTotal just created... length is: ] " + timesAvailableTotal.length);
                 }
-
                 callback(false); // isNewCal = false
                 pullupCal(result); // init pull-up calendar
             })

@@ -4,14 +4,15 @@ html, body, #content {
     min-height: 100% !important;
     height: 100%;
 }
+/*todo - create actual variables for colors*/
 :root {
     --darkGreyColor: #575757;
     --lightGreyColor: lightGray;
     --highlightedColor: #FFC99B;
     --blueBackgroundColor: #78a3c5;
     --darkBlueColor: #2e536f;
-    --lightRedColor: #753437;
-    --darkRedColor: #502325;
+    --unavailableLight: #753437;
+    --unavailableDark: #502325;
     --font: 'Exo', Helvetica, Arial, sans-serif;
     --menubarHeight: 39px;
     --canvas: white;
@@ -73,10 +74,10 @@ h1{
 .unavailable{
     background: repeating-linear-gradient(
             45deg,
-            var(--lightRedColor),
-            var(--lightRedColor) 5px,
-            var(--darkRedColor) 5px,
-            var(--darkRedColor) 10px
+            var(--unavailableLight),
+            var(--unavailableLight) 5px,
+            var(--unavailableDark) 5px,
+            var(--unavailableDark) 10px
     );
     z-index: -10;
 }
